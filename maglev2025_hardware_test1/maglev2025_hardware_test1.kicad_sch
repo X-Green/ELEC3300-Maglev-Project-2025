@@ -6140,12 +6140,6 @@
 		(uuid "60617941-1ac7-4979-bb45-9eda3e22a130")
 	)
 	(junction
-		(at 377.19 41.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6129c641-e00f-4b8a-8055-2240044b6e04")
-	)
-	(junction
 		(at 30.48 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6174,12 +6168,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "65a90c65-e5e6-4e2d-a203-0ffcd6d0c82c")
-	)
-	(junction
-		(at 377.19 140.97)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6d800c58-afa3-4d9a-bfaa-124421449119")
 	)
 	(junction
 		(at 81.28 251.46)
@@ -6266,12 +6254,6 @@
 		(uuid "9c3a895e-7f1b-427d-a381-1ffbd29e0f18")
 	)
 	(junction
-		(at 377.19 107.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9fd28be6-3894-4922-867a-d7dbfbb18158")
-	)
-	(junction
 		(at 87.63 251.46)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6306,12 +6288,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bdf32aa3-9d95-4aca-a7b0-83fcadc7c7c9")
-	)
-	(junction
-		(at 377.19 74.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "be238a0f-6e45-4bfd-9469-9681d4b4e370")
 	)
 	(junction
 		(at 50.8 31.75)
@@ -6416,16 +6392,6 @@
 			(type default)
 		)
 		(uuid "02d0cd60-62ee-4a26-a8d3-ae8df957f4a0")
-	)
-	(wire
-		(pts
-			(xy 377.19 107.95) (xy 379.73 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "04fe49df-85f6-44f8-bdf3-8add7b7ccdcd")
 	)
 	(wire
 		(pts
@@ -6546,16 +6512,6 @@
 			(type default)
 		)
 		(uuid "15fb8eee-39b2-4458-b31d-69586cc0d6da")
-	)
-	(wire
-		(pts
-			(xy 377.19 41.91) (xy 379.73 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "17b2113a-b150-4f05-b723-6817a6ee8178")
 	)
 	(wire
 		(pts
@@ -6719,6 +6675,16 @@
 	)
 	(wire
 		(pts
+			(xy 379.73 76.2) (xy 379.73 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2afab619-30a7-400d-ac86-c1dd9472ad10")
+	)
+	(wire
+		(pts
 			(xy 349.25 39.37) (xy 345.44 39.37)
 		)
 		(stroke
@@ -6846,6 +6812,16 @@
 			(type default)
 		)
 		(uuid "366aee93-e0df-42e7-ba66-c5b8f5162e4f")
+	)
+	(wire
+		(pts
+			(xy 379.73 109.22) (xy 379.73 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3769433f-57fa-4029-a038-1219c721781f")
 	)
 	(wire
 		(pts
@@ -8159,6 +8135,16 @@
 	)
 	(wire
 		(pts
+			(xy 379.73 142.24) (xy 379.73 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4124939-a072-4b1b-b615-1d0d4b46e2e4")
+	)
+	(wire
+		(pts
 			(xy 77.47 224.79) (xy 77.47 226.06)
 		)
 		(stroke
@@ -8359,16 +8345,6 @@
 	)
 	(wire
 		(pts
-			(xy 377.19 140.97) (xy 379.73 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d70e7a8f-fa76-42e7-abe3-ca6054d73be9")
-	)
-	(wire
-		(pts
 			(xy 369.57 125.73) (xy 360.68 125.73)
 		)
 		(stroke
@@ -8469,6 +8445,16 @@
 	)
 	(wire
 		(pts
+			(xy 379.73 43.18) (xy 379.73 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9104dbf-d73d-427f-83f9-fb3301536e0c")
+	)
+	(wire
+		(pts
 			(xy 77.47 232.41) (xy 77.47 231.14)
 		)
 		(stroke
@@ -8566,16 +8552,6 @@
 			(type default)
 		)
 		(uuid "f086d8b3-d086-49f1-a8ad-2627cbb4501d")
-	)
-	(wire
-		(pts
-			(xy 377.19 74.93) (xy 379.73 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1b18cb7-1e35-4302-8262-73507b3b2eef")
 	)
 	(wire
 		(pts
@@ -9069,6 +9045,28 @@
 			)
 		)
 	)
+	(global_label "VREF"
+		(shape input)
+		(at 379.73 109.22 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2acd4b72-7655-4741-a649-376e0b051277")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 379.73 116.8014 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "SPI1_MISO"
 		(shape input)
 		(at 107.95 91.44 0)
@@ -9219,6 +9217,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VREF"
+		(shape input)
+		(at 379.73 142.24 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6e06cac2-4e9e-4961-a04b-2c94c6c50097")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 379.73 149.8214 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -9399,6 +9419,28 @@
 			)
 		)
 	)
+	(global_label "VREF"
+		(shape input)
+		(at 379.73 76.2 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "90b1d597-872b-44c7-befb-6d5fc05d1b4f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 379.73 83.7814 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "ISENSE_B_MCU"
 		(shape input)
 		(at 90.17 53.34 0)
@@ -9478,6 +9520,28 @@
 		(uuid "9a9ae9b5-1179-43e4-8449-73b35ce18d9e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 306.532 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VREF"
+		(shape input)
+		(at 379.73 43.18 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a9b609d5-8678-4b2c-b100-0e8dc59f720c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 379.73 50.7614 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9930,6 +9994,137 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 377.19 74.93 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "01c0d1db-ed3d-4a8c-8888-fc5259fe4735")
+		(property "Reference" "#PWR056"
+			(at 377.19 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 375.158 78.232 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 377.19 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 377.19 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 377.19 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5387e99c-4f75-465f-8778-f83b984da60e")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR056")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 382.27 140.97 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0221f259-a34b-4fbe-820e-015b992fa6cc")
+		(property "Reference" "#PWR036"
+			(at 382.27 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 384.302 144.272 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 382.27 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 382.27 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 382.27 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ed3c0e39-7436-4fae-91e7-1985c10d639a")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 30.48 22.86 0)
 		(unit 1)
@@ -10133,72 +10328,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 377.19 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0c45d4c6-d55f-4f74-9517-b111849840c2")
-		(property "Reference" "#PWR07"
-			(at 377.19 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 377.19 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 377.19 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 377.19 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 377.19 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "716515ae-245e-4a3b-abda-9969300f2e98")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR07")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 100.33 228.6 0)
 		(unit 1)
@@ -10262,139 +10391,6 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "C26")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 382.27 74.93 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0d5664cd-f7e8-4700-9f04-af3858e1775f")
-		(property "Reference" "#PWR018"
-			(at 378.46 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 386.08 74.9299 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 382.27 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 382.27 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 382.27 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0b7dd20d-d76f-4eca-be6c-861053652d1a")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR018")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 377.19 74.93 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0d8fa3a1-e310-4513-b0df-29bfabb79ff5")
-		(property "Reference" "#PWR017"
-			(at 377.19 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 377.19 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 377.19 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 377.19 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 377.19 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c26d6104-4851-4d47-bef4-c2fb5ba824c5")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -10601,73 +10597,6 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "C15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 382.27 140.97 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "119ff7af-f531-4456-a848-3b7e352a6212")
-		(property "Reference" "#PWR036"
-			(at 378.46 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 386.08 140.9699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 382.27 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 382.27 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 382.27 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "28ccef9d-708d-4ba7-bec6-c33d0c42753f")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -12302,6 +12231,72 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "C29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 382.27 74.93 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3e5ccd5d-8409-4187-b26f-b28fa5bd28dc")
+		(property "Reference" "#PWR057"
+			(at 382.27 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 384.302 78.232 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 382.27 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 382.27 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 382.27 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9575a081-77a0-4693-9ad1-78a73caa8efc")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR057")
 					(unit 1)
 				)
 			)
@@ -15337,73 +15332,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 382.27 41.91 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "83800c68-37ba-40ad-b6a9-bd670853b642")
-		(property "Reference" "#PWR08"
-			(at 378.46 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 386.08 41.9099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 382.27 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 382.27 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 382.27 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "10e7a47e-b7c8-442e-94cd-823c1e493a79")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 115.57 232.41 0)
 		(unit 1)
@@ -15966,72 +15894,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 377.19 107.95 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "952bbf94-20a1-4793-855c-73ea8c632448")
-		(property "Reference" "#PWR032"
-			(at 377.19 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 377.19 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 377.19 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 377.19 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 377.19 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4dc1c5bb-582b-4d36-b2cf-a23dd261dae3")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR032")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 95.25 261.62 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -16234,6 +16096,72 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "J28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 382.27 41.91 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "99c7554a-33bc-4a2d-840d-7e0772001195")
+		(property "Reference" "#PWR060"
+			(at 382.27 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 384.302 45.212 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 382.27 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 382.27 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 382.27 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "75a27f43-277c-45ee-a919-e96cfd1dae75")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR060")
 					(unit 1)
 				)
 			)
@@ -16782,7 +16710,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a00ec96d-63b6-4a00-9e8e-e50330a96ef9")
 		(property "Reference" "#PWR034"
 			(at 377.19 147.32 0)
@@ -16794,7 +16721,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 377.19 146.05 0)
+			(at 375.158 144.272 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16900,6 +16827,71 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "#PWR074")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 377.19 41.91 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a2413bed-e4ff-488f-a73f-22042b80df31")
+		(property "Reference" "#PWR058"
+			(at 377.19 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 375.158 45.212 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 377.19 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 377.19 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 377.19 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bcc95ad5-c4a3-4904-a64b-e5f27d3a7923")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR058")
 					(unit 1)
 				)
 			)
@@ -17992,6 +17984,71 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "C23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 377.19 107.95 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "be44e57a-caac-43b7-99a5-3d61e84b35f1")
+		(property "Reference" "#PWR035"
+			(at 377.19 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 375.158 111.252 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 377.19 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 377.19 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 377.19 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "804b996c-f954-4dd5-91f7-f7935b656abb")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -19558,17 +19615,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 382.27 107.95 270)
+		(lib_id "power:GND")
+		(at 382.27 107.95 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e4260126-c4b2-4b2d-9399-b141fbce19e9")
-		(property "Reference" "#PWR035"
-			(at 378.46 107.95 0)
+		(uuid "e43168cc-eaf7-4eef-aefd-078dd002436d")
+		(property "Reference" "#PWR055"
+			(at 382.27 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19576,13 +19633,12 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 386.08 107.9499 90)
+		(property "Value" "GND"
+			(at 384.302 111.252 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -19603,7 +19659,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 382.27 107.95 0)
 			(effects
 				(font
@@ -19613,12 +19669,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "72904e2e-c8fb-4690-8409-c66b7688cac5")
+			(uuid "6ac434d9-a1d5-43ec-a781-dcab81d14ac1")
 		)
 		(instances
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR035")
+					(reference "#PWR055")
 					(unit 1)
 				)
 			)
