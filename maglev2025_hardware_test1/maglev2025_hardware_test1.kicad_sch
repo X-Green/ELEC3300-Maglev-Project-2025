@@ -5057,6 +5057,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "RM24:SY8301"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -12478,6 +12585,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 255.27 241.3 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "273aa66f-07c1-4fe0-b203-664c1cd32d97")
+		(property "Reference" "H1"
+			(at 257.81 238.7599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 257.81 241.2999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 255.27 241.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 255.27 241.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 255.27 241.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b40eebe2-c4d4-423d-8f19-076e595304f3")
+		)
+		(instances
+			(project ""
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "H1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 290.83 63.5 0)
 		(unit 1)
@@ -12954,6 +13128,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 255.27 248.92 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "32155f56-6ab6-47bc-96eb-2291eb0b5c73")
+		(property "Reference" "H2"
+			(at 257.81 246.3799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 257.81 248.9199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 255.27 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 255.27 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 255.27 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b19c7776-83ad-4483-94ac-8d34cbc0d8bf")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 20.32 43.18 0)
 		(unit 1)
@@ -13017,6 +13258,73 @@
 			(project ""
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 255.27 264.16 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "340d7f84-740f-4334-962c-f25dfeb47cc2")
+		(property "Reference" "H4"
+			(at 257.81 261.6199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 257.81 264.1599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 255.27 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 255.27 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 255.27 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "20f922c2-a076-46ab-9a64-8a95719cab24")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -14899,6 +15207,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 255.27 271.78 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5982d231-4d54-41f3-9999-693db8fda831")
+		(property "Reference" "H5"
+			(at 257.81 269.2399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 257.81 271.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 255.27 271.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 255.27 271.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 255.27 271.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "aafc6383-cb63-4a73-9ea1-127b9dc0ceb8")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "H5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Regulator_Linear:LDK130-12_SOT23_SOT353")
 		(at 95.25 254 0)
 		(unit 1)
@@ -14969,6 +15344,73 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 255.27 279.4 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5ac21321-2287-4ef7-98fe-0cd5dac2ce41")
+		(property "Reference" "H6"
+			(at 257.81 276.8599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 257.81 279.3999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 255.27 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 255.27 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 255.27 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d1c86440-a394-496b-bf36-4355db54783a")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "H6")
 					(unit 1)
 				)
 			)
@@ -15660,6 +16102,73 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 255.27 256.54 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6ba57e2b-3ae5-48d9-8c42-76d5626a0784")
+		(property "Reference" "H3"
+			(at 257.81 253.9999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 257.81 256.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 255.27 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 255.27 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 255.27 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3adb875c-65cc-4c58-8b21-b91b25677427")
+		)
+		(instances
+			(project "maglev2025_hardware_test1"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "H3")
 					(unit 1)
 				)
 			)
