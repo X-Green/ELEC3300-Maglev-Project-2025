@@ -80,7 +80,9 @@ startup_stm32g474xx.s
 
 # CPP sources
 CPP_SOURCES =  \
-$(wildcard Core/Src/*.cpp)
+$(wildcard Core/Src/*.cpp) \
+$(wildcard Drivers/*.cpp) \
+$(wildcard Utils/*.cpp)
 
 
 #######################################
@@ -139,7 +141,9 @@ C_INCLUDES =  \
 -IDrivers/STM32G4xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32G4xx/Include \
 -IDrivers/CMSIS/Include \
--IMiddlewares/ST/ARM/DSP/Inc
+-IDrivers \
+-IMiddlewares/ST/ARM/DSP/Inc \
+-IUtils
 
 include Maglev2025.mk
 
