@@ -82,7 +82,9 @@ startup_stm32g474xx.s
 CPP_SOURCES =  \
 $(wildcard Core/Src/*.cpp) \
 $(wildcard Drivers/*.cpp) \
-$(wildcard Utils/*.cpp)
+$(wildcard Utils/*.cpp) \
+$(wildcard Tasks/*.cpp)
+
 
 
 #######################################
@@ -143,7 +145,8 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Include \
 -IDrivers \
 -IMiddlewares/ST/ARM/DSP/Inc \
--IUtils
+-IUtils \
+-ITasks
 
 include Maglev2025.mk
 
