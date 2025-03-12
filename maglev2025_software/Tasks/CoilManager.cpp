@@ -7,7 +7,11 @@
 namespace Tasks::CoilManager
 {
 
+CoilStatus coilStatus[4];
+CoilControl coilControl[4];
+
 void initCoils() {}
 
 void updateCoils() {}
+
 }  // namespace Tasks::CoilManager

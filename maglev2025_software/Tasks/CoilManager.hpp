@@ -29,7 +29,9 @@ struct CoilStatus
     uint16_t temperature;
 
     CoilStatus() : actualI(0), temperature(0) {}
-} coilStatus[4];
+};
+
+extern CoilStatus coilStatus[];
 
 struct CoilControl
 {
@@ -38,7 +40,9 @@ struct CoilControl
     float dutyCycle;
 
     CoilControl() : enableOutput(false), targetI(0), dutyCycle(0) {}
-} coilControl[4];
+};
+
+extern CoilControl coilControl[];
 
 void initCoils();
 
