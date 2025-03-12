@@ -3,3 +3,11 @@
 //
 
 #include "CoilManager.hpp"
+
+namespace Tasks::CoilManager
+{
+
+void initCoils() {}
+
+void updateCoils() {}
+}  // namespace Tasks::CoilManager
