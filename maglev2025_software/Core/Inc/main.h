@@ -57,10 +57,19 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LIS3_DRY_Pin GPIO_PIN_6
-#define LIS3_DRY_GPIO_Port GPIOB
-#define LIS3_CS_Pin GPIO_PIN_7
-#define LIS3_CS_GPIO_Port GPIOB
+#define A2I17_IASENSE_Pin GPIO_PIN_4
+#define A2I17_IASENSE_GPIO_Port GPIOA
+#define A2I3_IBSENSE_Pin GPIO_PIN_6
+#define A2I3_IBSENSE_GPIO_Port GPIOA
+#define A2I5_ICSENSE_Pin GPIO_PIN_4
+#define A2I5_ICSENSE_GPIO_Port GPIOC
+#define A2I12_IDSENSE_Pin GPIO_PIN_2
+#define A2I12_IDSENSE_GPIO_Port GPIOB
+#define MAG_nALRT_Pin GPIO_PIN_6
+#define MAG_nALRT_GPIO_Port GPIOB
+#define MAG_nALRT_EXTI_IRQn EXTI9_5_IRQn
+#define MAG_CS_Pin GPIO_PIN_7
+#define MAG_CS_GPIO_Port GPIOB
 #define BOOT0_Pin GPIO_PIN_8
 #define BOOT0_GPIO_Port GPIOB
 #define LIS3_INT_Pin GPIO_PIN_9
