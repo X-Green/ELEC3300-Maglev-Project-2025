@@ -6798,6 +6798,10 @@
 		(uuid "87af6a6c-4f3b-4a0a-9e32-1755d12cde6d")
 	)
 	(no_connect
+		(at 87.63 76.2)
+		(uuid "93fd2a92-c5e3-42c7-998f-6c56ddbd382a")
+	)
+	(no_connect
 		(at 87.63 50.8)
 		(uuid "9ada2976-2f04-4041-93a1-205cae890a41")
 	)
@@ -6824,10 +6828,6 @@
 	(no_connect
 		(at 52.07 93.98)
 		(uuid "d847c999-2803-4a89-8faf-f20f9b7c63e8")
-	)
-	(no_connect
-		(at 87.63 71.12)
-		(uuid "d9cea416-597f-4e6a-b3a2-d338e378c5f7")
 	)
 	(no_connect
 		(at 87.63 40.64)
@@ -6914,16 +6914,6 @@
 			(type default)
 		)
 		(uuid "0c7c91dc-75db-4bcc-8506-bd99e91669ed")
-	)
-	(wire
-		(pts
-			(xy 87.63 76.2) (xy 91.44 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0c833610-e09b-47fc-95c2-3da1ca1d538b")
 	)
 	(wire
 		(pts
@@ -7877,7 +7867,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 76.2) (xy 101.6 76.2)
+			(xy 99.06 71.12) (xy 102.87 71.12)
 		)
 		(stroke
 			(width 0)
@@ -8107,6 +8097,16 @@
 	)
 	(wire
 		(pts
+			(xy 87.63 71.12) (xy 91.44 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7555c5f7-754f-4ef3-8fae-944068c3ff45")
+	)
+	(wire
+		(pts
 			(xy 369.57 26.67) (xy 360.68 26.67)
 		)
 		(stroke
@@ -8167,7 +8167,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 73.66) (xy 99.06 73.66)
+			(xy 102.87 73.66) (xy 99.06 73.66)
 		)
 		(stroke
 			(width 0)
@@ -9406,7 +9406,7 @@
 		(uuid "08b2252c-6654-4873-bd5e-055095d1ca35")
 	)
 	(label "SWDIO"
-		(at 101.6 76.2 0)
+		(at 102.87 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9436,7 +9436,7 @@
 		(uuid "4a822922-0859-4de0-90e1-21c74ba80cde")
 	)
 	(label "SWCLK"
-		(at 101.6 73.66 0)
+		(at 102.87 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14919,7 +14919,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 95.25 76.2 90)
+		(at 95.25 71.12 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -14928,7 +14928,7 @@
 		(dnp no)
 		(uuid "4c44ff13-6015-4d54-a91f-c4d45638dd14")
 		(property "Reference" "R20"
-			(at 90.424 75.184 90)
+			(at 90.424 70.104 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14936,7 +14936,7 @@
 			)
 		)
 		(property "Value" "33r"
-			(at 99.568 75.438 90)
+			(at 99.568 70.358 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14944,7 +14944,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 95.25 74.422 90)
+			(at 95.25 69.342 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14953,7 +14953,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 76.2 0)
+			(at 95.25 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14962,7 +14962,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 95.25 76.2 0)
+			(at 95.25 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
