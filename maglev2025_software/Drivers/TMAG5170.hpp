@@ -5,6 +5,8 @@
 #pragma once
 
 #include "main.h"
+#include "spi.h"
+#include "tim.h"
 
 // Number of registers used by the TMAG5170
 #define NUM_REGISTERS 20
@@ -947,6 +949,13 @@ void alertPulse();
 /* MAGNITUDE RESULT register field masks */
 #define MAGNITUDE_RESULT_MAGNITUDE_RESULT_MASK ((uint16_t)0xFFFF)
 
+
+
+
+
+
+
+
 namespace Core
 {
 namespace Drivers
@@ -955,6 +964,17 @@ namespace Sensors
 {
 namespace TMAG5170
 {
+
+    void initTimer(){
+        HAL_TIM_Base_Start(&htim16);
+
+    }
+
+    void delay_us(uint32_t us)
+    {
+        __HAL_TIM_SET_COUNTER(&htim16, 0);
+        while (__HAL_TIM_GET_COUNTER(&htim16) < us);
+    }
 }  // namespace TMAG5170
 }  // namespace Sensors
 }  // namespace Drivers

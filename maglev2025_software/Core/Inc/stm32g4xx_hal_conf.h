@@ -39,7 +39,7 @@
   #define HAL_ADC_MODULE_ENABLED
 /*#define HAL_COMP_MODULE_ENABLED   */
 /*#define HAL_CORDIC_MODULE_ENABLED   */
-/*#define HAL_CRC_MODULE_ENABLED   */
+#define HAL_CRC_MODULE_ENABLED
 /*#define HAL_CRYP_MODULE_ENABLED   */
 /*#define HAL_DAC_MODULE_ENABLED   */
 /*#define HAL_FDCAN_MODULE_ENABLED   */
@@ -201,7 +201,7 @@ The real value may vary depending on the variations in voltage and temperature.*
  * Deactivated: CRC code cleaned from driver
  */
 
-#define USE_SPI_CRC                   0U
+#define USE_SPI_CRC                   1U
 
 /* Includes ------------------------------------------------------------------*/
 /**

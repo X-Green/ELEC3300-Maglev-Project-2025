@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "crc.h"
 #include "dma.h"
 #include "hrtim.h"
 #include "spi.h"
@@ -96,6 +97,7 @@ int main(void)
   MX_ADC2_Init();
   MX_HRTIM1_Init();
   MX_TIM16_Init();
+  MX_CRC_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */

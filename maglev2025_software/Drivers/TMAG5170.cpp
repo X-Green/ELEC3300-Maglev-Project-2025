@@ -117,3 +117,58 @@ uint8_t verifyCRC( uint8_t data[] )
     return crc_received == crc_calc;
 }
 
+//****************************************************************************
+//! Enter Deep Sleep Mode
+//!
+//! Make sure to use the exitDeepSleepMode function to properly exit Deep Sleep Mode.
+//! Deep Sleep Mode can be alternately exited with a short pulse on the CS pin.
+//!
+//! WILL WORK IN SPECIAL READ MODE, DEEP SLEEP MODE RESETS DEVICE TO FACTORY SETTINGS
+//! (EXITS SPECIAL READ MODE)
+//****************************************************************************
+void enterDeepSleepMode()
+{
+    // Send Write command, Deep Sleep resets device to factory settings so
+    // an initial register read is not needed (DEVICE_CONFIG default is 0x0000)
+    writeToRegister( DEVICE_CONFIG_ADDRESS, DEVICE_CONFIG_OPERATING_MODE_DeepSleepMode );
+    SYSTEM_CONFIG_stored = SYSTEM_CONFIG_DEFAULT;
+    delay_us(100);
+}
+
+
+//****************************************************************************
+//! Reset Device to Factory Settings
+//!
+//! This function uses the DeepSleep functions to reset the device's registers back to the
+//! default settings outlined in the datasheet. This function also resets the
+//! SYSTEM_CONFIG_stored variable to the default value in the enterDeepSleepMode function.
+//****************************************************************************
+void resetDevice()
+{
+    enterDeepSleepMode(); // Deep Sleep Mode resets the device to its default settings
+    exitDeepSleepMode();
+}
+
+
+void TMAG5170_init()
+{
+    HAL_Delay(50);
+
+    HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
+}
+//****************************************************************************
+//! writing to the register to send cmd
+//!
+//****************************************************************************
+void writeToRegister(uint8_t address, uint16_t data_to_write){
+    uint8_t tx_data[2];
+    
+    tx_data[0] = (address << 1) & 0x7F;
+    tx_data[1] = data_to_write & 0xFF;
+    
+    HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
+    
+    HAL_SPI_Transmit(&hspi1, tx_data, 2, HAL_MAX_DELAY);
+    
+
+}
