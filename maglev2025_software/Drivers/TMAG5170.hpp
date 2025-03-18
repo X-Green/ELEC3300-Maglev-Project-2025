@@ -67,7 +67,6 @@ uint16_t getDATA_TYPE();
 
 void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[]);
 
-void writeToRegister(uint8_t address, uint16_t data_to_write);
 void writeToRegisterWithCMD0(uint8_t address, uint16_t data_to_write);
 uint16_t writeToRegisterWithSTAT(uint8_t address, uint16_t data_to_write, uint8_t cmd_bits);
 
@@ -89,11 +88,10 @@ void enterSleepMode();
 void enterWakeUpAndSleepMode();
 void setSLEEPTIME(uint8_t sleeptime);
 void setWakeUpAndSleepMode(uint8_t sleeptime);
-void enterDeepSleepMode();
+
 
 void exitSleepMode();
 void exitWakeAndSleepMode();
-void exitDeepSleepMode();
 
 // Trigger setting functions
 
@@ -186,8 +184,6 @@ uint32_t isqrt32(uint32_t h);
 float resultRegisterTomT(int16_t register_bits, uint16_t range);
 float angleRegisterToDeg(uint16_t register_bits);
 
-uint8_t calculateCRC(uint8_t data[]);
-uint8_t verifyCRC(uint8_t data[]);
 
 void csPulse();
 void alertPulse();
@@ -954,10 +950,6 @@ void alertPulse();
 
 
 
-
-
-namespace Core
-{
 namespace Drivers
 {
 namespace Sensors
@@ -965,17 +957,35 @@ namespace Sensors
 namespace TMAG5170
 {
 
-    void initTimer(){
-        HAL_TIM_Base_Start(&htim16);
+// Number of registers used by the TMAG5170
+#define NUM_REGISTERS 20
 
-    }
+#define DISABLE_CRC 
+// Disable CRC for now
+
+    uint32_t isqrt32(uint32_t h);
+
+    float resultRegisterTomT( int16_t register_bits, uint16_t range );
+    float angleRegisterToDeg( uint16_t register_bits );
+
+    uint8_t calculateCRC( uint8_t &data);
+    uint8_t verifyCRC( uint8_t &data);
+    
+    void enterDeepSleepMode();
+    void exitDeepSleepMode();
+    void resetDevice();
+
+    void TMAG5170_init();
+    
+    void writeToRegister(uint8_t address, uint16_t data_to_write);
+    void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[]);
 
     void delay_us(uint32_t us)
     {
         __HAL_TIM_SET_COUNTER(&htim16, 0);
         while (__HAL_TIM_GET_COUNTER(&htim16) < us);
     }
+
 }  // namespace TMAG5170
 }  // namespace Sensors
 }  // namespace Drivers
-}  // namespace Core
