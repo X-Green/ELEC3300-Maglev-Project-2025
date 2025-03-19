@@ -100,6 +100,8 @@ int main(void)
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
 
+  extern void systemStart(void);
+  systemStart();
   /* USER CODE END 2 */
 
   /* Infinite loop */
