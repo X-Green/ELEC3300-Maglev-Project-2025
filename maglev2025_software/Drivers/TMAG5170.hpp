@@ -853,6 +853,7 @@ namespace TMAG5170
     void spiTriggersConversion();
     void alertTriggersConversion();
     void enterActiveMeasureMode();
+    void alertIndicatesConversionEnable();
 
     void getMagMeasurementsNrml( float meas_arr[] );
 

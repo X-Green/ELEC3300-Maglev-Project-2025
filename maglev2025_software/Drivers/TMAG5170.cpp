@@ -194,7 +194,7 @@ void TMAG5170_init()
     __HAL_SPI_ENABLE(&hspi1);
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
 
-    resetDevice();
+    // resetDevice();
 
     // disable crc in the initialization
     uint8_t dataTx[4] = {0x0F, 0x00, 0x04, 0x07};
@@ -215,6 +215,8 @@ void TMAG5170_init()
     writeToRegister(SYSTEM_CONFIG_ADDRESS, SYSTEM_CONFIG_DATA_TYPE_Default32bitdata);
 
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
+    
+
 }
 
 //****************************************************************************
@@ -613,6 +615,36 @@ void setMagGainConfigIn11Bit(uint8_t axis, uint16_t gain_bits)
     // MAG_OFFSET_CONFIG (0x11) has all 16 bits assigned according to the three input variables
     input = axis << 14 | gain_bits;
     writeToRegister(MAG_OFFSET_CONFIG_ADDRESS, input);
+}
+
+//****************************************************************************
+//! Enable ALERT to Indicate Conversion
+//!
+//! Configures the device so when its magnetic measurements are complete, the device will
+//! output LOW on the ALERT pin.
+//!
+//! NOTE: This configures ALERT as an output pin, the respective GPIO pin it is
+//!       connected to will have to be set as an input as well. Please ensure none
+//!       of the input functions of ALERT are being used as well (such as the ALERT trigger)
+//!
+//! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
+//****************************************************************************
+void alertIndicatesConversionEnable()
+{
+    // To prevent undefined behavior, this function does not perform its operation
+    // when the DATA_TYPE field (address: 0x028-6) is not set to Normal Read Mode (000b)
+    if ( DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode ) return;
+
+    uint16_t input;
+    // SET ALERT_MODE (address: 0x03C) to Interrupt Mode (0h)
+    input = normalReadRegister(ALERT_CONFIG_ADDRESS);
+    input &= ~(ALERT_CONFIG_ALERT_MODE_MASK);
+    input |= ALERT_CONFIG_ALERT_MODE_InterruptandTriggerMode;
+
+    // SET RSLT_ALRT (address: 0x038) to ALERT output asserted LOW to indicate conversion completion (1h)
+    // (Register already grabbed so no new READ command is needed)
+    input |= ALERT_CONFIG_RSLT_ALRT_ALERToutputsignalsconversioncomplete;
+    writeToRegister( ALERT_CONFIG_ADDRESS, input );
 }
 
 //****************************************************************************
