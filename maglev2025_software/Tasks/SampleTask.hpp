@@ -9,7 +9,7 @@
 namespace Tasks::SampleTask
 {
 
-extern uint16_t adc2Buffer[4];
+inline uint16_t adc2Buffer[4] = {0, 0, 0, 0};
 
 void sampleTaskInit();
 

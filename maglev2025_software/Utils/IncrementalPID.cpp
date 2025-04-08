@@ -4,7 +4,7 @@
 
 #include "IncrementalPID.hpp"
 
-Control::IncrementalPID::IncrementalPID(float paramKPOnTarget, float paramKPOnMeasurement, float paramKI, float paramKD)
+Utils::IncrementalPID::IncrementalPID(float paramKPOnTarget, float paramKPOnMeasurement, float paramKI, float paramKD)
     : kPOnTarget(paramKPOnTarget),
       kPOnMeasurement(paramKPOnMeasurement),
       kI(paramKI),

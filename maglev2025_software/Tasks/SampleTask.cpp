@@ -9,7 +9,6 @@
 namespace Tasks::SampleTask
 {
 
-uint16_t adc2Buffer[4] = {};
 
 void sampleTaskInit()
 {
@@ -22,9 +21,7 @@ void sampleTaskInit()
 /**
  * Fast sampling data: Current
  */
-void callbackHRTIM()
-{
-}
+void callbackHRTIM() {}
 
 /**
  * Slow sampling data: Voltage, Temperature, etc..

@@ -6,7 +6,7 @@
 
 #include "Config.hpp"
 
-namespace Control
+namespace Utils
 {
 
 class IncrementalPID

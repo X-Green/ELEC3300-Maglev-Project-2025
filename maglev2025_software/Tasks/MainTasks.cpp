@@ -1,8 +1,16 @@
+#include "PositionControl.hpp"
 #include "TMAG5170.hpp"
+#include "dma.h"
 #include "hrtim.h"
+#include "spi.h"
+#include "stm32g4xx_it.h"
 
 namespace MainTask
 {
+
+extern "C" void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma);
+extern DMA_HandleTypeDef hdma_spi1_rx;
+
 
 void init()
 {
@@ -14,6 +22,9 @@ void init()
     Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x03, 1.0);
     Drivers::Sensors::TMAG5170::enterActiveMeasureMode();
     Drivers::Sensors::TMAG5170::alertIndicatesConversionEnable();
+
+    HAL_DMA_RegisterCallback(&hdma_spi1_rx, HAL_DMA_XFER_CPLT_CB_ID, DMA_SPI1_RX_CompleteCallback);
+
     HAL_Delay(1000);
 }
 
@@ -21,7 +32,6 @@ void loop()
 {
     // 创建数组存储三轴磁场数据（顺序：XYZ）
     static float magnetic_measurements[3] = {0};
-    static uint8_t measurement[3]         = {0};
 
     Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(magnetic_measurements);
     // HAL_SPI_Receive(&hspi1, (uint8_t *)measurement, 3, 1000);
@@ -53,7 +63,16 @@ extern "C"
     /**
      * @brief EXTI from MAG_CS, around 3kHz
      */
-    void EXTI9_5_IRQHandler(void) { __HAL_GPIO_EXTI_CLEAR_FLAG(GPIO_PIN_6); }
+    void EXTI9_5_IRQHandler(void)
+    {
+        __HAL_GPIO_EXTI_CLEAR_FLAG(GPIO_PIN_6);
+        Tasks::PositionControl::onDataReady();
+    }
+
+    /**
+     * Need to be registered
+     */
+    void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma) { Tasks::PositionControl::updatePosition(); }
 
     /**
      * @brief TIM16 interrupt @ 1kHz
