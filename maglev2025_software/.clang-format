@@ -2,14 +2,14 @@ BasedOnStyle: Google
 IndentWidth: 4
 AlignEscapedNewlines: Left
 AlignTrailingComments: true
-AllowShortBlocksOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
 AllowAllParametersOfDeclarationOnNextLine: true
 BinPackParameters: false
 BinPackArguments: false
 BreakBeforeBraces: Allman
-ColumnLimit: 150
+ColumnLimit: 90
 PointerAlignment: Right
 DerivePointerAlignment: false
 IndentCaseLabels: false
