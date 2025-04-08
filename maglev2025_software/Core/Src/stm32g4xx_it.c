@@ -56,7 +56,6 @@
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc2;
-extern HRTIM_HandleTypeDef hhrtim1;
 extern DMA_HandleTypeDef hdma_spi1_rx;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 /* USER CODE BEGIN EV */
@@ -230,19 +229,6 @@ void DMA1_Channel2_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles EXTI line[9:5] interrupts.
-  */
-void EXTI9_5_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-  __HAL_GPIO_EXTI_CLEAR_FLAG(GPIO_PIN_6);
-  /* USER CODE END EXTI9_5_IRQn 0 */
-  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
-
-  /* USER CODE END EXTI9_5_IRQn 1 */
-}
-
-/**
   * @brief This function handles DMA2 channel1 global interrupt.
   */
 void DMA2_Channel1_IRQHandler(void)
@@ -254,19 +240,6 @@ void DMA2_Channel1_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Channel1_IRQn 1 */
 
   /* USER CODE END DMA2_Channel1_IRQn 1 */
-}
-
-/**
-  * @brief This function handles HRTIM master timer global interrupt.
-  */
-void HRTIM1_Master_IRQHandler(void)
-{
-  /* USER CODE BEGIN HRTIM1_Master_IRQn 0 */
-
-  /* USER CODE END HRTIM1_Master_IRQn 0 */
-  /* USER CODE BEGIN HRTIM1_Master_IRQn 1 */
-
-  /* USER CODE END HRTIM1_Master_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
