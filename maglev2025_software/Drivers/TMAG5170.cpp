@@ -3,6 +3,7 @@
 //
 
 #include "TMAG5170.hpp"
+
 #include "assert.h"
 
 namespace Drivers
@@ -57,7 +58,10 @@ uint32_t isqrt32(uint32_t h)
 //! Takes in the register of one of the magnetic axis results and the range for
 //! that specific axis and calculates the mT value the register represents.
 //****************************************************************************
-float resultRegisterTomT(int16_t register_bits, uint16_t range) { return (((float)register_bits) / 32768) * range; }
+float resultRegisterTomT(int16_t register_bits, uint16_t range)
+{
+    return (((float)register_bits) / 32768) * range;
+}
 
 //****************************************************************************
 //! This variable tracks the state of the SYSTEM_CONFIG register (0x02)
@@ -108,13 +112,17 @@ uint8_t calculateCRC(uint8_t data[])
         i++;
     }
 
-    crc |= d[30] ^ d[26] ^ d[25] ^ d[24] ^ d[23] ^ d[21] ^ d[19] ^ d[18] ^ d[15] ^ d[11] ^ d[10] ^ d[9] ^ d[8] ^ d[6] ^ d[4] ^ d[3] ^ d[0] ^ 1;
-    crc |= (d[31] ^ d[30] ^ d[27] ^ d[23] ^ d[22] ^ d[21] ^ d[20] ^ d[18] ^ d[16] ^ d[15] ^ d[12] ^ d[8] ^ d[7] ^ d[6] ^ d[5] ^ d[3] ^ d[1] ^ d[0] ^
-            1 ^ 1)
+    crc |= d[30] ^ d[26] ^ d[25] ^ d[24] ^ d[23] ^ d[21] ^ d[19] ^ d[18] ^ d[15] ^ d[11] ^
+           d[10] ^ d[9] ^ d[8] ^ d[6] ^ d[4] ^ d[3] ^ d[0] ^ 1;
+    crc |= (d[31] ^ d[30] ^ d[27] ^ d[23] ^ d[22] ^ d[21] ^ d[20] ^ d[18] ^ d[16] ^
+            d[15] ^ d[12] ^ d[8] ^ d[7] ^ d[6] ^ d[5] ^ d[3] ^ d[1] ^ d[0] ^ 1 ^ 1)
            << 1;
-    crc |= (d[31] ^ d[28] ^ d[24] ^ d[23] ^ d[22] ^ d[21] ^ d[19] ^ d[17] ^ d[16] ^ d[13] ^ d[9] ^ d[8] ^ d[7] ^ d[6] ^ d[4] ^ d[2] ^ d[1] ^ 1 ^ 1)
+    crc |= (d[31] ^ d[28] ^ d[24] ^ d[23] ^ d[22] ^ d[21] ^ d[19] ^ d[17] ^ d[16] ^
+            d[13] ^ d[9] ^ d[8] ^ d[7] ^ d[6] ^ d[4] ^ d[2] ^ d[1] ^ 1 ^ 1)
            << 2;
-    crc |= (d[29] ^ d[25] ^ d[24] ^ d[23] ^ d[22] ^ d[20] ^ d[18] ^ d[17] ^ d[14] ^ d[10] ^ d[9] ^ d[8] ^ d[7] ^ d[5] ^ d[3] ^ d[2] ^ 1) << 3;
+    crc |= (d[29] ^ d[25] ^ d[24] ^ d[23] ^ d[22] ^ d[20] ^ d[18] ^ d[17] ^ d[14] ^
+            d[10] ^ d[9] ^ d[8] ^ d[7] ^ d[5] ^ d[3] ^ d[2] ^ 1)
+           << 3;
 
     return crc;
 }
@@ -129,7 +137,8 @@ uint8_t calculateCRC(uint8_t data[])
 uint8_t verifyCRC(uint8_t data[])
 {
     uint8_t crc_received = data[3] & 0x0F;
-    data[3] &= ~(0x0F);  // the CRC bits of the data must be 0000b to calculate its CRC correctly
+    data[3] &=
+        ~(0x0F);  // the CRC bits of the data must be 0000b to calculate its CRC correctly
     uint8_t crc_calc = calculateCRC(data);
     data[3] |= crc_received;  // the previously removed CRC bits are reinserted
 
@@ -170,7 +179,8 @@ void exitDeepSleepMode(void)
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
     delay_us(2);  // cs pulse
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
-    delay_us(500);  // max expected delay as given by t_start_deep_sleep (datasheet pg. 10)
+    delay_us(
+        500);  // max expected delay as given by t_start_deep_sleep (datasheet pg. 10)
     // device reset
 }
 
@@ -200,7 +210,6 @@ void TMAG5170_init()
     uint8_t dataTx[4] = {0x0F, 0x00, 0x04, 0x07};
     uint8_t dataRx[4] = {0};
 
-
     sendAndReceiveFrame(dataTx, dataRx);
     // sendFrame(dataTx);
 
@@ -215,8 +224,6 @@ void TMAG5170_init()
     writeToRegister(SYSTEM_CONFIG_ADDRESS, SYSTEM_CONFIG_DATA_TYPE_Default32bitdata);
 
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
-    
-
 }
 
 //****************************************************************************
@@ -271,21 +278,20 @@ void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[])
 
 uint16_t tx_buf[2], rx_buf[2];
 
-
 void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[])
 {
 #ifdef DISABLE_CRC
     assert(dataTx && dataRx);
-    
+
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
 
-
     // 将8位数组转换为16位数组，注意保持大端序
-    tx_buf[0] = (dataTx[0] << 8) | dataTx[1];     // 高字节在前
-    tx_buf[1] = (dataTx[2] << 8) | dataTx[3];     // 低字节在后
+    tx_buf[0] = (dataTx[0] << 8) | dataTx[1];  // 高字节在前
+    tx_buf[1] = (dataTx[2] << 8) | dataTx[3];  // 低字节在后
 
     static volatile HAL_StatusTypeDef state = HAL_OK;
-    state = HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)tx_buf, (uint8_t*)rx_buf, 2, HAL_MAX_DELAY);
+    state                                   = HAL_SPI_TransmitReceive(
+        &hspi1, (uint8_t *)tx_buf, (uint8_t *)rx_buf, 2, HAL_MAX_DELAY);
 
     // 将接收到的16位数据正确转换回8位数组
     dataRx[0] = rx_buf[0] >> 8;    // 取高字节
@@ -300,15 +306,19 @@ void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[])
 //****************************************************************************
 //! Full Read Function for Normal Data Mode (DATA_TYPE = 000b)
 //!
-//! Takes in an output array of length 2, address to read from, and CMD bits to send along,
-//! then creates the dataTx array and calls the sendAndReturnFrame function, interpreting
-//! dataRx and putting the read register in output[0] and status bits in output[1]
+//! Takes in an output array of length 2, address to read from, and CMD bits to send
+//! along, then creates the dataTx array and calls the sendAndReturnFrame function,
+//! interpreting dataRx and putting the read register in output[0] and status bits in
+//! output[1]
 //!
-//! output[2] - empty uint16_t array of length 2, output[0] will be assigned the returned register
+//! output[2] - empty uint16_t array of length 2, output[0] will be assigned the returned
+//! register
 //!             at the given address, output[1] will be assigned the returned status bits.
-//! address   - uint8_t value from 0x00 to 0x14 containing the register address to read from
-//! cmd_bits  - uint8_t value from 0x00 to 0x03 containing the CMD0 and CMD1 bits that will be sent
-//!             in dataTx. LSB is CMD0, next bit is CMD1. (see header file or datasheet pg. 29 for CMD functions)
+//! address   - uint8_t value from 0x00 to 0x14 containing the register address to read
+//! from cmd_bits  - uint8_t value from 0x00 to 0x03 containing the CMD0 and CMD1 bits
+//! that will be sent
+//!             in dataTx. LSB is CMD0, next bit is CMD1. (see header file or datasheet
+//!             pg. 29 for CMD functions)
 //****************************************************************************
 void normalRead(uint16_t output[], uint8_t address, uint8_t cmd_bits)
 {
@@ -333,10 +343,11 @@ void normalRead(uint16_t output[], uint8_t address, uint8_t cmd_bits)
 //****************************************************************************
 //! Register-only Read Function for Normal Data Mode (DATA_TYPE = 000b)
 //!
-//! Takes in address to read from and returns register at address without the status bits or
-//! triggering any CMD function (cmd_bits = 0x00).
+//! Takes in address to read from and returns register at address without the status bits
+//! or triggering any CMD function (cmd_bits = 0x00).
 //!
-//! address   - uint8_t value from 0x00 to 0x14 containing the register address to read from
+//! address   - uint8_t value from 0x00 to 0x14 containing the register address to read
+//! from
 //****************************************************************************
 uint16_t normalReadRegister(uint8_t address)
 {
@@ -351,11 +362,11 @@ uint16_t normalReadRegister(uint8_t address)
 //! Takes in a 4-bit value for the MAG_CH_EN field (0x019-6)
 //! mag_ch_en_bits must not be greater than 0x0F
 //!
-//! When mag_ch_en_bits < 0x08 its three LSBs act as a three bit enable/disable command for ZYX
-//! (examples:  0x05 (0101b) => ZX enabled  |  0x02 (0010b) => Y enabled)
+//! When mag_ch_en_bits < 0x08 its three LSBs act as a three bit enable/disable command
+//! for ZYX (examples:  0x05 (0101b) => ZX enabled  |  0x02 (0010b) => Y enabled)
 //!
-//! When mag_ch_en_bits >= 0x08 it configures alternative sampling orders along with enabling
-//! specific channels (see chart below)
+//! When mag_ch_en_bits >= 0x08 it configures alternative sampling orders along with
+//! enabling specific channels (see chart below)
 //!
 //!                          | enabled channels ||                  | enabled channels
 //!          mag_ch_en_bits  | + sampling order ||  mag_ch_en_bits  | + sampling order
@@ -406,65 +417,14 @@ void enterActiveMeasureMode()
     uint16_t input;
     // Set OPERATING_MODE (0x006-4) to Active Measure Mode (2h)
     input = normalReadRegister(DEVICE_CONFIG_ADDRESS);
-    input = (input & ~(DEVICE_CONFIG_OPERATING_MODE_MASK)) | DEVICE_CONFIG_OPERATING_MODE_ActiveMeasureMode;
+    input = (input & ~(DEVICE_CONFIG_OPERATING_MODE_MASK)) |
+            DEVICE_CONFIG_OPERATING_MODE_ActiveMeasureMode;
     writeToRegister(DEVICE_CONFIG_ADDRESS, input);
 
 #ifdef MAX_DELAYS_IN_OPMODE_CHANGES
-    delay_us(140);  // max expected delay as given by t_start_sleep + t_stand_by (datasheet pg. 10)
+    delay_us(140);  // max expected delay as given by t_start_sleep + t_stand_by
+                    // (datasheet pg. 10)
 #endif
-}
-
-//****************************************************************************
-//! SPI to to Trigger Conversion
-//!
-//! Configures the conversion trigger to be activated on a SPI read or write command with CMD0 enabled.
-//! (Use normalReadRegisterWithCMD0, writeToRegisterWithCMD0, or any R/W function with a 'cmd_bits'
-//!  input to send CMD0 in sent frame)
-//!
-//! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
-//****************************************************************************
-void spiTriggersConversion()
-{
-    // To prevent undefined behavior, this function does not perform its operation
-    // when the DATA_TYPE field (address: 0x028-6) is not set to Normal Read Mode (000b)
-    if (DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode)
-        return;
-
-    uint16_t input;
-    // SET TRIGGER_MODE (address: 0x02A-9) to 'trigger at SPI CMD0' (0h)
-    input = normalReadRegister(SYSTEM_CONFIG_ADDRESS);
-    input &= ~(SYSTEM_CONFIG_TRIGGER_MODE_MASK);
-    input |= SYSTEM_CONFIG_TRIGGER_MODE_AtSPIcommandbits;
-    writeToRegister(SYSTEM_CONFIG_ADDRESS, input);
-}
-
-//****************************************************************************
-//! ALERT to Trigger Conversion
-//!
-//! Configures the conversion trigger to be activated on a LOW pulse (1us to 25us in length) to ALERT.
-//! ALERT_MODE must be in Interrupt & Trigger Mode for this functionality to work.
-//!
-//! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
-//****************************************************************************
-void alertTriggersConversion()
-{
-    // To prevent undefined behavior, this function does not perform its operation
-    // when the DATA_TYPE field (0x028-6) is not set to Normal Read Mode (000b)
-    if (DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode)
-        return;
-
-    uint16_t input;
-    // SET TRIGGER_MODE (address: 0x02A-9) to at ALERT pulse (2h)
-    input = normalReadRegister(SYSTEM_CONFIG_ADDRESS);
-    input &= ~(SYSTEM_CONFIG_TRIGGER_MODE_MASK);
-    input |= SYSTEM_CONFIG_TRIGGER_MODE_AtALERTSyncPulse;
-    writeToRegister(SYSTEM_CONFIG_ADDRESS, input);
-
-    // SET ALERT_MODE (address: 0x03C) to Interrupt & Trigger Mode (0h)
-    input = normalReadRegister(ALERT_CONFIG_ADDRESS);
-    input &= ~(ALERT_CONFIG_ALERT_MODE_MASK);
-    input |= ALERT_CONFIG_ALERT_MODE_InterruptandTriggerMode;
-    writeToRegister(ALERT_CONFIG_ADDRESS, input);
 }
 
 //****************************************************************************
@@ -483,7 +443,8 @@ void getMagMeasurementsNrml(float meas_arr[])
     uint8_t i;
 
     // Array to store ranges for coordinates in the order XYZ
-    uint16_t ranges[3] = {50, 50, 50};  // The default value for coordinate ranges is 50 mT (A1)
+    uint16_t ranges[3] = {
+        50, 50, 50};  // The default value for coordinate ranges is 50 mT (A1)
     // ranges[0]          = getXrange();
     // ranges[1]          = getYrange();
     // ranges[2]          = getZrange();
@@ -512,7 +473,8 @@ void getMagMeasurementsNrml(float meas_arr[])
 uint16_t getXrange()
 {
     // Get SENSOR_CONFIG and isolate X_RANGE bits.
-    uint16_t config = normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_X_RANGE_MASK;
+    uint16_t config =
+        normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_X_RANGE_MASK;
     uint16_t range;
     if (getVersion() == 1)
     {
@@ -543,7 +505,8 @@ uint16_t getXrange()
 uint16_t getYrange()
 {
     // Get SENSOR_CONFIG and isolate Y_RANGE bits, shifting them to LSB.
-    uint16_t config = normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_Y_RANGE_MASK >> 2;
+    uint16_t config =
+        normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_Y_RANGE_MASK >> 2;
     uint16_t range;
     if (getVersion() == 1)
     {
@@ -574,7 +537,8 @@ uint16_t getYrange()
 uint16_t getZrange()
 {
     // Get SENSOR_CONFIG and isolate Z_RANGE bits, shifting them to LSB.
-    uint16_t config = normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_Z_RANGE_MASK >> 4;
+    uint16_t config =
+        normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_Z_RANGE_MASK >> 4;
     uint16_t range;
     if (getVersion() == 1)
     {
@@ -602,9 +566,11 @@ uint16_t getZrange()
 //! Configures the MAG_GAIN_CONFIG (0x11) according to 11-bit input value
 //! (check datasheet pg. 43 for conversion)
 //!
-//! axis - selection of a particular axis for amplitude correction (must be no greater than 0x03)
+//! axis - selection of a particular axis for amplitude correction (must be no greater
+//! than 0x03)
 //!        0x00 - none | 0x01 - X | 0x02 - Y | 0x03 - Z
-//! gain_bits - 11-bit gain value to adjust selected axis value (must be no greater than 0x07FF)
+//! gain_bits - 11-bit gain value to adjust selected axis value (must be no greater than
+//! 0x07FF)
 //!             gain calculated as (entered_value/1024)
 //****************************************************************************
 void setMagGainConfigIn11Bit(uint8_t axis, uint16_t gain_bits)
@@ -612,7 +578,8 @@ void setMagGainConfigIn11Bit(uint8_t axis, uint16_t gain_bits)
     if (axis > 0x03 || gain_bits > 0x07FF)
         return;
     uint16_t input;
-    // MAG_OFFSET_CONFIG (0x11) has all 16 bits assigned according to the three input variables
+    // MAG_OFFSET_CONFIG (0x11) has all 16 bits assigned according to the three input
+    // variables
     input = axis << 14 | gain_bits;
     writeToRegister(MAG_OFFSET_CONFIG_ADDRESS, input);
 }
@@ -625,7 +592,8 @@ void setMagGainConfigIn11Bit(uint8_t axis, uint16_t gain_bits)
 //!
 //! NOTE: This configures ALERT as an output pin, the respective GPIO pin it is
 //!       connected to will have to be set as an input as well. Please ensure none
-//!       of the input functions of ALERT are being used as well (such as the ALERT trigger)
+//!       of the input functions of ALERT are being used as well (such as the ALERT
+//!       trigger)
 //!
 //! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
 //****************************************************************************
@@ -633,7 +601,8 @@ void alertIndicatesConversionEnable()
 {
     // To prevent undefined behavior, this function does not perform its operation
     // when the DATA_TYPE field (address: 0x028-6) is not set to Normal Read Mode (000b)
-    if ( DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode ) return;
+    if (DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode)
+        return;
 
     uint16_t input;
     // SET ALERT_MODE (address: 0x03C) to Interrupt Mode (0h)
@@ -641,10 +610,10 @@ void alertIndicatesConversionEnable()
     input &= ~(ALERT_CONFIG_ALERT_MODE_MASK);
     input |= ALERT_CONFIG_ALERT_MODE_InterruptandTriggerMode;
 
-    // SET RSLT_ALRT (address: 0x038) to ALERT output asserted LOW to indicate conversion completion (1h)
-    // (Register already grabbed so no new READ command is needed)
+    // SET RSLT_ALRT (address: 0x038) to ALERT output asserted LOW to indicate conversion
+    // completion (1h) (Register already grabbed so no new READ command is needed)
     input |= ALERT_CONFIG_RSLT_ALRT_ALERToutputsignalsconversioncomplete;
-    writeToRegister( ALERT_CONFIG_ADDRESS, input );
+    writeToRegister(ALERT_CONFIG_ADDRESS, input);
 }
 
 //****************************************************************************
@@ -652,7 +621,8 @@ void alertIndicatesConversionEnable()
 //! Configures the MAG_GAIN_CONFIG (0x11) according to decimal input values from
 //! 0 to 2 (exclusive)
 //!
-//! axis - selection of a particular axis for amplitude correction (must be no greater than 0x03)
+//! axis - selection of a particular axis for amplitude correction (must be no greater
+//! than 0x03)
 //!        0x00 - none | 0x01 - X | 0x02 - Y | 0x03 - Z
 //! gain_value - float input of the desired gain value from 0 to 2 (exclusive) to
 //!              be assigned with the selected axis
@@ -665,13 +635,88 @@ void setMagGainConfigInDecimal(uint8_t axis, float gain_value)
     uint16_t gain_bits = floor(gain_value * 1024);
     setMagGainConfigIn11Bit(axis, gain_bits);
 }
-uint8_t getVersion() { return (normalReadRegister(TEST_CONFIG_ADDRESS) & TEST_CONFIG_VER_MASK) >> 4; }
+uint8_t getVersion()
+{
+    return (normalReadRegister(TEST_CONFIG_ADDRESS) & TEST_CONFIG_VER_MASK) >> 4;
+}
 
 void delay_us(uint32_t us)
 {
     __HAL_TIM_SET_COUNTER(&htim16, 0);
     while (__HAL_TIM_GET_COUNTER(&htim16) < us)
         ;
+}
+
+/**
+ * 0: x, 1: y, 2: z, 3: finished
+ */
+uint16_t queryNextItemDMA = 0;
+uint8_t txBuffers[3][4];  // 3 axes, 4 bytes per SPI frame
+uint8_t rxBuffers[3][4];  // 3 axes, 4 bytes per SPI frame
+uint16_t results[3];      // Final measurement results
+uint32_t errorCount = 0;
+
+void initDMATxBuffers()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        txBuffers[i][0] = 0x80 | (X_CH_RESULT_ADDRESS + i);  // Read command + address
+        txBuffers[i][1] = 0x00;
+        txBuffers[i][2] = 0x00;
+        txBuffers[i][3] = 0x00 << 4;  // CMD bits
+
+        rxBuffers[i][0] = 0x00;
+        rxBuffers[i][1] = 0x00;
+        rxBuffers[i][2] = 0x00;
+        rxBuffers[i][3] = 0x00;
+
+        results[i] = 0.0f;
+    }
+    queryNextItemDMA = 0;
+    errorCount       = 0;
+}
+
+void startDMASequentialNormalReadXYZ()
+{
+    if (queryNextItemDMA != 0)
+    {
+        // last read not finished
+        errorCount++;
+        return;
+    }
+    HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
+    HAL_SPI_TransmitReceive_DMA(
+        &hspi1, txBuffers[0], rxBuffers[0], TMAG5170_FRAME_NUM_BYTES);
+}
+
+void continueDMASequentialNormalReadXYZ()
+{
+    if (queryNextItemDMA < 0 || queryNextItemDMA > 2)
+    {
+        // Invalid state
+        errorCount++;
+        queryNextItemDMA = 0;
+        return;
+    }
+
+    results[queryNextItemDMA] =
+        (rxBuffers[queryNextItemDMA][1] << 8) | rxBuffers[queryNextItemDMA][2];
+
+    if (queryNextItemDMA == 2)  // no other read after this receiving
+    {
+        // todo: Callback
+        queryNextItemDMA = 0;
+        HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
+        return;
+    }
+    else  // i = 0 or 1,  start next transceiving
+    {
+        queryNextItemDMA++;
+        HAL_SPI_TransmitReceive_DMA(&hspi1,
+                                    txBuffers[queryNextItemDMA],
+                                    rxBuffers[queryNextItemDMA],
+                                    TMAG5170_FRAME_NUM_BYTES);
+    }
 }
 
 }  // namespace TMAG5170
