@@ -2,7 +2,7 @@
 // Created by eeasee on 3/12/25.
 //
 
-#include "SampleTasks.hpp"
+#include "SampleTask.hpp"
 
 #include "adc.h"
 
@@ -24,10 +24,6 @@ void sampleTaskInit()
  */
 void callbackHRTIM()
 {
-    Tasks::CoilManager::coilStatus[0].actualI = adc2Buffer[0];
-    Tasks::CoilManager::coilStatus[1].actualI = adc2Buffer[1];
-    Tasks::CoilManager::coilStatus[2].actualI = adc2Buffer[2];
-    Tasks::CoilManager::coilStatus[3].actualI = adc2Buffer[3];
 }
 
 /**

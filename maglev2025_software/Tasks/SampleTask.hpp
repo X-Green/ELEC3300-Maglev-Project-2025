@@ -3,11 +3,13 @@
 //
 
 #pragma once
-#include "main.h"
 #include "CoilManager.hpp"
+#include "main.h"
 
 namespace Tasks::SampleTask
 {
+
+extern uint16_t adc2Buffer[4];
 
 void sampleTaskInit();
 

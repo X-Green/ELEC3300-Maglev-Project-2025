@@ -6,3 +6,6 @@
 
 #include "arm_math.h"
 
+#define M_MAX(a, b) ((a) > (b) ? (a) : (b))
+#define M_MIN(a, b) ((a) < (b) ? (a) : (b))
+#define M_CLAMP(x, min, max) ((x) < (min) ? (min) : ((x) > (max) ? (max) : (x)))

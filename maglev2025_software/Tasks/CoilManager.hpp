@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "SampleTask.hpp"
 #include "hrtim.h"
 #include "main.h"
 
@@ -23,32 +24,13 @@ const CoilHAL COIL_HAL[] = {
     {HRTIM_TIMERID_TIMER_D, HRTIM_TIMERINDEX_TIMER_D},
 };
 
-struct CoilStatus
-{
-    float actualI;
-    uint16_t temperature;
-
-    CoilStatus() : actualI(0), temperature(0) {}
-};
-
-extern CoilStatus coilStatus[];
-
-struct CoilControl
-{
-    bool enableOutput;
-    float targetI;
-    float dutyCycle;
-
-    CoilControl() : enableOutput(false), targetI(0), dutyCycle(0) {}
-};
-
-extern CoilControl coilControl[];
-
 void initCoils();
 
 /**
  * Input: coil control Data
  */
 void updateCoils();
+
+void updatePWM(int index, float outputValue);
 
 }  // namespace Tasks::CoilManager
