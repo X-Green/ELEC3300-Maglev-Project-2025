@@ -5,12 +5,11 @@
 #include "spi.h"
 #include "stm32g4xx_it.h"
 
-namespace MainTask
-{
-
 extern "C" void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma);
 extern DMA_HandleTypeDef hdma_spi1_rx;
 
+namespace MainTask
+{
 
 void init()
 {
@@ -23,7 +22,8 @@ void init()
     Drivers::Sensors::TMAG5170::enterActiveMeasureMode();
     Drivers::Sensors::TMAG5170::alertIndicatesConversionEnable();
 
-    HAL_DMA_RegisterCallback(&hdma_spi1_rx, HAL_DMA_XFER_CPLT_CB_ID, DMA_SPI1_RX_CompleteCallback);
+    HAL_DMA_RegisterCallback(
+        &hdma_spi1_rx, HAL_DMA_XFER_CPLT_CB_ID, DMA_SPI1_RX_CompleteCallback);
 
     HAL_Delay(1000);
 }
@@ -58,7 +58,10 @@ extern "C"
     /**
      * @brief HRTIM interrupt @ 85kHz
      */
-    void HRTIM1_Master_IRQHandler(void) { __HAL_HRTIM_MASTER_CLEAR_IT(&hhrtim1, HRTIM_MASTER_IT_MREP); }
+    void HRTIM1_Master_IRQHandler(void)
+    {
+        __HAL_HRTIM_MASTER_CLEAR_IT(&hhrtim1, HRTIM_MASTER_IT_MREP);
+    }
 
     /**
      * @brief EXTI from MAG_CS, around 3kHz
@@ -72,12 +75,18 @@ extern "C"
     /**
      * Need to be registered
      */
-    void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma) { Tasks::PositionControl::updatePosition(); }
+    void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma)
+    {
+        Tasks::PositionControl::updatePosition();
+    }
 
     /**
      * @brief TIM16 interrupt @ 1kHz
      */
-    void TIM1_UP_TIM16_IRQHandler(void) { __HAL_TIM_CLEAR_FLAG(&htim16, TIM_FLAG_UPDATE); }
+    void TIM1_UP_TIM16_IRQHandler(void)
+    {
+        __HAL_TIM_CLEAR_FLAG(&htim16, TIM_FLAG_UPDATE);
+    }
 }
 
 }  // namespace MainTask

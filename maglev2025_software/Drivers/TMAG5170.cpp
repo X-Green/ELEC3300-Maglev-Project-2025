@@ -691,7 +691,7 @@ void startDMASequentialNormalReadXYZ()
 
 void continueDMASequentialNormalReadXYZ()
 {
-    if (queryNextItemDMA < 0 || queryNextItemDMA > 2)
+    if (queryNextItemDMA > 2)
     {
         // Invalid state
         errorCount++;
