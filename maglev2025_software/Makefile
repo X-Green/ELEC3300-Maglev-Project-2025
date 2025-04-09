@@ -22,7 +22,7 @@ TARGET = maglev2025_software
 # debug build?
 DEBUG = -g3
 # optimization
-OPT = -O3
+OPT = -Og
 # silent mode
 VERBOSE = 0
 # C standard

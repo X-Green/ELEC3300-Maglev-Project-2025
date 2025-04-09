@@ -848,11 +848,13 @@ namespace TMAG5170
     void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[]);
 
     void normalRead( uint16_t output[], uint8_t address, uint8_t cmd_bits );
+    uint16_t normalReadRegister(uint8_t address);
     void enableMagChannels( uint8_t mag_ch_en_bits );
 
     void spiTriggersConversion();
     void alertTriggersConversion();
     void enterActiveMeasureMode();
+    void setConvAvg();
     void alertIndicatesConversionEnable();
 
     void getMagMeasurementsNrml( float meas_arr[] );
@@ -867,6 +869,8 @@ namespace TMAG5170
     void setMagGainConfigIn11Bit( uint8_t axis, uint16_t gain_bits );
     void setMagGainConfigInDecimal( uint8_t axis, float gain_value );
 
+    void initDMATxBuffers();
+    void startDMASequentialNormalReadXYZ();
 
 }  // namespace TMAG5170
 }  // namespace Sensors

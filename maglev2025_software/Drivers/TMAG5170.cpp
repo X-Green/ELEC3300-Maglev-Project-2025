@@ -414,17 +414,34 @@ void enterActiveMeasureMode()
     if (DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode)
         return;
 
-    uint16_t input;
+    volatile uint16_t input;
     // Set OPERATING_MODE (0x006-4) to Active Measure Mode (2h)
     input = normalReadRegister(DEVICE_CONFIG_ADDRESS);
+
     input = (input & ~(DEVICE_CONFIG_OPERATING_MODE_MASK)) |
             DEVICE_CONFIG_OPERATING_MODE_ActiveMeasureMode;
+
+    input = (input & ~(DEVICE_CONFIG_CONV_AVG_NUM_MASK)) |
+            DEVICE_CONFIG_CONV_AVG_NUM_4x333Kbps10Kbps1axis;
+
     writeToRegister(DEVICE_CONFIG_ADDRESS, input);
 
 #ifdef MAX_DELAYS_IN_OPMODE_CHANGES
     delay_us(140);  // max expected delay as given by t_start_sleep + t_stand_by
                     // (datasheet pg. 10)
 #endif
+}
+
+void setConvAvg()
+{
+    if (DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode)
+        return;
+    uint16_t input;
+    input = normalReadRegister(DEVICE_CONFIG_ADDRESS);
+    input = (input & ~(DEVICE_CONFIG_CONV_AVG_NUM_MASK)) |
+            DEVICE_CONFIG_CONV_AVG_NUM_4x333Kbps10Kbps1axis;
+    writeToRegister(DEVICE_CONFIG_ADDRESS, input);
+    delay_us(140);
 }
 
 //****************************************************************************
@@ -632,7 +649,7 @@ void setMagGainConfigInDecimal(uint8_t axis, float gain_value)
 {
     if (gain_value < 0 || gain_value >= 2)
         return;
-    uint16_t gain_bits = floor(gain_value * 1024);
+    uint16_t gain_bits = (uint16_t)floorf(gain_value * 1024);
     setMagGainConfigIn11Bit(axis, gain_bits);
 }
 uint8_t getVersion()
@@ -653,7 +670,7 @@ void delay_us(uint32_t us)
 uint16_t queryNextItemDMA = 0;
 uint8_t txBuffers[3][4];  // 3 axes, 4 bytes per SPI frame
 uint8_t rxBuffers[3][4];  // 3 axes, 4 bytes per SPI frame
-uint16_t results[3];      // Final measurement results
+uint16_t mag_results[3];  // Final measurement results
 uint32_t errorCount = 0;
 
 void initDMATxBuffers()
@@ -670,7 +687,7 @@ void initDMATxBuffers()
         rxBuffers[i][2] = 0x00;
         rxBuffers[i][3] = 0x00;
 
-        results[i] = 0.0f;
+        mag_results[i] = 0.0f;
     }
     queryNextItemDMA = 0;
     errorCount       = 0;
@@ -699,7 +716,7 @@ void continueDMASequentialNormalReadXYZ()
         return;
     }
 
-    results[queryNextItemDMA] =
+    mag_results[queryNextItemDMA] =
         (rxBuffers[queryNextItemDMA][1] << 8) | rxBuffers[queryNextItemDMA][2];
 
     if (queryNextItemDMA == 2)  // no other read after this receiving

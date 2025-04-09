@@ -98,6 +98,7 @@ int main(void)
   MX_HRTIM1_Init();
   MX_TIM16_Init();
   MX_CRC_Init();
+  MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
 
   extern void systemStart(void);

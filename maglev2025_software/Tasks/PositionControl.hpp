@@ -10,6 +10,12 @@ void initPositionControl();
 
 inline float measurement[3] = {0, 0, 0};
 
+struct CounterLogs
+{
+    int dataReadyCounter = 0;
+};
+inline CounterLogs counterLogs = {0};
+
 /**
  * Unblockingly get data from MAG sensor
  */
