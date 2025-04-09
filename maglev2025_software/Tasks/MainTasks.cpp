@@ -30,16 +30,10 @@ void init()
 
 void loop()
 {
-    // 创建数组存储三轴磁场数据（顺序：XYZ）
     static float magnetic_measurements[3] = {0};
 
-    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(magnetic_measurements);
-    // HAL_SPI_Receive(&hspi1, (uint8_t *)measurement, 3, 1000);
-    // magnetic_measurements[0]  X
-    // magnetic_measurements[1]  Y
-    // magnetic_measurements[2]  Z
+//    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(magnetic_measurements);
 
-    // 添加适当的延时
     HAL_Delay(100);
 }
 
@@ -82,11 +76,4 @@ extern "C"
         Tasks::PositionControl::updatePosition();
     }
 
-    /**
-     * @brief TIM16 interrupt @ 1kHz
-     */
-    void TIM1_UP_TIM16_IRQHandler(void)
-    {
-        __HAL_TIM_CLEAR_FLAG(&htim16, TIM_FLAG_UPDATE);
-    }
 }
