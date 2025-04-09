@@ -92,7 +92,7 @@ void MX_HRTIM1_Init(void)
     Error_Handler();
   }
   pTimeBaseCfg.Period = 64000;
-  pTimeBaseCfg.RepetitionCounter = 0x00;
+  pTimeBaseCfg.RepetitionCounter = 0x01;
   pTimeBaseCfg.PrescalerRatio = HRTIM_PRESCALERRATIO_MUL32;
   pTimeBaseCfg.Mode = HRTIM_MODE_CONTINUOUS;
   if (HAL_HRTIM_TimeBaseConfig(&hhrtim1, HRTIM_TIMERINDEX_MASTER, &pTimeBaseCfg) != HAL_OK)
@@ -112,7 +112,7 @@ void MX_HRTIM1_Init(void)
   pTimerCfg.PreloadEnable = HRTIM_PRELOAD_ENABLED;
   pTimerCfg.UpdateGating = HRTIM_UPDATEGATING_INDEPENDENT;
   pTimerCfg.BurstMode = HRTIM_TIMERBURSTMODE_MAINTAINCLOCK;
-  pTimerCfg.RepetitionUpdate = HRTIM_UPDATEONREPETITION_DISABLED;
+  pTimerCfg.RepetitionUpdate = HRTIM_UPDATEONREPETITION_ENABLED;
   pTimerCfg.ReSyncUpdate = HRTIM_TIMERESYNC_UPDATE_UNCONDITIONAL;
   if (HAL_HRTIM_WaveformTimerConfig(&hhrtim1, HRTIM_TIMERINDEX_MASTER, &pTimerCfg) != HAL_OK)
   {
@@ -133,6 +133,7 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
+  pTimeBaseCfg.RepetitionCounter = 0x00;
   if (HAL_HRTIM_TimeBaseConfig(&hhrtim1, HRTIM_TIMERINDEX_TIMER_A, &pTimeBaseCfg) != HAL_OK)
   {
     Error_Handler();
@@ -148,7 +149,6 @@ void MX_HRTIM1_Init(void)
   }
   pTimerCfg.InterruptRequests = HRTIM_TIM_IT_NONE;
   pTimerCfg.DMARequests = HRTIM_TIM_DMA_NONE;
-  pTimerCfg.RepetitionUpdate = HRTIM_UPDATEONREPETITION_ENABLED;
   pTimerCfg.PushPull = HRTIM_TIMPUSHPULLMODE_DISABLED;
   pTimerCfg.FaultEnable = HRTIM_TIMFAULTENABLE_NONE;
   pTimerCfg.FaultLock = HRTIM_TIMFAULTLOCK_READWRITE;
