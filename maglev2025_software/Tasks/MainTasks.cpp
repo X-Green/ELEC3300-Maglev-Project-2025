@@ -43,6 +43,8 @@ void loop()
     HAL_Delay(100);
 }
 
+}  // namespace MainTask
+
 extern "C"
 {
     /**
@@ -50,9 +52,9 @@ extern "C"
      */
     [[noreturn]] void systemStart()
     {
-        init();
+        MainTask::init();
         for (;;)
-            loop();
+            MainTask::loop();
     }
 
     /**
@@ -88,5 +90,3 @@ extern "C"
         __HAL_TIM_CLEAR_FLAG(&htim16, TIM_FLAG_UPDATE);
     }
 }
-
-}  // namespace MainTask
