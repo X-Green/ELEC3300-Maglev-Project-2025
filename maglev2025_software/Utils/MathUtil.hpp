@@ -4,10 +4,10 @@
 
 #pragma once
 
+#ifndef __STM32G474xx_H
 #include "stm32g474xx.h"
-//Order is important here
+#endif
 #include "arm_math.h"
-
 
 #define M_MAX(a, b) ((a) > (b) ? (a) : (b))
 #define M_MIN(a, b) ((a) < (b) ? (a) : (b))
