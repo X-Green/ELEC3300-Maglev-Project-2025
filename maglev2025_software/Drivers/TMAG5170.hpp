@@ -871,6 +871,7 @@ namespace TMAG5170
 
     void initDMATxBuffers();
     void startDMASequentialNormalReadXYZ();
+    void continueDMASequentialNormalReadXYZ();
 
 }  // namespace TMAG5170
 }  // namespace Sensors

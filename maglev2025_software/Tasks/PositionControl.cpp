@@ -9,8 +9,7 @@
 void Tasks::PositionControl::onDataReady()
 {
     counterLogs.dataReadyCounter++;
-//    Drivers::Sensors::TMAG5170::initDMATxBuffers();
-//    Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
+    Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
 }
 
 void Tasks::PositionControl::updatePosition() {}

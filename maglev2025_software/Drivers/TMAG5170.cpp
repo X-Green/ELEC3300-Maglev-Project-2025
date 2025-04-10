@@ -173,14 +173,13 @@ void enterDeepSleepMode()
 //!
 //! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
 //****************************************************************************
-void exitDeepSleepMode(void)
+void exitDeepSleepMode()
 {
     // A LOW pulse is needed on CS to exit Deep Sleep Mode (enters Configuration Mode)
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
     delay_us(2);  // cs pulse
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
-    delay_us(
-        500);  // max expected delay as given by t_start_deep_sleep (datasheet pg. 10)
+    delay_us(500);  // max expected delay as given by t_start_deep_sleep (datasheet pg. 10)
     // device reset
 }
 
@@ -438,8 +437,7 @@ void setConvAvg()
         return;
     uint16_t input;
     input = normalReadRegister(DEVICE_CONFIG_ADDRESS);
-    input = (input & ~(DEVICE_CONFIG_CONV_AVG_NUM_MASK)) |
-            DEVICE_CONFIG_CONV_AVG_NUM_4x333Kbps10Kbps1axis;
+    input = (input & ~(DEVICE_CONFIG_CONV_AVG_NUM_MASK)) | DEVICE_CONFIG_CONV_AVG_NUM_4x333Kbps10Kbps1axis;
     writeToRegister(DEVICE_CONFIG_ADDRESS, input);
     delay_us(140);
 }
@@ -668,26 +666,22 @@ void delay_us(uint32_t us)
  * 0: x, 1: y, 2: z, 3: finished
  */
 uint16_t queryNextItemDMA = 0;
-uint8_t txBuffers[3][4];  // 3 axes, 4 bytes per SPI frame
-uint8_t rxBuffers[3][4];  // 3 axes, 4 bytes per SPI frame
-uint16_t mag_results[3];  // Final measurement results
+uint16_t txBuffers[3][2];  // 3 axes, 4 bytes per SPI frame
+uint16_t rxBuffers[3][2];  // 3 axes, 4 bytes per SPI frame
+float magResults[3];       // Final measurement results
 uint32_t errorCount = 0;
 
 void initDMATxBuffers()
 {
     for (int i = 0; i < 3; i++)
     {
-        txBuffers[i][0] = 0x80 | (X_CH_RESULT_ADDRESS + i);  // Read command + address
+        txBuffers[i][0] = (0x80 | (X_CH_RESULT_ADDRESS + i)) << 8;
         txBuffers[i][1] = 0x00;
-        txBuffers[i][2] = 0x00;
-        txBuffers[i][3] = 0x00 << 4;  // CMD bits
 
-        rxBuffers[i][0] = 0x00;
-        rxBuffers[i][1] = 0x00;
-        rxBuffers[i][2] = 0x00;
-        rxBuffers[i][3] = 0x00;
+        rxBuffers[i][0] = 0x01;
+        rxBuffers[i][1] = 0x01;
 
-        mag_results[i] = 0.0f;
+        magResults[i] = 0.0f;
     }
     queryNextItemDMA = 0;
     errorCount       = 0;
@@ -701,38 +695,44 @@ void startDMASequentialNormalReadXYZ()
         errorCount++;
         return;
     }
-    HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
-    HAL_SPI_TransmitReceive_DMA(
-        &hspi1, txBuffers[0], rxBuffers[0], TMAG5170_FRAME_NUM_BYTES);
+
+    MAG_CS_GPIO_Port->BRR = (uint32_t)MAG_CS_Pin;  // HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
+    HAL_SPI_TransmitReceive_DMA(&hspi1, (uint8_t *)txBuffers[0], (uint8_t *)rxBuffers[0], 2);
+    queryNextItemDMA = 1;
 }
 
 void continueDMASequentialNormalReadXYZ()
 {
-    if (queryNextItemDMA > 2)
+    if (queryNextItemDMA > 3 || queryNextItemDMA == 0)
     {
         // Invalid state
         errorCount++;
-        queryNextItemDMA = 0;
+        //                queryNextItemDMA = 0;
         return;
     }
 
-    mag_results[queryNextItemDMA] =
-        (rxBuffers[queryNextItemDMA][1] << 8) | rxBuffers[queryNextItemDMA][2];
-
-    if (queryNextItemDMA == 2)  // no other read after this receiving
+    if (queryNextItemDMA == 3)  // no other read after this receiving
     {
         // todo: Callback
         queryNextItemDMA = 0;
-        HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
+        MAG_CS_GPIO_Port->BSRR =
+            (uint32_t)MAG_CS_Pin;  // HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
+        for (int i = 0; i < 3; ++i)
+        {
+            magResults[i] = (float)((int16_t)(((rxBuffers[i][0] & 0xFF) << 8) | rxBuffers[i][1] >> 8)) / 32768.0f;
+        }
         return;
     }
-    else  // i = 0 or 1,  start next transceiving
+    else  // i = 1 or 2
     {
-        queryNextItemDMA++;
-        HAL_SPI_TransmitReceive_DMA(&hspi1,
-                                    txBuffers[queryNextItemDMA],
-                                    rxBuffers[queryNextItemDMA],
-                                    TMAG5170_FRAME_NUM_BYTES);
+        MAG_CS_GPIO_Port->BSRR =
+            (uint32_t)MAG_CS_Pin;  // HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
+        delay_us(5);
+        MAG_CS_GPIO_Port->BRR =
+            (uint32_t)MAG_CS_Pin;  // HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
+        HAL_SPI_TransmitReceive_DMA(
+            &hspi1, (uint8_t *)txBuffers[queryNextItemDMA], (uint8_t *)rxBuffers[queryNextItemDMA], 2);
+        queryNextItemDMA++;  // 1->2 or 2->3
     }
 }
 

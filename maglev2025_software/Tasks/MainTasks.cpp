@@ -5,46 +5,58 @@
 #include "spi.h"
 #include "stm32g4xx_it.h"
 
-extern "C" void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma);
-extern DMA_HandleTypeDef hdma_spi1_rx;
+// extern "C" void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma);
+// extern DMA_HandleTypeDef hdma_spi1_rx;
 
 namespace MainTask
 {
 
+bool initialized = false;
+
 void init()
 {
-    // Add your code here
     Drivers::Sensors::TMAG5170::TMAG5170_init();
     Drivers::Sensors::TMAG5170::enableMagChannels(0x07);
     Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x01, 1.0);
     Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x02, 1.0);
     Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x03, 1.0);
     Drivers::Sensors::TMAG5170::enterActiveMeasureMode();
-    //    HAL_Delay(1);
-    //    Drivers::Sensors::TMAG5170::setConvAvg();
+
     Drivers::Sensors::TMAG5170::alertIndicatesConversionEnable();
 
-    HAL_DMA_RegisterCallback(
-        &hdma_spi1_rx, HAL_DMA_XFER_CPLT_CB_ID, DMA_SPI1_RX_CompleteCallback);
+    Drivers::Sensors::TMAG5170::initDMATxBuffers();
 
-    HAL_Delay(1000);
+    HAL_Delay(100);
+    //    auto s = HAL_DMA_RegisterCallback(
+    //        &hdma_spi1_rx, HAL_DMA_XFER_CPLT_CB_ID, DMA_SPI1_RX_CompleteCallback);
+    //    if (s != HAL_OK)
+    //    {
+    //        __asm("bkpt");
+    //    }
+    HAL_Delay(100);
 
     HAL_TIM_Base_Start_IT(&htim17);
+
+    initialized = true;
+
+    HAL_Delay(1000);
 }
+
+volatile float magnetic_measurements[3] = {0};
 
 void loop()
 {
-    static float magnetic_measurements[3] = {0};
+    //    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(
+    //        const_cast<float *>(magnetic_measurements));
+//    Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
 
-    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(magnetic_measurements);
-
-    static volatile uint16_t cfg_device_tmag5170 = 0;
-    cfg_device_tmag5170 =
-        Drivers::Sensors::TMAG5170::normalReadRegister(DEVICE_CONFIG_ADDRESS);
-    HAL_Delay(100);
+    HAL_Delay(500);
 }
 
-void trigger1KHz() {}
+void trigger1KHz()
+{
+    //    Tasks::PositionControl::onDataReady();
+}
 
 void triggerOneHz()
 {
@@ -52,8 +64,7 @@ void triggerOneHz()
     oneHzCounter += 1;
 
     Tasks::PositionControl::counterLogs.dataReadyCounter = 0;
-
-}  // namespace MainTask
+}
 
 }  // namespace MainTask
 
@@ -83,15 +94,25 @@ extern "C"
     void EXTI9_5_IRQHandler(void)
     {
         __HAL_GPIO_EXTI_CLEAR_FLAG(GPIO_PIN_6);
+        if (!MainTask::initialized)
+            return;
         Tasks::PositionControl::onDataReady();
     }
 
-    /**
-     * Need to be registered
-     */
-    void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma)
+    volatile int dsrccount = 0;
+
+    void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
     {
-        Tasks::PositionControl::updatePosition();
+        if (!MainTask::initialized)
+            return;
+
+        if (HAL_SPI_GetState(&hspi1) != HAL_SPI_STATE_READY) {
+            __asm("bkpt");
+        }
+
+        Drivers::Sensors::TMAG5170::continueDMASequentialNormalReadXYZ();
+
+        dsrccount++;
     }
 
     void TIM1_TRG_COM_TIM17_IRQHandler(void)

@@ -9,7 +9,7 @@ AllowAllParametersOfDeclarationOnNextLine: true
 BinPackParameters: false
 BinPackArguments: false
 BreakBeforeBraces: Allman
-ColumnLimit: 90
+ColumnLimit: 120
 PointerAlignment: Right
 DerivePointerAlignment: false
 IndentCaseLabels: false
