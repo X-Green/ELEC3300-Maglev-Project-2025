@@ -46,4 +46,6 @@ void updateCoilsSlow();
 
 void updatePWM(int index, float outputValue);
 
+void setOutputEnable();
+
 }  // namespace Tasks::CoilManager
