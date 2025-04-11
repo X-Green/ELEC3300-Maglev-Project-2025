@@ -52,8 +52,6 @@ void init()
     HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
     HAL_Delay(100);
 
-    HAL_ADC_Start_DMA(&hadc2, (uint32_t *)(adcBuffer), 4);
-
     initialized = true;
 
     HAL_Delay(1000);
@@ -104,7 +102,10 @@ extern "C"
     /**
      * @brief HRTIM interrupt @ 85kHz
      */
-    void HRTIM1_Master_IRQHandler(void) { __HAL_HRTIM_MASTER_CLEAR_IT(&hhrtim1, HRTIM_MASTER_IT_MREP); }
+    void HRTIM1_Master_IRQHandler(void)
+    {
+        __HAL_HRTIM_MASTER_CLEAR_IT(&hhrtim1, HRTIM_MASTER_IT_MREP);
+    }
 
     /**
      * @brief EXTI from MAG_CS, around 3kHz
