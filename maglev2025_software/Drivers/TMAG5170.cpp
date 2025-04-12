@@ -4,13 +4,10 @@
 
 #include "TMAG5170.hpp"
 
-#include "assert.h"
 
-namespace Drivers
-{
-namespace Sensors
-{
-namespace TMAG5170
+
+
+namespace Drivers::Sensors::TMAG5170
 {
 //****************************************************************************
 //****************************************************************************
@@ -232,7 +229,7 @@ void TMAG5170_init()
 void writeToRegister(uint8_t address, uint16_t data_to_write)
 {
     // Check that the input address is in range
-    assert(address < NUM_REGISTERS);
+    assert_param(address < NUM_REGISTERS);
 
     // Build TX and RX byte arrays
     uint8_t dataTx[4] = {0};
@@ -280,7 +277,7 @@ uint16_t tx_buf[2], rx_buf[2];
 void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[])
 {
 #ifdef DISABLE_CRC
-    assert(dataTx && dataRx);
+    assert_param(dataTx && dataRx);
 
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_RESET);
 
@@ -322,7 +319,7 @@ void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[])
 void normalRead(uint16_t output[], uint8_t address, uint8_t cmd_bits)
 {
     // Check that the input address is in range
-    assert(address < NUM_REGISTERS);
+    assert_param(address < NUM_REGISTERS);
 
     // Build TX and RX byte arrays
     uint8_t dataTx[4] = {0};
@@ -736,6 +733,5 @@ void continueDMASequentialNormalReadXYZ()
     }
 }
 
-}  // namespace TMAG5170
-}  // namespace Sensors
-}  // namespace Drivers
+} // namespace Drivers::Sensors::TMAG5170
+

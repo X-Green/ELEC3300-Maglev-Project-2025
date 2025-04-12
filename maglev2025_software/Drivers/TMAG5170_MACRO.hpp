@@ -1,5 +1,5 @@
 //
-// TMAG5170_MACRO from Official Documentation
+// TMAG5170_MACRO: Macro derived from Official Documentation
 //
 
 #pragma once
