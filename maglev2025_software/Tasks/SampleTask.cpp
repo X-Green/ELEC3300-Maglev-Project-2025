@@ -9,7 +9,6 @@
 namespace Tasks::SampleTask
 {
 
-
 void sampleTaskInit()
 {
     HAL_Delay(100);
@@ -21,7 +20,16 @@ void sampleTaskInit()
 /**
  * Fast sampling data: Current
  */
-void callbackHRTIM() {}
+void callbackHRTIM()
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        CoilManager::coilActualCurrent[i] =
+            coilCurrentFilterAlpha *
+                (adc2CalibrationGain[i] * ((float)adc2Buffer[i] + (float)adc2Buffer[i + 4]) + adc2CalibrationBias[i]) +
+            (1 - coilCurrentFilterAlpha) * CoilManager::coilActualCurrent[i];
+    }
+}
 
 /**
  * Slow sampling data: Voltage, Temperature, etc..

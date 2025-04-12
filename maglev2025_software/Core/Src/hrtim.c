@@ -71,7 +71,7 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
-  pADCTriggerCfg.Trigger = HRTIM_ADCTRIGGEREVENT6810_MASTER_PERIOD;
+  pADCTriggerCfg.Trigger = HRTIM_ADCTRIGGEREVENT6810_MASTER_CMP2;
   if (HAL_HRTIM_ADCTriggerConfig(&hhrtim1, HRTIM_ADCTRIGGER_6, &pADCTriggerCfg) != HAL_OK)
   {
     Error_Handler();

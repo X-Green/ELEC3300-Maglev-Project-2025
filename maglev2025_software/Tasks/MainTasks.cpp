@@ -57,25 +57,21 @@ void init()
     HAL_Delay(1000);
 }
 
-volatile float magnetic_measurements[3] = {0};  //[1]-y [2]-z [0]-x
 volatile float testOutput               = 0.0f;
 void loop()
 {
     // Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
     // Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
 
-    for (int i = 0; i < 4; i++)
-    {
-        Tasks::CoilManager::updatePWM(i, testOutput);
-    }
+//    for (int i = 0; i < 4; i++)
+//    {
+//        Tasks::CoilManager::updatePWM(i, testOutput);
+//    }
 
     HAL_Delay(500);
 }
 
-void trigger1KHz()
-{
-    //    Tasks::PositionControl::onDataReady();
-}
+void trigger1KHz() {}
 
 void triggerOneHz()
 {
@@ -105,6 +101,8 @@ extern "C"
     void HRTIM1_Master_IRQHandler(void)
     {
         __HAL_HRTIM_MASTER_CLEAR_IT(&hhrtim1, HRTIM_MASTER_IT_MREP);
+        Tasks::SampleTask::callbackHRTIM();
+        Tasks::CoilManager::updateCoilsFast();
     }
 
     /**

@@ -710,7 +710,6 @@ void continueDMASequentialNormalReadXYZ()
 
     if (queryNextItemDMA == 3)  // no other read after this receiving
     {
-        // todo: Callback
         queryNextItemDMA = 0;
         MAG_CS_GPIO_Port->BSRR =
             (uint32_t)MAG_CS_Pin;  // HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
@@ -718,6 +717,7 @@ void continueDMASequentialNormalReadXYZ()
         {
             magResults[i] = (float)((int16_t)(((rxBuffers[i][0] & 0xFF) << 8) | rxBuffers[i][1] >> 8)) / 32768.0f;
         }
+        // todo: Callback
         return;
     }
     else  // i = 1 or 2
