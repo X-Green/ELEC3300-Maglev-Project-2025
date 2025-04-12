@@ -8,7 +8,7 @@ namespace Tasks::PositionControl
 {
 void initPositionControl();
 
-inline float measurement[3] = {0, 0, 0};
+inline float magMeasurement[3] = {0, 0, 0};
 
 struct CounterLogs
 {

@@ -4,8 +4,7 @@
 
 #include "TMAG5170.hpp"
 
-
-
+#include "PositionControl.hpp"
 
 namespace Drivers::Sensors::TMAG5170
 {
@@ -665,7 +664,6 @@ void delay_us(uint32_t us)
 uint16_t queryNextItemDMA = 0;
 uint16_t txBuffers[3][2];  // 3 axes, 4 bytes per SPI frame
 uint16_t rxBuffers[3][2];  // 3 axes, 4 bytes per SPI frame
-float magResults[3];       // Final measurement results
 uint32_t errorCount = 0;
 
 void initDMATxBuffers()
@@ -677,8 +675,6 @@ void initDMATxBuffers()
 
         rxBuffers[i][0] = 0x01;
         rxBuffers[i][1] = 0x01;
-
-        magResults[i] = 0.0f;
     }
     queryNextItemDMA = 0;
     errorCount       = 0;
@@ -715,9 +711,10 @@ void continueDMASequentialNormalReadXYZ()
             (uint32_t)MAG_CS_Pin;  // HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
         for (int i = 0; i < 3; ++i)
         {
-            magResults[i] = (float)((int16_t)(((rxBuffers[i][0] & 0xFF) << 8) | rxBuffers[i][1] >> 8)) / 32768.0f;
+            Tasks::PositionControl::magMeasurement[i] = (float)((int16_t)(((rxBuffers[i][0] & 0xFF) << 8) | rxBuffers[i][1] >> 8)) / 32768.0f;
         }
         // todo: Callback
+        Tasks::PositionControl::updatePosition();
         return;
     }
     else  // i = 1 or 2
