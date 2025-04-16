@@ -4107,7 +4107,6 @@
 					(alternate "" input line)
 					(alternate "ADC2_IN5" bidirectional line)
 					(alternate "I2C2_SCL" bidirectional line)
-					(alternate "" input line)
 					(alternate "QUADSPI1_BK2_IO3" bidirectional line)
 					(alternate "TIM1_ETR" bidirectional line)
 					(alternate "USART1_TX" bidirectional line)
@@ -4138,7 +4137,6 @@
 					(alternate "OPAMP2_VINM" bidirectional line)
 					(alternate "OPAMP2_VINM1" bidirectional line)
 					(alternate "OPAMP2_VINM_SEC" bidirectional line)
-					(alternate "" input line)
 					(alternate "SAI1_D3" bidirectional line)
 					(alternate "SYS_WKUP5" bidirectional line)
 					(alternate "TIM15_BKIN" bidirectional line)
@@ -5127,7 +5125,6 @@
 					(alternate "OPAMP2_VINP_SEC" bidirectional line)
 					(alternate "OPAMP3_VINP" bidirectional line)
 					(alternate "OPAMP3_VINP_SEC" bidirectional line)
-					(alternate "" input line)
 					(alternate "QUADSPI1_BK1_IO1" bidirectional line)
 					(alternate "TIM1_CH2N" bidirectional line)
 					(alternate "TIM3_CH3" bidirectional line)
@@ -5164,7 +5161,6 @@
 					(alternate "OPAMP6_VINM" bidirectional line)
 					(alternate "OPAMP6_VINM1" bidirectional line)
 					(alternate "OPAMP6_VINM_SEC" bidirectional line)
-					(alternate "" input line)
 					(alternate "QUADSPI1_BK1_IO0" bidirectional line)
 					(alternate "TIM1_CH3N" bidirectional line)
 					(alternate "TIM3_CH4" bidirectional line)
@@ -5258,7 +5254,6 @@
 					(alternate "" input line)
 					(alternate "FDCAN3_TX" bidirectional line)
 					(alternate "HRTIM1_EEV7" bidirectional line)
-					(alternate "" input line)
 					(alternate "SAI1_MCLK_B" bidirectional line)
 					(alternate "SPI1_MISO" bidirectional line)
 					(alternate "SPI3_MISO" bidirectional line)
@@ -5328,7 +5323,6 @@
 					(alternate "HRTIM1_EEV4" bidirectional line)
 					(alternate "HRTIM1_SCIN" bidirectional line)
 					(alternate "LPTIM1_ETR" bidirectional line)
-					(alternate "" input line)
 					(alternate "SAI1_FS_B" bidirectional line)
 					(alternate "TIM16_CH1N" bidirectional line)
 					(alternate "TIM4_CH1" bidirectional line)
@@ -5484,6 +5478,7 @@
 							)
 						)
 					)
+					(alternate "" input line)
 					(alternate "ADC1_EXTI11" bidirectional line)
 					(alternate "ADC1_IN14" bidirectional line)
 					(alternate "ADC2_EXTI11" bidirectional line)
@@ -5494,7 +5489,6 @@
 					(alternate "OPAMP4_VINP" bidirectional line)
 					(alternate "OPAMP4_VINP_SEC" bidirectional line)
 					(alternate "OPAMP6_VOUT" bidirectional line)
-					(alternate "" input line)
 					(alternate "QUADSPI1_BK1_NCS" bidirectional line)
 					(alternate "TIM2_CH4" bidirectional line)
 					(alternate "USART3_RX" bidirectional line)
@@ -8294,10 +8288,6 @@
 		(uuid "7328f39c-b6d9-43a7-b89a-e5971cd9417f")
 	)
 	(no_connect
-		(at 52.07 76.2)
-		(uuid "7cd202e1-20b9-4b93-b9af-b85975ae720e")
-	)
-	(no_connect
 		(at 87.63 76.2)
 		(uuid "93fd2a92-c5e3-42c7-998f-6c56ddbd382a")
 	)
@@ -8314,16 +8304,8 @@
 		(uuid "ba602eb5-31ba-4e37-bf5f-c871269133e6")
 	)
 	(no_connect
-		(at 87.63 106.68)
-		(uuid "bb157cb7-eef8-457a-a10a-696a72d635a9")
-	)
-	(no_connect
 		(at 87.63 104.14)
 		(uuid "dee266a0-a34e-4432-a2b0-9d7d04698904")
-	)
-	(no_connect
-		(at 52.07 78.74)
-		(uuid "f5aad477-eee1-42f8-97bf-3398d88e4e6a")
 	)
 	(wire
 		(pts
@@ -8767,6 +8749,16 @@
 	)
 	(wire
 		(pts
+			(xy 337.82 72.39) (xy 349.25 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "263dbaad-7d83-4742-b419-08c0b2506904")
+	)
+	(wire
+		(pts
 			(xy 25.4 120.65) (xy 30.48 120.65)
 		)
 		(stroke
@@ -8804,16 +8796,6 @@
 			(type default)
 		)
 		(uuid "2afab619-30a7-400d-ac86-c1dd9472ad10")
-	)
-	(wire
-		(pts
-			(xy 349.25 39.37) (xy 345.44 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2c48d141-16a1-4825-9af0-56b1f75d7d4c")
 	)
 	(wire
 		(pts
@@ -9307,7 +9289,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 88.9) (xy 87.63 88.9)
+			(xy 99.06 88.9) (xy 87.63 88.9)
 		)
 		(stroke
 			(width 0)
@@ -9664,16 +9646,6 @@
 			(type default)
 		)
 		(uuid "6167b287-a07c-4625-90f2-2b7e05186474")
-	)
-	(wire
-		(pts
-			(xy 349.25 138.43) (xy 345.44 138.43)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6214e334-3fd0-44e9-9344-b9c998097a86")
 	)
 	(wire
 		(pts
@@ -10827,6 +10799,16 @@
 	)
 	(wire
 		(pts
+			(xy 337.82 39.37) (xy 349.25 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b24ef0b7-c5c1-4c41-9942-252970d2863e")
+	)
+	(wire
+		(pts
 			(xy 45.72 99.06) (xy 52.07 99.06)
 		)
 		(stroke
@@ -10957,6 +10939,16 @@
 	)
 	(wire
 		(pts
+			(xy 87.63 106.68) (xy 99.06 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be78e748-dbcb-4317-b4ea-74dc11da6d43")
+	)
+	(wire
+		(pts
 			(xy 345.44 186.69) (xy 342.9 186.69)
 		)
 		(stroke
@@ -11017,7 +11009,7 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 109.22) (xy 87.63 109.22)
+			(xy 99.06 109.22) (xy 87.63 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11377,6 +11369,16 @@
 	)
 	(wire
 		(pts
+			(xy 337.82 105.41) (xy 349.25 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e422c185-8252-475c-b8a2-48058a81933c")
+	)
+	(wire
+		(pts
 			(xy 186.69 203.2) (xy 201.93 203.2)
 		)
 		(stroke
@@ -11427,16 +11429,6 @@
 	)
 	(wire
 		(pts
-			(xy 349.25 105.41) (xy 345.44 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e7d9761b-7be7-48c7-b1b1-c89c3575e797")
-	)
-	(wire
-		(pts
 			(xy 204.47 171.45) (xy 204.47 170.18)
 		)
 		(stroke
@@ -11484,16 +11476,6 @@
 			(type default)
 		)
 		(uuid "eb86c9b7-457f-42eb-b8b6-7ef6617b9f27")
-	)
-	(wire
-		(pts
-			(xy 349.25 72.39) (xy 345.44 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ec28c414-77b9-41fb-8fff-f2d9eff322d9")
 	)
 	(wire
 		(pts
@@ -11757,6 +11739,16 @@
 	)
 	(wire
 		(pts
+			(xy 337.82 138.43) (xy 349.25 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc8e36a3-9a95-4cde-b374-ba1e33e9ac48")
+	)
+	(wire
+		(pts
 			(xy 176.53 171.45) (xy 179.07 171.45)
 		)
 		(stroke
@@ -11955,6 +11947,16 @@
 		)
 		(uuid "6506e37c-3126-4614-9fe1-49fc76d13928")
 	)
+	(label "PB10_ROTENC_BTN"
+		(at 99.06 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6b7901ec-d3dd-4334-90bc-5952035838cd")
+	)
 	(label "MCU_B2"
 		(at 87.63 66.04 0)
 		(effects
@@ -12006,7 +12008,7 @@
 		(uuid "abd09688-6d9b-4a9f-9616-4cb19d23912c")
 	)
 	(label "OPAMP4_VINP"
-		(at 97.79 109.22 0)
+		(at 99.06 109.22 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12026,7 +12028,7 @@
 		(uuid "b6e10346-fb2a-4aa1-b3eb-3262c9253610")
 	)
 	(label "PB3"
-		(at 92.71 88.9 0)
+		(at 99.06 88.9 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12199,6 +12201,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PC6_T8C1"
+		(shape input)
+		(at 52.07 76.2 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "13cad859-44d9-4816-a3fb-1028533de248")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 39.7111 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -12766,6 +12790,28 @@
 		(uuid "760abd8a-796d-4aeb-9cd4-7da26e8fad5e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 18.9677 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PC7_T8C2"
+		(shape input)
+		(at 52.07 78.74 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7912a3dc-39eb-47d5-97d9-e41474d757b0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 39.7111 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15834,73 +15880,6 @@
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "C60")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 341.63 39.37 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2691f0c7-c8d9-438d-9a29-d40292e68cfa")
-		(property "Reference" "R11"
-			(at 341.63 35.56 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100m"
-			(at 341.63 37.338 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 341.63 37.592 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 341.63 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 341.63 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "99b738fb-0b25-4527-b152-b5ea93fc1d39")
-		)
-		(pin "2"
-			(uuid "58e5f53b-4b5f-45a9-87c9-ea1b18f870c5")
-		)
-		(instances
-			(project ""
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -23523,73 +23502,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 341.63 72.39 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "858b1ce3-d0d7-45e1-9140-08df23815c59")
-		(property "Reference" "R12"
-			(at 341.63 68.58 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100m"
-			(at 341.63 70.358 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 341.63 70.612 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 341.63 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 341.63 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "64223554-1c37-4f6b-acbe-8fca4bafe1c1")
-		)
-		(pin "2"
-			(uuid "77c9cf65-147f-4b93-a556-0e3334a9a2e8")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "R12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 273.05 245.11 0)
 		(unit 1)
@@ -25664,73 +25576,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 341.63 138.43 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9d10e151-6343-4b63-b581-0d642df40aac")
-		(property "Reference" "R14"
-			(at 341.63 134.62 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100m"
-			(at 341.63 136.398 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 341.63 136.652 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 341.63 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 341.63 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dc321fef-5a91-424e-b315-3f117f3d8da8")
-		)
-		(pin "2"
-			(uuid "0daaac04-db43-476d-ba46-a1d56954975a")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "R14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 171.45 233.68 0)
 		(unit 1)
@@ -26719,73 +26564,6 @@
 			(project ""
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "C35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 341.63 105.41 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ae529671-7d3c-424c-9191-8aea372ce2ba")
-		(property "Reference" "R13"
-			(at 341.63 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100m"
-			(at 341.63 103.378 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 341.63 103.632 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 341.63 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 341.63 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "720afc25-bfb7-45f1-903c-5a63e3290240")
-		)
-		(pin "2"
-			(uuid "4c4efabc-81b0-458c-baf2-71cecbb67739")
-		)
-		(instances
-			(project "maglev2025_hardware_test1"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "R13")
 					(unit 1)
 				)
 			)

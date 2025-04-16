@@ -1282,7 +1282,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:D_Schottky"
+		(symbol "Device:D"
 			(pin_numbers
 				(hide yes)
 			)
@@ -1301,7 +1301,7 @@
 					)
 				)
 			)
-			(property "Value" "D_Schottky"
+			(property "Value" "D"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -1327,7 +1327,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Schottky diode"
+			(property "Description" "Diode"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1336,7 +1336,25 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "diode Schottky"
+			(property "Sim.Device" "D"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1354,10 +1372,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "D_Schottky_0_1"
+			(symbol "D_0_1"
 				(polyline
 					(pts
-						(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
+						(xy -1.27 1.27) (xy -1.27 -1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -1392,7 +1410,7 @@
 					)
 				)
 			)
-			(symbol "D_Schottky_1_1"
+			(symbol "D_1_1"
 				(pin passive line
 					(at -3.81 0 0)
 					(length 2.54)
@@ -1551,180 +1569,6 @@
 					(at 0 -3.81 90)
 					(length 1.27)
 					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Device:LED"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LED"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Light emitting diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "LED diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "LED_0_1"
-				(polyline
-					(pts
-						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "LED_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2039,20 +1883,24 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "SW_Push_MP_1"
+		(symbol "Device:RotaryEncoder_Switch_MP"
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "SW"
-				(at 0 5.08 0)
+				(at 0 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
+			(property "Value" "RotaryEncoder_Switch_MP"
+				(at 0 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2060,6 +1908,33 @@
 				)
 			)
 			(property "Footprint" ""
+				(at -3.81 4.064 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Rotary encoder, dual channel, incremental quadrate outputs, with switch and MP Pin"
+				(at 0 -15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "rotary switch encoder switch push button"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2068,7 +1943,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "ki_fp_filters" "RotaryEncoder*Switch*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2077,19 +1952,22 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "RotaryEncoder_Switch_MP_0_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
 					)
-					(hide yes)
+					(fill
+						(type background)
+					)
 				)
-			)
-			(symbol "SW_Push_MP_1_0_1"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
+				(polyline
+					(pts
+						(xy -5.08 2.54) (xy -3.81 2.54) (xy -3.81 2.032)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2100,19 +1978,8 @@
 				)
 				(polyline
 					(pts
-						(xy 0 1.27) (xy 0 3.048)
+						(xy -5.08 0) (xy -3.81 0) (xy -3.81 -1.016) (xy -3.302 -2.032)
 					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
 					(stroke
 						(width 0)
 						(type default)
@@ -2123,7 +1990,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 1.27) (xy -2.54 1.27)
+						(xy -5.08 -2.54) (xy -3.81 -2.54) (xy -3.81 -2.032)
 					)
 					(stroke
 						(width 0)
@@ -2133,46 +2000,240 @@
 						(type none)
 					)
 				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy -4.318 0) (xy -3.81 0) (xy -3.81 1.016) (xy -3.302 2.032)
 					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(circle
+					(center -3.81 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
 					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 -1.778) (xy -0.635 1.778)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -0.381 0)
+					(radius 1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.381 -1.778) (xy -0.381 1.778)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -0.381 -2.794)
+					(mid -3.0988 -0.0635)
+					(end -0.381 2.667)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.127 1.778) (xy -0.127 -1.778)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 2.921) (xy -0.508 2.667) (xy 0.127 2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 -3.048) (xy -0.508 -2.794) (xy 0.127 -2.413)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 1.016) (xy 3.81 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 0) (xy 3.429 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 4.318 1.016)
+					(radius 0.127)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 4.318 -1.016)
+					(radius 0.127)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 4.318 2.54) (xy 4.318 1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -2.54) (xy 4.318 -2.54) (xy 4.318 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
-			(symbol "SW_Push_MP_1_1_1"
-				(pin input line
-					(at 0 -5.08 90)
+			(symbol "RotaryEncoder_Switch_MP_1_1"
+				(pin passive line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
 					(length 2.54)
 					(name "MP"
 						(effects
@@ -2181,7 +2242,43 @@
 							)
 						)
 					)
-					(number "3"
+					(number "MP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "S1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "S1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "S2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "S2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2296,6 +2393,131 @@
 				)
 			)
 			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+5V"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+5V"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+5V\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+5V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+5V_1_1"
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
@@ -2602,9 +2824,9 @@
 		)
 		(uuid "aaea53cd-746a-423f-b50e-52cf3bcc0a35")
 	)
-	(text "I2C TFT Display"
+	(text "I2C OLED Display"
 		(exclude_from_sim no)
-		(at 19.812 13.97 0)
+		(at 21.59 14.478 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2627,12 +2849,6 @@
 		(uuid "e034971c-b0a8-48bb-9f86-429291b8ac31")
 	)
 	(junction
-		(at 128.778 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0acf1771-1c72-4442-ac58-3b0376e35520")
-	)
-	(junction
 		(at 62.23 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2651,40 +2867,28 @@
 		(uuid "201087ce-8a11-4983-b4af-7ba310f2cd09")
 	)
 	(junction
-		(at 129.54 113.03)
+		(at 147.32 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "23fc9c84-d373-453d-9980-413a2d50ab2f")
+		(uuid "21e70f2c-38a1-4da0-a115-41cb582e15cd")
 	)
 	(junction
-		(at 138.43 129.54)
+		(at 147.32 125.73)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "32ccf3cf-e44e-4c6a-ae38-17bc1f9bcd75")
+		(uuid "32657575-5b72-41db-b658-8f1553ccccff")
 	)
 	(junction
-		(at 137.668 59.69)
+		(at 133.35 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "682be796-ce3b-468f-9d73-442b362d4a40")
+		(uuid "536afd3a-c51c-4a8a-b25d-d14723d4d9de")
 	)
 	(junction
-		(at 130.81 95.25)
+		(at 55.88 130.81)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "6d76ba2a-433d-4469-b166-95051ad04a81")
-	)
-	(junction
-		(at 129.54 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7a521b04-7470-4f5d-b849-eb5163c92b63")
-	)
-	(junction
-		(at 139.7 95.25)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7d2b60df-f642-46de-a6fa-8c9d5e011da0")
+		(uuid "5ceb8155-2306-4fa9-9482-cd588f77b07c")
 	)
 	(junction
 		(at 58.42 180.34)
@@ -2693,22 +2897,40 @@
 		(uuid "87bb089f-5342-4214-984f-433a76a868e7")
 	)
 	(junction
+		(at 67.31 180.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9129f525-ec7d-4060-bd63-296a1020816b")
+	)
+	(junction
+		(at 133.35 125.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "948d9b83-5a3e-4a4d-92af-c5027da8e733")
+	)
+	(junction
 		(at 30.48 154.94)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "98aea681-c34e-45b2-9b23-4474aed151a8")
 	)
 	(junction
-		(at 130.81 78.74)
+		(at 189.23 95.25)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c542c563-69de-438a-90db-eb840bc06d89")
+		(uuid "c08cfcd4-53c9-453a-91a0-64b8c73bf153")
 	)
 	(junction
-		(at 128.778 43.18)
+		(at 58.42 189.23)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e5d3916a-8d18-4a49-ab39-0087f4ac1c4f")
+		(uuid "c0de7610-196b-40ae-aad4-655eba48356a")
+	)
+	(junction
+		(at 177.8 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "eac4193d-04c1-49c3-9124-28b852cd95bc")
 	)
 	(no_connect
 		(at 45.72 140.97)
@@ -2736,13 +2958,13 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 129.54) (xy 116.84 133.35)
+			(xy 63.5 128.27) (xy 67.31 128.27)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "01e0cfa4-e953-4d59-bcf0-0f6bb695fbea")
+		(uuid "039f60fc-858c-45b2-a73b-0509902c6fdd")
 	)
 	(wire
 		(pts
@@ -2753,6 +2975,16 @@
 			(type default)
 		)
 		(uuid "04573ea0-1abb-49e0-b6dd-2030b2111e8a")
+	)
+	(wire
+		(pts
+			(xy 148.59 92.71) (xy 147.32 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0581c9c9-9111-4f91-b740-9bf69c6423d2")
 	)
 	(wire
 		(pts
@@ -2776,23 +3008,23 @@
 	)
 	(wire
 		(pts
-			(xy 128.778 43.18) (xy 137.668 43.18)
+			(xy 171.45 100.33) (xy 171.45 105.41)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0f5b37ab-1094-437c-8d14-d2746b53c669")
+		(uuid "0f20f10e-8ae2-443c-9a05-b0ed29eb6349")
 	)
 	(wire
 		(pts
-			(xy 129.54 129.54) (xy 138.43 129.54)
+			(xy 147.32 123.19) (xy 147.32 125.73)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "11ebf8e7-18d4-4060-a558-520e38e2f89e")
+		(uuid "11f681ce-aea9-425b-930b-ed1daa710dab")
 	)
 	(wire
 		(pts
@@ -2803,6 +3035,26 @@
 			(type default)
 		)
 		(uuid "1c0ccc8e-8166-4957-bf0a-665ed3eb4fbc")
+	)
+	(wire
+		(pts
+			(xy 147.32 91.44) (xy 147.32 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1cd17824-bdc1-4862-9776-1238c2e18c20")
+	)
+	(wire
+		(pts
+			(xy 133.35 93.98) (xy 133.35 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1da3e932-6e37-4c25-9c8b-a8674301f642")
 	)
 	(wire
 		(pts
@@ -2826,26 +3078,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.078 59.69) (xy 116.078 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "219d1509-4e84-4244-b789-17a53a7172a9")
-	)
-	(wire
-		(pts
-			(xy 146.558 64.77) (xy 146.558 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "23308b46-de93-4fad-a076-ef09fd388327")
-	)
-	(wire
-		(pts
 			(xy 44.45 176.53) (xy 41.91 176.53)
 		)
 		(stroke
@@ -2853,16 +3085,6 @@
 			(type default)
 		)
 		(uuid "24d99bf8-4641-4f5e-9104-52a033172d1c")
-	)
-	(wire
-		(pts
-			(xy 153.67 95.25) (xy 162.052 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2694bd03-f877-480d-8f19-adb56381b46c")
 	)
 	(wire
 		(pts
@@ -2886,6 +3108,36 @@
 	)
 	(wire
 		(pts
+			(xy 58.42 189.23) (xy 67.31 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30ae0618-5082-43c8-a14d-3bc8b613a5ef")
+	)
+	(wire
+		(pts
+			(xy 25.4 74.93) (xy 25.4 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32895339-a6bd-468f-a368-3182a05c1c63")
+	)
+	(wire
+		(pts
+			(xy 147.32 125.73) (xy 149.86 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "338c5807-d518-4fc1-bb55-e21f7ab7aa80")
+	)
+	(wire
+		(pts
 			(xy 124.46 29.21) (xy 115.57 29.21)
 		)
 		(stroke
@@ -2906,43 +3158,23 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 95.25) (xy 120.142 95.25)
+			(xy 189.23 95.25) (xy 193.04 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "36d40b14-a718-49e0-add8-69b18121d0eb")
+		(uuid "3a2b8b42-9bb6-497d-bfd8-b7a796ad8e01")
 	)
 	(wire
 		(pts
-			(xy 127.762 95.25) (xy 130.81 95.25)
+			(xy 133.35 92.71) (xy 129.54 92.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3895b9d8-7c4c-4960-9850-91ad89457392")
-	)
-	(wire
-		(pts
-			(xy 162.052 95.25) (xy 162.052 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3999b127-593c-449b-b0c1-04a274ffa66c")
-	)
-	(wire
-		(pts
-			(xy 128.778 43.18) (xy 128.778 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4006caca-ec47-4638-9ebd-7971f4948c5a")
+		(uuid "457d789d-505f-4872-b6e6-c39fd10cf290")
 	)
 	(wire
 		(pts
@@ -2956,13 +3188,13 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 78.74) (xy 139.7 82.55)
+			(xy 133.35 125.73) (xy 129.54 125.73)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4b5ce159-5301-441f-a365-3633cae2927c")
+		(uuid "4a9310b1-b3f2-447c-a291-9819226e3a30")
 	)
 	(wire
 		(pts
@@ -2973,6 +3205,16 @@
 			(type default)
 		)
 		(uuid "4fdbc445-1722-4dff-8381-6f1d6748784c")
+	)
+	(wire
+		(pts
+			(xy 156.21 95.25) (xy 148.59 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53e87f42-5ed6-441d-9b88-b3cc5732556e")
 	)
 	(wire
 		(pts
@@ -2996,23 +3238,13 @@
 	)
 	(wire
 		(pts
-			(xy 126.492 129.54) (xy 129.54 129.54)
+			(xy 67.31 187.96) (xy 67.31 189.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "58eb351b-c425-4d66-87bc-428bf7e9076a")
-	)
-	(wire
-		(pts
-			(xy 137.668 54.61) (xy 137.668 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5fa98efb-2e59-4676-9b83-339c146d2716")
+		(uuid "5b7145ea-f1de-4604-9ddc-562bc747f7ad")
 	)
 	(wire
 		(pts
@@ -3036,26 +3268,6 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 134.62) (xy 147.32 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "66bfc5aa-ca26-44f3-9b40-c2ae439cca23")
-	)
-	(wire
-		(pts
-			(xy 160.02 59.69) (xy 160.02 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6737915d-ec0e-4cae-bdb4-5ad2d5a063c8")
-	)
-	(wire
-		(pts
 			(xy 64.77 110.49) (xy 62.23 110.49)
 		)
 		(stroke
@@ -3063,26 +3275,6 @@
 			(type default)
 		)
 		(uuid "6c155a61-12e2-46b7-adfe-dc33540d899a")
-	)
-	(wire
-		(pts
-			(xy 137.668 59.69) (xy 141.478 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "71fc0f81-f22e-48e2-a6cb-8c117bf5f66a")
-	)
-	(wire
-		(pts
-			(xy 139.7 95.25) (xy 143.51 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7298064e-7edd-46f4-ae6b-e6579f467f90")
 	)
 	(wire
 		(pts
@@ -3106,33 +3298,23 @@
 	)
 	(wire
 		(pts
-			(xy 128.778 59.69) (xy 137.668 59.69)
+			(xy 149.86 100.33) (xy 149.86 125.73)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7d6e88eb-f8e9-4d3c-a6af-ff1bad329358")
+		(uuid "7e57b02c-a599-4aa7-97c2-af3bd00ac393")
 	)
 	(wire
 		(pts
-			(xy 137.668 43.18) (xy 137.668 46.99)
+			(xy 189.23 104.14) (xy 189.23 102.87)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "88a291f5-d68e-47c4-9000-3d7dae68cc34")
-	)
-	(wire
-		(pts
-			(xy 138.43 124.46) (xy 138.43 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "88f39c1f-15d4-45a2-83ca-9a40c2fecfe0")
+		(uuid "82a33f68-20cf-48ff-b381-1b7fc26ab260")
 	)
 	(wire
 		(pts
@@ -3146,6 +3328,16 @@
 	)
 	(wire
 		(pts
+			(xy 177.8 92.71) (xy 177.8 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e52f303-8b49-4da1-8479-04b54fa5e07d")
+	)
+	(wire
+		(pts
 			(xy 115.57 34.29) (xy 124.46 34.29)
 		)
 		(stroke
@@ -3156,23 +3348,13 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 100.33) (xy 148.59 102.87)
+			(xy 134.62 92.71) (xy 133.35 92.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9520cd57-db27-47c1-9715-a9db83fbff40")
-	)
-	(wire
-		(pts
-			(xy 118.11 95.25) (xy 118.11 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95e41314-cfe7-4f28-8e06-69639e114d3a")
+		(uuid "8ef21200-32bd-4b0f-af75-65ccfbebf87f")
 	)
 	(wire
 		(pts
@@ -3186,13 +3368,13 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 113.03) (xy 138.43 113.03)
+			(xy 142.24 92.71) (xy 147.32 92.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9b81cad7-8a50-4de9-8ea7-cb4254b78fc4")
+		(uuid "9ca08f53-d009-44e7-9c09-3828350bb347")
 	)
 	(wire
 		(pts
@@ -3236,6 +3418,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 95.25) (xy 177.8 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a74b25b0-2500-4559-b725-7ce8a6b82e5a")
+	)
+	(wire
+		(pts
 			(xy 58.42 74.93) (xy 63.5 74.93)
 		)
 		(stroke
@@ -3256,6 +3448,36 @@
 	)
 	(wire
 		(pts
+			(xy 156.21 100.33) (xy 149.86 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aec3eb63-853b-4c8c-bb49-ae41bffec7f8")
+	)
+	(wire
+		(pts
+			(xy 147.32 125.73) (xy 142.24 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aecd11cd-3f0d-44dd-98e8-e516b14e0fd3")
+	)
+	(wire
+		(pts
+			(xy 55.88 128.27) (xy 55.88 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afbe60c7-9cf0-4279-8e26-8be86663824b")
+	)
+	(wire
+		(pts
 			(xy 54.61 118.11) (xy 45.72 118.11)
 		)
 		(stroke
@@ -3263,16 +3485,6 @@
 			(type default)
 		)
 		(uuid "b2ecbb09-fea5-43f0-bc6b-7325a5f51c2d")
-	)
-	(wire
-		(pts
-			(xy 116.078 59.69) (xy 118.11 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b33dc84e-d6e8-419e-b70b-68241fe87670")
 	)
 	(wire
 		(pts
@@ -3296,23 +3508,43 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 129.54) (xy 142.24 129.54)
+			(xy 67.31 180.34) (xy 73.66 180.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bf644459-b84a-4c40-ba7d-974371bb2286")
+		(uuid "b886f23d-4064-4149-871a-6d58ba46005f")
 	)
 	(wire
 		(pts
-			(xy 160.782 129.54) (xy 160.782 134.62)
+			(xy 55.88 130.81) (xy 55.88 133.35)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bf817b5b-8258-461a-9458-4a691644340f")
+		(uuid "bc4e6774-58b7-4671-802b-f5449f7fec1b")
+	)
+	(wire
+		(pts
+			(xy 133.35 125.73) (xy 133.35 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2d5c165-ce4b-494b-b3f2-32fc53363e94")
+	)
+	(wire
+		(pts
+			(xy 147.32 83.82) (xy 147.32 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3a905e8-5c52-42e8-a3c6-e43513952c0b")
 	)
 	(wire
 		(pts
@@ -3326,7 +3558,17 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 180.34) (xy 60.96 180.34)
+			(xy 134.62 125.73) (xy 133.35 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca0d0f89-7a51-4c5f-b4a4-7020406b221d")
+	)
+	(wire
+		(pts
+			(xy 58.42 180.34) (xy 67.31 180.34)
 		)
 		(stroke
 			(width 0)
@@ -3346,73 +3588,53 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 129.54) (xy 118.872 129.54)
+			(xy 63.5 130.81) (xy 67.31 130.81)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ceb5941f-7bdc-48cd-b111-5eed9db40ffd")
+		(uuid "d445c5d5-7a64-4266-801f-72f0f316da8b")
 	)
 	(wire
 		(pts
-			(xy 125.73 59.69) (xy 128.778 59.69)
+			(xy 177.8 95.25) (xy 171.45 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cecfe402-a781-4684-a148-f7f09636fc32")
+		(uuid "e4a1d596-2e44-4c33-ae33-064b33253fb0")
 	)
 	(wire
 		(pts
-			(xy 129.54 113.03) (xy 129.54 114.3)
+			(xy 148.59 95.25) (xy 148.59 92.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d17ee9f6-ca8f-4ee7-bd8b-dfcbd94bd1f3")
+		(uuid "e4c43633-c503-4a4f-8bc8-6bb111203a56")
 	)
 	(wire
 		(pts
-			(xy 130.81 95.25) (xy 139.7 95.25)
+			(xy 189.23 95.25) (xy 186.69 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d39afcc9-1959-4f81-8123-0580371175f3")
+		(uuid "e4cbbd90-2ddf-4bdc-9c07-73885112c480")
 	)
 	(wire
 		(pts
-			(xy 130.81 78.74) (xy 139.7 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dab9f0b2-791e-441f-8c90-4fcdc7dc6d22")
-	)
-	(wire
-		(pts
-			(xy 43.18 80.01) (xy 63.5 80.01)
+			(xy 45.72 80.01) (xy 63.5 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "e61ec46a-fb28-43a8-b3fd-c9a80a3ed97a")
-	)
-	(wire
-		(pts
-			(xy 152.4 129.54) (xy 160.782 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e806729a-d1bb-4235-ad3d-93639cd08d19")
 	)
 	(wire
 		(pts
@@ -3423,16 +3645,6 @@
 			(type default)
 		)
 		(uuid "e880d98b-ec5b-4e94-9b08-25e3443df6ad")
-	)
-	(wire
-		(pts
-			(xy 151.638 59.69) (xy 160.02 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eb0e9a61-c34b-4659-93bf-5b6df19a0267")
 	)
 	(wire
 		(pts
@@ -3456,16 +3668,6 @@
 	)
 	(wire
 		(pts
-			(xy 130.81 78.74) (xy 130.81 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f210f0b1-e968-4ee0-b425-00cda9b86545")
-	)
-	(wire
-		(pts
 			(xy 58.42 77.47) (xy 63.5 77.47)
 		)
 		(stroke
@@ -3473,26 +3675,6 @@
 			(type default)
 		)
 		(uuid "f3c71492-5962-461c-a296-82d12d907be8")
-	)
-	(wire
-		(pts
-			(xy 139.7 90.17) (xy 139.7 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f47ed194-bcf0-4d7d-bf6a-a4763d45b681")
-	)
-	(wire
-		(pts
-			(xy 138.43 113.03) (xy 138.43 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fde9991e-7f38-4924-a931-e9e09ba05c26")
 	)
 	(wire
 		(pts
@@ -3534,15 +3716,15 @@
 		)
 		(uuid "4f0cbe8a-5f6a-4f9a-847c-20d6163f8612")
 	)
-	(label "PC13"
-		(at 118.11 95.25 180)
+	(label "PB10_ROTENC_BTN"
+		(at 193.04 95.25 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "6be46b61-eca1-496b-81ff-ffd61a5d12fd")
+		(uuid "50b6cb86-6f66-416e-a269-7de77e54f444")
 	)
 	(label "USART1_TX"
 		(at 45.72 74.93 180)
@@ -3564,15 +3746,15 @@
 		)
 		(uuid "7527633d-3c74-466f-8c8b-211c8dcc0de5")
 	)
-	(label "PC13"
-		(at 116.84 129.54 180)
+	(label "UCPD1_CC2"
+		(at 67.31 130.81 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "7ea158e9-2c86-4db9-889f-b58fdc49f7df")
+		(uuid "884c2ccf-ad75-4d24-8821-12faf88c184f")
 	)
 	(label "PD2"
 		(at 124.46 34.29 0)
@@ -3584,35 +3766,15 @@
 		)
 		(uuid "baa1ee13-6c64-4f27-801c-039b1ef246ae")
 	)
-	(label "PC15"
-		(at 97.79 116.84 180)
+	(label "UCPD1_CC1"
+		(at 67.31 128.27 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "c18538bf-827d-4c9e-8c59-bc2ba9c05423")
-	)
-	(label "PC14"
-		(at 97.79 91.44 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c8f165fa-bc4e-4cea-834f-36865d06cdcc")
-	)
-	(label "PC13"
-		(at 116.078 59.69 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d524c89f-c63f-48e6-89b1-601ee71a3a99")
+		(uuid "c2dbd4ae-2086-40d2-8f63-626cc8c7ac3e")
 	)
 	(label "OPAMP4_VINP"
 		(at 31.75 176.53 180)
@@ -3698,6 +3860,28 @@
 			)
 		)
 	)
+	(global_label "PC7_T8C2"
+		(shape input)
+		(at 129.54 125.73 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "740278ad-773f-4965-8178-7695b6b5c217")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 117.1811 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "I2C3_SCL"
 		(shape input)
 		(at 45.974 39.116 0)
@@ -3742,9 +3926,31 @@
 			)
 		)
 	)
+	(global_label "PC6_T8C1"
+		(shape input)
+		(at 129.54 92.71 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9f4a87d6-eff9-4fce-bc28-3beca3642ade")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 117.1811 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "VSENSE_VBUS"
 		(shape input)
-		(at 60.96 180.34 0)
+		(at 73.66 180.34 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3754,79 +3960,13 @@
 		)
 		(uuid "e22c1b6f-339c-4e05-aa8f-5a7d98ea65fb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 76.9475 180.34 0)
+			(at 89.6475 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 160.02 64.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "014c8b68-0d71-4c9a-9bbb-37b0489bd3a3")
-		(property "Reference" "#PWR0146"
-			(at 160.02 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 160.02 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 160.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 160.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 160.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4951683e-0fae-40dd-8d48-7ccca363e520")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0146")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -4019,540 +4159,6 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 73.66 45.72 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "049fb875-1dbb-45d0-b359-8b6564080ed8")
-		(property "Reference" "C56"
-			(at 72.644 43.942 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 73.406 48.006 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 72.6948 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 73.66 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 73.66 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "51392b74-d294-499e-a912-41d56d1da6e0")
-		)
-		(pin "2"
-			(uuid "96fd094d-97fa-41fe-bcdd-19565899c576")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "C56")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 25.4 76.2 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "06626b40-2cb4-4620-8a70-b442f24582cc")
-		(property "Reference" "#PWR090"
-			(at 25.4 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 25.4 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 25.4 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 25.4 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 25.4 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a8dc0ce1-cad1-4242-ac08-2e43f4426d09")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR090")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 43.18 80.01 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "07f6884a-939c-4fcd-9f61-66b6f28159c4")
-		(property "Reference" "#PWR088"
-			(at 43.18 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 43.18 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 43.18 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 43.18 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "231e83fa-1eee-42e7-8ed6-1bad9f3108a1")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR088")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 146.558 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "094fe49b-93ef-41f4-a8b6-dc3a3b359c3d")
-		(property "Reference" "#PWR0145"
-			(at 146.558 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 146.558 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 146.558 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 146.558 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 146.558 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5c466eb9-b614-4060-873a-d801e8ac9ca0")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0145")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 116.078 67.31 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0c04d045-ef07-41d4-8782-5926aa556c5e")
-		(property "Reference" "C82"
-			(at 119.888 65.278 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 122.428 64.77 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 115.1128 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 116.078 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 116.078 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dc3ab82b-e662-46b2-84c9-4f1817da02fe")
-		)
-		(pin "2"
-			(uuid "4d4eb011-34fa-4af1-8bf6-5193ec601ffd")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "C82")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 64.008 49.022 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0cd4cded-73c6-4d4a-b1f2-df5bbdbfc989")
-		(property "Reference" "#PWR085"
-			(at 64.008 55.372 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 66.04 52.832 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 64.008 49.022 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.008 49.022 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 64.008 49.022 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "642f5ab5-22e6-4db6-9516-8e68eabcbb21")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR085")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 128.778 43.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "11623999-e4fb-4c00-b976-ae9a27079b54")
-		(property "Reference" "#PWR0147"
-			(at 128.778 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 128.778 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 128.778 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 128.778 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 128.778 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5422be94-453a-417b-98ff-c474f654ed19")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0147")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 116.078 71.12 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "135d352b-3a16-47e5-91ac-db6320841e30")
-		(property "Reference" "#PWR0144"
-			(at 116.078 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 116.078 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 116.078 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.078 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 116.078 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "16a0327a-62e3-489d-b6fd-80cb6e5442b8")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0144")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
 		(at 25.4 80.01 0)
 		(mirror y)
 		(unit 1)
@@ -4622,17 +4228,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 73.66 41.91 0)
+		(lib_id "power:GND")
+		(at 171.45 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "1e27cf2f-d58b-4a7b-b154-dcffe2aa3940")
-		(property "Reference" "#PWR092"
-			(at 73.66 45.72 0)
+		(uuid "1bfddf42-83aa-470d-81f0-2ea9d3b70738")
+		(property "Reference" "#PWR0160"
+			(at 171.45 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4640,8 +4246,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 73.66 36.83 0)
+		(property "Value" "GND"
+			(at 171.45 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4649,7 +4255,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 73.66 41.91 0)
+			(at 171.45 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4658,7 +4264,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 73.66 41.91 0)
+			(at 171.45 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4666,8 +4272,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 73.66 41.91 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 171.45 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4676,12 +4282,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "478ca0ee-7dfd-4e22-9634-837f4d1ecfcf")
+			(uuid "a0a03a77-5493-42ad-9b3d-ce624bc286bb")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR092")
+					(reference "#PWR0160")
 					(unit 1)
 				)
 			)
@@ -4820,16 +4426,16 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 64.008 41.402 0)
+		(at 177.8 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "2641b261-feab-4958-b416-2ff2a59525b2")
-		(property "Reference" "#PWR084"
-			(at 64.008 45.212 0)
+		(uuid "2b26971d-4896-423e-9984-158fd0fab9db")
+		(property "Reference" "#PWR0161"
+			(at 177.8 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4838,7 +4444,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 64.008 36.322 0)
+			(at 177.8 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4846,7 +4452,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 64.008 41.402 0)
+			(at 177.8 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4855,7 +4461,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 64.008 41.402 0)
+			(at 177.8 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4864,7 +4470,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 64.008 41.402 0)
+			(at 177.8 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4873,81 +4479,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "592021c9-c11b-4db0-a153-00261c88c7dc")
+			(uuid "d703839d-7c1f-4165-8ad0-8ed05dde505b")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR084")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 116.84 137.16 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2739d95d-feaa-41c9-ad9b-a1d00f4c60e3")
-		(property "Reference" "C84"
-			(at 120.65 135.128 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 123.19 134.62 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 115.8748 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 116.84 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 116.84 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e1ca7524-e079-430f-b955-2f186757bbf2")
-		)
-		(pin "2"
-			(uuid "af55a915-c73f-4153-8138-6a4f4ad213c8")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "C84")
+					(reference "#PWR0161")
 					(unit 1)
 				)
 			)
@@ -4955,15 +4492,15 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 122.682 129.54 270)
+		(at 182.88 95.25 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "2d7f61f1-6012-4818-891a-220007a57f4f")
-		(property "Reference" "R47"
-			(at 119.888 125.476 90)
+		(uuid "336c5c2d-1eaf-4498-8ad6-d4fdcedebafa")
+		(property "Reference" "R51"
+			(at 180.848 91.186 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4971,8 +4508,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "330"
-			(at 119.888 127.254 90)
+		(property "Value" "33"
+			(at 181.356 93.218 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4981,7 +4518,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 122.682 127.762 90)
+			(at 182.88 93.472 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4990,7 +4527,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 122.682 129.54 0)
+			(at 182.88 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4999,7 +4536,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 122.682 129.54 0)
+			(at 182.88 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5008,49 +4545,48 @@
 			)
 		)
 		(pin "1"
-			(uuid "d112b7ad-d18b-4ff1-95c0-3a80dad263c8")
+			(uuid "989eb209-15b3-4dd1-a6f6-015f2d93c605")
 		)
 		(pin "2"
-			(uuid "4276b896-de47-4c60-8ab7-c45743da5215")
+			(uuid "cdfa85af-0e4b-4130-a00c-d1327481a000")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R47")
+					(reference "R51")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 128.778 48.26 0)
+		(lib_id "Device:RotaryEncoder_Switch_MP")
+		(at 163.83 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "380583df-34d0-4d79-9227-4088b899dd6d")
-		(property "Reference" "R42"
-			(at 123.444 48.006 0)
+		(fields_autoplaced yes)
+		(uuid "3873b6ac-b24c-4d72-bfde-a240967109c6")
+		(property "Reference" "SW4"
+			(at 163.83 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "1k"
-			(at 123.444 49.784 0)
+		(property "Value" "RotaryEncoder_Switch_MP"
+			(at 163.83 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 127 48.26 90)
+		(property "Footprint" "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_MountingHoles"
+			(at 160.02 93.726 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5059,7 +4595,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 128.778 48.26 0)
+			(at 163.83 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5067,8 +4603,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 128.778 48.26 0)
+		(property "Description" "Rotary encoder, dual channel, incremental quadrate outputs, with switch and MP Pin"
+			(at 163.83 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5076,85 +4612,28 @@
 				(hide yes)
 			)
 		)
-		(pin "1"
-			(uuid "fbfe0ad7-baa4-4636-ac7f-babb28f8b616")
+		(pin "S1"
+			(uuid "c8548495-7166-4b67-a2c1-8b5ac5650f6b")
 		)
-		(pin "2"
-			(uuid "a0d29679-4d5d-42ad-a281-be8aa2547e1a")
+		(pin "C"
+			(uuid "b5b7b3ff-3587-47b0-b0c9-0d280afd0894")
+		)
+		(pin "S2"
+			(uuid "be4aa609-b779-4109-8d8f-3585aaa88dee")
+		)
+		(pin "B"
+			(uuid "995c0411-6a3b-4513-bec5-42bb08534974")
+		)
+		(pin "A"
+			(uuid "38d0b9fb-2130-4998-ad09-45ce4d65a884")
+		)
+		(pin "MP"
+			(uuid "3ea485ef-2cd9-49d8-8a7e-4560909ec3fe")
 		)
 		(instances
-			(project "maglev2025_hardware_test2"
+			(project ""
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R42")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 121.92 59.69 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "38e772f6-b619-45b7-9157-3fd939c20fb6")
-		(property "Reference" "R41"
-			(at 119.126 55.626 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "330"
-			(at 119.126 57.404 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 121.92 57.912 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 121.92 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 121.92 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "40889043-b6c3-4645-b22e-00d7245e42da")
-		)
-		(pin "2"
-			(uuid "8d452a21-9580-4623-be75-cbac2f68e8b3")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R41")
+					(reference "SW4")
 					(unit 1)
 				)
 			)
@@ -5293,6 +4772,75 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 189.23 99.06 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "43717c22-ca59-4a7c-9bed-b707f213b611")
+		(property "Reference" "C85"
+			(at 193.548 97.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 194.564 101.346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 188.2648 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 189.23 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 189.23 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3e68a6b2-4369-4143-8325-5e26222eb4be")
+		)
+		(pin "2"
+			(uuid "13c3192a-55dc-4431-92f8-cf57585cf57d")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "C85")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 58.42 115.57 90)
 		(mirror x)
@@ -5355,6 +4903,143 @@
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
 					(reference "R28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 133.35 97.79 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4b46709d-74f7-43ef-86dd-31ece4db6b04")
+		(property "Reference" "C86"
+			(at 129.032 95.758 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 128.016 100.076 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 134.3152 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 133.35 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "50d28229-375a-47ad-9945-d586241e93b1")
+		)
+		(pin "2"
+			(uuid "cab009c3-31d0-4e67-8ecd-ff10523f1123")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "C86")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 147.32 82.55 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4ec05f3f-988e-4bac-a525-d4222dabffe0")
+		(property "Reference" "#PWR0163"
+			(at 147.32 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 147.32 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 147.32 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7f1aac36-53fb-48ff-a5c7-98e556fc4ae8")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR0163")
 					(unit 1)
 				)
 			)
@@ -5492,142 +5177,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 73.66 49.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5b0622f9-f22a-4847-81ba-b8cb6b06e2a7")
-		(property "Reference" "#PWR093"
-			(at 73.66 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 75.692 53.34 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 73.66 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 73.66 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 73.66 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f7c19019-d536-4284-9b43-047477c7ee09")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR093")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "SW_Push_MP_1")
-		(lib_id "0_RM2023:SW_Push_MP")
-		(at 146.558 59.69 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5b23e717-6bd8-4c6a-be53-1111373c07d6")
-		(property "Reference" "SW1"
-			(at 146.558 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "~"
-			(at 146.558 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "0_RM2023:Button_Hoz"
-			(at 146.558 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 146.558 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 146.558 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0241d955-dd16-40b3-b25b-4453dea0681e")
-		)
-		(pin "2"
-			(uuid "09ae7746-cd68-4fc6-842a-d298db4ea5d6")
-		)
-		(pin "3"
-			(uuid "249b69a1-68cf-4d18-a7c6-9a3f72be5476")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "SW1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 43.688 28.702 0)
 		(mirror x)
@@ -5696,17 +5245,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 64.008 45.212 0)
-		(mirror y)
+		(lib_id "Device:R")
+		(at 147.32 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "630ea6e1-03f3-4f5b-bd2a-dadde4dd7da7")
-		(property "Reference" "C54"
-			(at 62.992 43.434 0)
+		(uuid "6579ef75-b4e5-4694-8537-2f8154a1479c")
+		(property "Reference" "R52"
+			(at 141.986 87.376 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5714,8 +5262,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
-			(at 63.754 47.498 0)
+		(property "Value" "10k"
+			(at 141.986 89.154 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5723,8 +5271,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 63.0428 49.022 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 145.542 87.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5733,76 +5281,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 64.008 45.212 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 64.008 45.212 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6dd2623b-e6e6-47bb-9fa9-4b519e54b47e")
-		)
-		(pin "2"
-			(uuid "7fb890c1-2fb1-4545-bf2f-1e108f1bb184")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "C54")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 116.84 140.97 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "64e6e4b5-4a39-4529-91ca-f4065e165cb9")
-		(property "Reference" "#PWR0152"
-			(at 116.84 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 116.84 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 116.84 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 140.97 0)
+			(at 147.32 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5811,7 +5290,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 116.84 140.97 0)
+			(at 147.32 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5820,12 +5299,81 @@
 			)
 		)
 		(pin "1"
-			(uuid "f1bee05c-ff10-4e38-8e61-802bf35a9e5c")
+			(uuid "f5909c08-9cb0-4398-bd48-38ebb4c4d829")
+		)
+		(pin "2"
+			(uuid "8b1ca196-d95f-438c-aab7-a5d3595ac5a8")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0152")
+					(reference "R52")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 133.35 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "66096789-c1fe-4e46-9b44-9bebbc62ac04")
+		(property "Reference" "#PWR0164"
+			(at 133.35 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 133.35 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 133.35 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "33545a20-3252-4462-8453-cd87b0baab60")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR0164")
 					(unit 1)
 				)
 			)
@@ -5900,6 +5448,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 55.88 133.35 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "669894c1-f524-40fa-b185-e7b842aa2a58")
+		(property "Reference" "#PWR0144"
+			(at 55.88 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 59.182 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 55.88 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 55.88 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4d42c3cc-b4a2-43f9-90c8-e891be39b6b5")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR0144")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 41.402 36.576 90)
 		(mirror x)
@@ -5962,72 +5575,6 @@
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
 					(reference "R25")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 118.11 106.68 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6a7c9402-2003-467e-80a0-658fdec21ec4")
-		(property "Reference" "#PWR0148"
-			(at 118.11 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 118.11 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 118.11 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 118.11 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "134e1602-d80d-4669-8d1f-cbe5a9fbaa66")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0148")
 					(unit 1)
 				)
 			)
@@ -6176,17 +5723,33 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 160.782 134.62 0)
+		(lib_id "Device:R")
+		(at 59.69 130.81 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "78283c01-93c3-4337-bd37-bf46aa8dc087")
-		(property "Reference" "#PWR0155"
-			(at 160.782 140.97 0)
+		(uuid "6fbc1fb4-0b01-4ca1-bd03-dbad20ab0d83")
+		(property "Reference" "R42"
+			(at 54.864 129.794 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "5.1k"
+			(at 64.77 129.794 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 59.69 129.032 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6194,16 +5757,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 160.782 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 160.782 134.62 0)
+		(property "Datasheet" "~"
+			(at 59.69 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6211,17 +5766,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 160.782 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 160.782 134.62 0)
+		(property "Description" "Resistor"
+			(at 59.69 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6230,12 +5776,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "815af886-0bcd-4b6f-8d6f-03ca1fa783cd")
+			(uuid "f4a3186d-4667-4c3a-9188-cf628121f10c")
+		)
+		(pin "2"
+			(uuid "8cbef004-8916-46ae-a424-d48cdd6fae19")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0155")
+					(reference "R42")
 					(unit 1)
 				)
 			)
@@ -6378,215 +5927,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 137.668 50.8 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7f3b17e5-e84a-4b8a-898c-d76676586603")
-		(property "Reference" "R43"
-			(at 132.334 50.546 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 132.334 52.324 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 135.89 50.8 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 137.668 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 137.668 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c54c1226-b3a3-497b-bbca-4a2b32eb075e")
-		)
-		(pin "2"
-			(uuid "cc4bda44-4ed2-48c0-bd97-32dfbde1024b")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R43")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 138.43 120.65 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "822dd6ef-233f-4d96-afd3-8159f11a13d9")
-		(property "Reference" "R49"
-			(at 133.096 120.396 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 133.096 122.174 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 136.652 120.65 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 138.43 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 138.43 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "340d364c-2965-43bf-bc76-759e717f597f")
-		)
-		(pin "2"
-			(uuid "a2428329-731c-43e2-a877-1a8ec8393ff1")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R49")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "SW_Push_MP_1")
-		(lib_id "0_RM2023:SW_Push_MP")
-		(at 147.32 129.54 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "840925dc-21df-443b-9bf8-53fb15204ed2")
-		(property "Reference" "SW3"
-			(at 147.32 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "~"
-			(at 147.32 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "0_RM2023:Button_Hoz"
-			(at 147.32 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3b73f2c1-e5bf-4a63-b083-de5b7cf4e356")
-		)
-		(pin "2"
-			(uuid "fa685587-49c4-402b-8084-a28adddfe5ab")
-		)
-		(pin "3"
-			(uuid "b2289f5b-f3a0-48f3-903a-88da5e347e47")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "SW3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 50.8 82.55 0)
 		(unit 1)
@@ -6646,75 +5986,6 @@
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
 					(reference "#PWR089")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 118.11 102.87 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "850baa21-ee65-44b2-adea-3b73bcdd33fa")
-		(property "Reference" "C83"
-			(at 121.92 100.838 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 124.46 100.33 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 117.1448 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 118.11 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 118.11 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f1787c5c-7f83-4194-96c9-6ef09cefc6b8")
-		)
-		(pin "2"
-			(uuid "14005c6a-16c9-4f17-96b5-67116f8d3e39")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "C83")
 					(unit 1)
 				)
 			)
@@ -6855,342 +6126,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 148.59 102.87 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "88c55099-3920-4e63-a48b-f0c4c59de62a")
-		(property "Reference" "#PWR0150"
-			(at 148.59 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 148.59 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 148.59 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 148.59 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 148.59 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a2f2b17a-f73f-4c3f-988b-32eaf333c240")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0150")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 130.81 78.74 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "89f360ff-1cd7-4054-a31a-b561a29e5822")
-		(property "Reference" "#PWR0149"
-			(at 130.81 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 130.81 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 130.81 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 130.81 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 130.81 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d3be4843-c9cf-4ef7-901e-7fd7391d4e21")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0149")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 123.952 95.25 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8c2de69d-e447-4353-8c8d-9e6deaaac346")
-		(property "Reference" "R44"
-			(at 121.158 91.186 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "330"
-			(at 121.158 92.964 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 123.952 93.472 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 123.952 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 123.952 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9f0738d7-64c7-46a7-b610-da92f314b17c")
-		)
-		(pin "2"
-			(uuid "4686a7c5-fafa-4d78-9014-056c7c863e31")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R44")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 129.54 113.03 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8dc9d73d-7972-43e3-a44f-2c703be49cd5")
-		(property "Reference" "#PWR0153"
-			(at 129.54 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 129.54 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 129.54 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 129.54 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 129.54 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8561c91f-51d9-4129-b9c2-24ce11d4fba3")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0153")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 129.54 125.73 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "96050dc5-e0be-4f3b-b4f2-afb0156faedc")
-		(property "Reference" "D31"
-			(at 133.35 126.6825 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 129.54 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 129.54 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 129.54 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 129.54 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6f7772d2-9ec2-4dba-96ef-2addefe2b141")
-		)
-		(pin "2"
-			(uuid "9dba134b-7637-4c7a-9346-8d6d1b68e8c2")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "D31")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 54.61 74.93 90)
 		(mirror x)
@@ -7259,33 +6194,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 68.58 110.49 180)
+		(lib_id "Device:C")
+		(at 67.31 184.15 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9761726b-7bbb-4589-8586-cf349255b32e")
-		(property "Reference" "D4"
-			(at 68.8975 104.14 0)
+		(uuid "9b093c1b-edb5-4703-8bf6-ee6e42952d18")
+		(property "Reference" "C88"
+			(at 62.992 182.118 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "DSS34"
-			(at 68.8975 106.68 0)
+		(property "Value" "100n"
+			(at 61.976 186.436 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 68.58 110.49 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 68.2752 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7294,75 +6231,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 68.58 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Schottky diode"
-			(at 68.58 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3e8387b0-3dcf-4dbc-ae3f-a88d2446f354")
-		)
-		(pin "2"
-			(uuid "068f6670-4226-4a8b-a44e-828ecb701a1b")
-		)
-		(instances
-			(project ""
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "SW_Push_MP_1")
-		(lib_id "0_RM2023:SW_Push_MP")
-		(at 148.59 95.25 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9b34faec-715e-44c4-940a-fad2073c3ed8")
-		(property "Reference" "SW2"
-			(at 148.59 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "~"
-			(at 148.59 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "0_RM2023:Button_Hoz"
-			(at 148.59 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 148.59 95.25 0)
+			(at 67.31 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7371,7 +6240,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 148.59 95.25 0)
+			(at 67.31 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7380,18 +6249,154 @@
 			)
 		)
 		(pin "1"
-			(uuid "0d5cddbd-de6b-4ef6-a06f-8bf66a78effa")
+			(uuid "648823e9-e16a-4836-a4a3-e5bd63c5c40e")
 		)
 		(pin "2"
-			(uuid "256b8025-4c7f-4e8d-9dc0-ba79d2e4feed")
-		)
-		(pin "3"
-			(uuid "ed15339d-bb06-47e6-80e5-7f6659ab6bbe")
+			(uuid "11a5a024-d6a8-4911-8bf2-0032ff7b356d")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "SW2")
+					(reference "C88")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 147.32 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9cf66e00-89f6-452c-99a7-c30fe90a8b51")
+		(property "Reference" "R55"
+			(at 141.986 119.126 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 141.986 120.904 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 145.542 119.38 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 147.32 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 147.32 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6fccf0ae-d6ec-49b0-9fe0-a8746e4a1262")
+		)
+		(pin "2"
+			(uuid "4b51551f-1e2a-4a44-a67a-a43d90aa4c49")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "R55")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 138.43 125.73 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a2c4a5da-7dd0-4a57-8311-53a5f7af777b")
+		(property "Reference" "R54"
+			(at 140.462 121.666 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "33"
+			(at 139.954 123.698 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 138.43 123.952 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 138.43 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 138.43 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d9e3f0e4-51bd-47d7-b672-47897ff787a7")
+		)
+		(pin "2"
+			(uuid "313e16d2-644a-4255-9047-4c1f2d8820d9")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "R54")
 					(unit 1)
 				)
 			)
@@ -7603,6 +6608,141 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 59.69 128.27 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b96f4d14-95dd-4ef4-af7c-65e0b84200ec")
+		(property "Reference" "R41"
+			(at 54.864 127.254 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "5.1k"
+			(at 64.77 126.492 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 59.69 126.492 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 59.69 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 59.69 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e56a541c-9626-475a-b0da-d3cf3eba44c9")
+		)
+		(pin "2"
+			(uuid "1f9f5089-ce4f-42a4-a6fb-13a04fb5a80c")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "R41")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 45.72 80.01 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bbe82c92-adda-4b6c-8f57-c52f42e973bf")
+		(property "Reference" "#PWR088"
+			(at 49.53 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 41.91 80.0099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 45.72 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "78ac33e9-f586-4d77-aa38-812327c63442")
+		)
+		(instances
+			(project ""
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR088")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_US")
 		(at 38.1 176.53 90)
 		(unit 1)
@@ -7739,16 +6879,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 162.052 100.33 0)
+		(at 189.23 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c879eef6-ee21-40a2-8199-2177563d8a85")
-		(property "Reference" "#PWR0151"
-			(at 162.052 106.68 0)
+		(uuid "cc642b9b-3a0f-4a9b-ad39-e9d751185f24")
+		(property "Reference" "#PWR0162"
+			(at 189.23 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7757,7 +6897,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 162.052 105.41 0)
+			(at 189.23 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7765,7 +6905,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 162.052 100.33 0)
+			(at 189.23 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7774,7 +6914,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 162.052 100.33 0)
+			(at 189.23 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7782,8 +6922,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 162.052 100.33 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 189.23 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7792,46 +6932,46 @@
 			)
 		)
 		(pin "1"
-			(uuid "5c5945a2-b549-4c46-a9f6-837f0efa2c29")
+			(uuid "6c70444d-4207-4d3e-87a2-156e9ad9112d")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0151")
+					(reference "#PWR0162")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 139.7 86.36 0)
+		(lib_id "Device:D")
+		(at 68.58 110.49 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "cfc19dee-975b-402d-8aa4-2ef7bdec69ef")
-		(property "Reference" "R46"
-			(at 134.366 86.106 0)
+		(fields_autoplaced yes)
+		(uuid "cf48fafb-8176-4319-9ee1-69b2e0b504c1")
+		(property "Reference" "D4"
+			(at 68.58 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "10k"
-			(at 134.366 87.884 0)
+		(property "Value" "DK5V45R10"
+			(at 68.58 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.922 86.36 90)
+		(property "Footprint" "Diode_SMD:D_PowerDI-5"
+			(at 68.58 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7840,7 +6980,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 139.7 86.36 0)
+			(at 68.58 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7848,8 +6988,26 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 139.7 86.36 0)
+		(property "Description" "Diode"
+			(at 68.58 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 68.58 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 68.58 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7858,31 +7016,99 @@
 			)
 		)
 		(pin "1"
-			(uuid "0cc33cd7-b85b-4a1f-a37d-0e9dc832d9c0")
+			(uuid "0d9b7579-7db7-4fbf-b8c2-98cff230dc56")
 		)
 		(pin "2"
-			(uuid "5b57881d-2e3d-414f-b3d6-20a94e2560ce")
+			(uuid "43913ae5-9a42-4ca1-a2f7-d89198496883")
 		)
 		(instances
-			(project "maglev2025_hardware_test2"
+			(project ""
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R46")
+					(reference "D4")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 130.81 83.82 0)
+		(lib_id "power:+3.3V")
+		(at 147.32 115.57 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d0357eaf-92ec-4145-88d9-7c7f2a883405")
-		(property "Reference" "R45"
-			(at 125.476 83.566 0)
+		(fields_autoplaced yes)
+		(uuid "d68227ae-4549-4ac0-ab43-f4a60f90139c")
+		(property "Reference" "#PWR0165"
+			(at 147.32 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 147.32 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 147.32 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "81d8cc6d-b175-49cf-8555-64d54fdfbf37")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR0165")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 133.35 130.81 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d6c62c5a-9004-43bb-a39e-ab61226ec121")
+		(property "Reference" "C87"
+			(at 129.032 128.778 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7890,8 +7116,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1k"
-			(at 125.476 85.344 0)
+		(property "Value" "100n"
+			(at 128.016 133.096 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7899,8 +7125,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 129.032 83.82 90)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 134.3152 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7909,7 +7135,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 130.81 83.82 0)
+			(at 133.35 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7918,7 +7144,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 130.81 83.82 0)
+			(at 133.35 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7927,49 +7153,32 @@
 			)
 		)
 		(pin "1"
-			(uuid "23e6695d-d654-4b73-8a47-73bdfcf19a2d")
+			(uuid "7fb069fc-b4ef-497a-8b7c-35c5d7e00886")
 		)
 		(pin "2"
-			(uuid "eebda2ba-6ceb-49e6-81a4-eccf7eaab0b4")
+			(uuid "11519a05-5a5c-426f-b99b-dfc9ebc7a8b0")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R45")
+					(reference "C87")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 129.54 118.11 0)
+		(lib_id "power:GND")
+		(at 133.35 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d757c893-5afa-4368-87cc-34d2f1bd303b")
-		(property "Reference" "R48"
-			(at 124.206 117.856 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1k"
-			(at 124.206 119.634 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 127.762 118.11 90)
+		(fields_autoplaced yes)
+		(uuid "d7ba9c20-65ee-4d71-b2c8-6a3dbade7953")
+		(property "Reference" "#PWR0166"
+			(at 133.35 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7977,8 +7186,16 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 129.54 118.11 0)
+		(property "Value" "GND"
+			(at 133.35 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7986,8 +7203,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 129.54 118.11 0)
+		(property "Datasheet" ""
+			(at 133.35 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 133.35 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7996,15 +7222,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "1201e48d-ac39-40d8-896f-d1f9a3baaf49")
-		)
-		(pin "2"
-			(uuid "892a0508-5bde-41c3-99c1-af07a7e82bfc")
+			(uuid "39c80804-3ba3-468c-a9b8-9f08e25597e1")
 		)
 		(instances
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "R48")
+					(reference "#PWR0166")
 					(unit 1)
 				)
 			)
@@ -8071,72 +7294,6 @@
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
 					(reference "#PWR086")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 137.16 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d9cd154d-f840-4594-beff-bc72cc279e24")
-		(property "Reference" "#PWR0154"
-			(at 147.32 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f1ac1aac-9914-45db-a9f7-3bc64dfd4a4a")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "#PWR0154")
 					(unit 1)
 				)
 			)
@@ -8408,6 +7565,213 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 177.8 88.9 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e61bdd0e-98e3-4f4d-8512-5fd63393f889")
+		(property "Reference" "R50"
+			(at 183.134 88.646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 183.134 90.424 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 179.578 88.9 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 177.8 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 177.8 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5f34359e-47c7-4d6c-acb6-3034e1aeb73c")
+		)
+		(pin "2"
+			(uuid "54b04f82-7b3a-4161-9476-8dfda56c145c")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "R50")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 25.4 74.93 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ec7407f4-9d5f-461b-913d-d8cbe09dadc1")
+		(property "Reference" "#PWR090"
+			(at 29.21 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 21.59 74.9299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 25.4 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 25.4 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 25.4 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f9929f9c-7bbe-4423-a081-9997bb1e8d0c")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR090")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 138.43 92.71 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ec827c1b-8802-4d7e-b3fe-7f5b5d1bf226")
+		(property "Reference" "R53"
+			(at 140.462 88.646 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "33"
+			(at 139.954 90.678 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 138.43 90.932 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 138.43 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 138.43 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "02b9319e-a984-4f5f-aa99-af16c1ea4abf")
+		)
+		(pin "2"
+			(uuid "7470c083-e942-4aba-add5-fa61c483cdcc")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "R53")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic_MountingPin:Conn_01x04_MountingPin")
 		(at 68.58 77.47 0)
 		(unit 1)
@@ -8619,75 +7983,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED")
-		(at 128.778 55.88 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f30dad6c-a6bb-450e-a303-0a004ebbe45e")
-		(property "Reference" "D29"
-			(at 132.588 56.8325 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 128.778 59.69 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 128.778 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 128.778 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 128.778 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "22dcb22c-b01c-455d-b5ed-fb2f5ccb06a8")
-		)
-		(pin "2"
-			(uuid "4bcc7d72-3a62-4036-a77d-7c57286592f5")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "D29")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 111.76 34.29 270)
 		(mirror x)
@@ -8756,6 +8051,139 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 163.83 105.41 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f3c29bef-bc7a-42e0-92c5-e312dee7203c")
+		(property "Reference" "#PWR0158"
+			(at 163.83 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 163.83 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 163.83 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 163.83 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 163.83 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "99a4d44a-e979-47aa-b03d-c13512a8f242")
+		)
+		(instances
+			(project ""
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR0158")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 156.21 97.79 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f80e1ee0-510a-431a-862d-9b61a214f5d4")
+		(property "Reference" "#PWR0159"
+			(at 149.86 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 152.4 97.7899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 156.21 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 156.21 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 156.21 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "48e064f8-bb45-405f-bc5f-bb2d9a24ae95")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
+					(reference "#PWR0159")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 111.76 29.21 270)
 		(mirror x)
@@ -8818,75 +8246,6 @@
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
 					(reference "R39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 130.81 91.44 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fbe3e119-a7ab-4401-8588-eb399aca40e3")
-		(property "Reference" "D30"
-			(at 134.62 92.3925 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 130.81 95.25 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 130.81 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 130.81 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 130.81 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "de0d6bd2-c01c-490e-87b4-940dfef6da30")
-		)
-		(pin "2"
-			(uuid "f331c1a6-8bbf-4c5e-9dfe-924d984952aa")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338/bc0ef664-c546-4d21-b2fa-3f14a02345a5"
-					(reference "D30")
 					(unit 1)
 				)
 			)
