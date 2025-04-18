@@ -16720,7 +16720,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "0_RM2024:MLT-9032"
+		(property "Footprint" "RM25:MLT-9032"
 			(at 99.695 176.53 90)
 			(effects
 				(font
@@ -27320,7 +27320,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 204.47 166.37 0)
 			(effects
 				(font
