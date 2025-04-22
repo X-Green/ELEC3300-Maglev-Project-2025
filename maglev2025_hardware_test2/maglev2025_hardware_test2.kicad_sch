@@ -14506,28 +14506,6 @@
 			)
 		)
 	)
-	(global_label "ISENSE_B_MCU"
-		(shape input)
-		(at 93.98 38.1 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "117736f2-08ef-48d7-b4cb-d0c346cb1954")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 110.8746 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PC6_T8C1"
 		(shape input)
 		(at 52.07 76.2 180)
@@ -14770,28 +14748,6 @@
 			)
 		)
 	)
-	(global_label "ISENSE_D_MCU"
-		(shape input)
-		(at 52.07 66.04 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "3e69663e-8ae8-45d3-9930-35f02269fd6f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 35.1754 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PC6_T8C1"
 		(shape input)
 		(at 187.96 -246.38 180)
@@ -14893,6 +14849,28 @@
 		(uuid "556e221a-9617-4297-a91b-3b87e4d4f6b3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 118.2528 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ISENSE_D_MCU"
+		(shape input)
+		(at 93.98 40.64 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "589febd1-1ece-4b95-8481-34778d25e744")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 110.8746 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15052,6 +15030,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ISENSE_C_MCU"
+		(shape input)
+		(at 93.98 38.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6d0d27d8-3382-4aa5-8fde-be20b6b22a66")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 110.8746 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -15516,6 +15516,28 @@
 			)
 		)
 	)
+	(global_label "ISENSE_B_MCU"
+		(shape input)
+		(at 52.07 68.58 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b6edde43-6b2e-4f04-bd20-bb72faa3282b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 35.1754 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "~{MAG_ALRT}"
 		(shape input)
 		(at 55.88 175.26 0)
@@ -15604,9 +15626,9 @@
 			)
 		)
 	)
-	(global_label "ISENSE_C_MCU"
+	(global_label "ISENSE_A_MCU"
 		(shape input)
-		(at 52.07 68.58 180)
+		(at 52.07 66.04 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15614,9 +15636,9 @@
 			)
 			(justify right)
 		)
-		(uuid "d37aafc3-0f7e-41d2-ac9b-fff04ac37ea2")
+		(uuid "d20b4a0a-63bc-4ff9-92e8-3852e8c21016")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 35.1754 68.58 0)
+			(at 35.3568 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15703,28 +15725,6 @@
 		(uuid "d8fce71e-b2ee-4aef-8faa-54314f9c080e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 357.3151 199.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "ISENSE_A_MCU"
-		(shape input)
-		(at 93.98 40.64 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "dba5e694-9dde-4c9e-a81e-a97461481796")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 110.6932 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
