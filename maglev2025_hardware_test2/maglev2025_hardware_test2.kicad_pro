@@ -58,7 +58,28 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "clearance|102800000|100850000|5494a4d2-9398-436d-a0bc-fa019db1f820|2c8aea86-68c8-469d-8724-db454fd89133",
+          ""
+        ],
+        [
+          "clearance|102800000|99550000|2d6ad53a-1aab-42d3-9f7c-4d62c15a4805|44f81dba-ff95-494b-a1b9-20dd21eea1f9",
+          ""
+        ],
+        [
+          "clearance|98575000|100450000|3c771526-8eea-4b4a-a67d-c85e51db972f|154865c1-07df-407f-befe-4b4ebc68bf8e",
+          ""
+        ],
+        [
+          "clearance|98575000|99150000|8de98471-aef2-4573-9965-96d364afa0dd|c2cb32e4-77b0-42fe-b65e-c6426dec05ec",
+          ""
+        ],
+        [
+          "clearance|98575000|99800000|c2cb32e4-77b0-42fe-b65e-c6426dec05ec|3c771526-8eea-4b4a-a67d-c85e51db972f",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },

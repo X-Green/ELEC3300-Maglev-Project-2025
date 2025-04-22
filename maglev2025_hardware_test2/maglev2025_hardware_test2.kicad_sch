@@ -9089,6 +9089,12 @@
 		(uuid "356f0574-01fe-43d0-99cd-60ea149f729c")
 	)
 	(junction
+		(at 78.486 -118.9658)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "379b1e68-8505-45ee-aadc-655f39cde55f")
+	)
+	(junction
 		(at 48.26 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -9879,6 +9885,16 @@
 			(type default)
 		)
 		(uuid "082add89-1a51-4951-84e1-5bd29243858e")
+	)
+	(wire
+		(pts
+			(xy 78.486 -118.9658) (xy 78.486 -117.856)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "085ab4f2-fa15-4a28-8c27-916d06740592")
 	)
 	(wire
 		(pts
@@ -12102,7 +12118,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.486 -119.126) (xy 78.486 -117.856)
+			(xy 78.486 -119.126) (xy 78.486 -118.9658)
 		)
 		(stroke
 			(width 0)
@@ -22027,6 +22043,72 @@
 			(project "maglev2025_hardware_test1"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "#PWR046")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 98.806 -114.046 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "43cdf7a6-bb08-4c29-ac90-7dc97fe4fb7d")
+		(property "Reference" "#PWR085"
+			(at 98.806 -110.236 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V_BLINK"
+			(at 98.806 -119.126 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 98.806 -114.046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 98.806 -114.046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 98.806 -114.046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6d8ac060-ed3e-47f5-b869-7d02948f5fe6")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR085")
 					(unit 1)
 				)
 			)
@@ -32559,73 +32641,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 98.806 -114.046 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bbe82c92-adda-4b6c-8f57-c52f42e973bf")
-		(property "Reference" "#PWR088"
-			(at 102.616 -114.046 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 94.996 -114.0461 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 98.806 -114.046 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 98.806 -114.046 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 98.806 -114.046 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "78ac33e9-f586-4d77-aa38-812327c63442")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR088")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 377.19 125.73 0)
 		(unit 1)
@@ -36175,6 +36190,72 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
+		(at 78.486 -118.9658 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e208cf2d-2dd2-4b65-80ef-77ab23b1d792")
+		(property "Reference" "#PWR084"
+			(at 78.486 -115.1558 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V_BLINK"
+			(at 78.486 -124.0458 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.486 -118.9658 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.486 -118.9658 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 78.486 -118.9658 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "40500eae-4dd7-4c3e-be6f-6c3ee0a7397b")
+		)
+		(instances
+			(project "maglev2025_hardware_test2"
+				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
+					(reference "#PWR084")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
 		(at 251.46 267.97 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -37153,73 +37234,6 @@
 			(project "maglev2025_hardware_test2"
 				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
 					(reference "#PWR0149")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 78.486 -119.126 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ec7407f4-9d5f-461b-913d-d8cbe09dadc1")
-		(property "Reference" "#PWR090"
-			(at 82.296 -119.126 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 74.676 -119.1261 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 78.486 -119.126 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 78.486 -119.126 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 78.486 -119.126 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f9929f9c-7bbe-4423-a081-9997bb1e8d0c")
-		)
-		(instances
-			(project "maglev2025_hardware_test2"
-				(path "/0d07820d-bdd1-4a97-9f99-c901fa8e1338"
-					(reference "#PWR090")
 					(unit 1)
 				)
 			)
