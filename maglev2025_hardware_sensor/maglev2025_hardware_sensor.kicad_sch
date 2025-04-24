@@ -1130,12 +1130,6 @@
 		)
 	)
 	(junction
-		(at 33.02 62.23)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0ecff16c-3fa9-410a-bd1d-9e37d4649be6")
-	)
-	(junction
 		(at 67.31 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1158,16 +1152,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ad63b38f-06d0-4a33-a4cc-afdc943b819c")
-	)
-	(wire
-		(pts
-			(xy 33.02 67.31) (xy 33.02 62.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1971446d-a780-49d7-b604-0152a4c25063")
 	)
 	(wire
 		(pts
@@ -1221,13 +1205,13 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 62.23) (xy 33.02 57.15)
+			(xy 44.45 91.44) (xy 30.48 91.44)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6528c082-5427-4e14-a062-76f905874d81")
+		(uuid "66e90eac-9465-4454-bb95-59913dccc544")
 	)
 	(wire
 		(pts
@@ -1238,6 +1222,16 @@
 			(type default)
 		)
 		(uuid "7188f5a9-1fac-4bb9-ba6b-e8110fac8153")
+	)
+	(wire
+		(pts
+			(xy 33.02 88.9) (xy 30.48 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "736a62a3-eb2c-4d32-be6a-4b35bb1d2537")
 	)
 	(wire
 		(pts
@@ -1261,6 +1255,36 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 78.74) (xy 33.02 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "95676842-2484-4753-9cff-c3e620f3171c")
+	)
+	(wire
+		(pts
+			(xy 30.48 114.3) (xy 30.48 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96b8d411-0686-480e-a00b-ba54204ef07e")
+	)
+	(wire
+		(pts
+			(xy 33.02 78.74) (xy 33.02 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a6616e9-c778-444d-bd5f-0a32874a2835")
+	)
+	(wire
+		(pts
 			(xy 74.93 22.86) (xy 81.28 22.86)
 		)
 		(stroke
@@ -1271,23 +1295,13 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 62.23) (xy 38.1 62.23)
+			(xy 30.48 109.22) (xy 25.4 109.22)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "aa842b36-f677-4a34-9dac-3ad96c904a99")
-	)
-	(wire
-		(pts
-			(xy 20.32 54.61) (xy 33.02 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d2b5dba0-a58a-437a-bf16-2bbbe88d52ef")
+		(uuid "c7971c7e-58ae-41a1-b464-eff881595d61")
 	)
 	(wire
 		(pts
@@ -1299,24 +1313,90 @@
 		)
 		(uuid "da51c8b2-f67b-4eef-9c26-8ee10a589d06")
 	)
-	(global_label "SPI1_SCK"
+	(global_label "SPI1_MOSI"
 		(shape input)
-		(at 33.02 41.91 180)
+		(at 30.48 104.14 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "060b7286-8dc3-445c-b3e4-2586452ad172")
+		(uuid "0e16e7bd-5e96-4c49-9c6f-ec1b898f0abb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.0239 41.91 0)
+			(at 43.3228 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SPI1_MISO"
+		(shape input)
+		(at 30.48 101.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "26aa52d4-e968-4a33-8ea5-91b9885c9fff")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 43.3228 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "~{MAG_CS}"
+		(shape input)
+		(at 30.48 93.98 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "41c90ce2-a653-4e06-8e03-15728183d3d9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 40.7223 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "~{MAG_ALRT}"
+		(shape input)
+		(at 30.48 96.52 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "525fd4f0-1d54-4762-9919-e266c979375b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 42.5971 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -1334,28 +1414,6 @@
 		(uuid "5b90f080-da03-4dd2-88a9-478b86c5f1fc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 57.0677 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SPI1_MOSI"
-		(shape input)
-		(at 33.02 44.45 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9ee08cd8-04e2-418f-a54b-a0ccaaea9351")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 20.1772 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1387,6 +1445,28 @@
 			)
 		)
 	)
+	(global_label "SPI1_SCK"
+		(shape input)
+		(at 30.48 99.06 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a558efd7-844a-4d8a-8981-94d341b93122")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 42.4761 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "SPI1_MOSI"
 		(shape input)
 		(at 67.31 38.1 180)
@@ -1400,28 +1480,6 @@
 		(uuid "ca52930c-038e-4d1b-83ad-e84a097fbb03")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 54.4672 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "~{MAG_ALRT}"
-		(shape input)
-		(at 33.02 52.07 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "d7a42746-25d0-42ad-baac-434c762197c9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 20.9029 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1455,50 +1513,6 @@
 	)
 	(global_label "SPI1_MISO"
 		(shape input)
-		(at 33.02 46.99 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "e7f4eab3-292e-4880-9aa5-413c3548fa57")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 20.1772 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "~{MAG_CS}"
-		(shape input)
-		(at 33.02 49.53 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ea28ff3a-f622-49db-b800-64df42227e7a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 22.7777 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SPI1_MISO"
-		(shape input)
 		(at 67.31 40.64 180)
 		(fields_autoplaced yes)
 		(effects
@@ -1516,72 +1530,6 @@
 				)
 				(justify right)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 33.02 67.31 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "02f199d2-1af6-4b33-ae33-cccb0e3bb39a")
-		(property "Reference" "#PWR034"
-			(at 33.02 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 33.02 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 33.02 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 33.02 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 33.02 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2761f62e-56b6-4100-9568-a84e5fec9152")
-		)
-		(instances
-			(project "maglev2025_hardware_sensor"
-				(path "/be85a8c0-a0c6-4a57-a11a-11a95d92b740"
-					(reference "#PWR034")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -1784,17 +1732,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 20.32 54.61 0)
+		(lib_id "power:GND")
+		(at 30.48 114.3 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "51c3c98c-4a2a-4e31-829f-6038256b5d4d")
-		(property "Reference" "#PWR032"
-			(at 20.32 58.42 0)
+		(uuid "24a05ac0-b08b-411e-b35c-7277adf465a8")
+		(property "Reference" "#PWR039"
+			(at 30.48 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1802,8 +1750,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 20.32 49.53 0)
+		(property "Value" "GND"
+			(at 30.48 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1811,7 +1759,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 20.32 54.61 0)
+			(at 30.48 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1820,7 +1768,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 20.32 54.61 0)
+			(at 30.48 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1828,8 +1776,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 20.32 54.61 0)
+		(property "Description" ""
+			(at 30.48 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1838,12 +1786,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "7af9bbd5-ab02-4bc0-82c0-7d5ac3cbe5e7")
+			(uuid "4dc3d82b-f44b-4764-b215-dcf051ef0ead")
 		)
 		(instances
 			(project "maglev2025_hardware_sensor"
 				(path "/be85a8c0-a0c6-4a57-a11a-11a95d92b740"
-					(reference "#PWR032")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -2006,35 +1954,18 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic_MountingPin:Conn_01x07_MountingPin")
-		(at 38.1 49.53 0)
+		(lib_id "power:+3.3V")
+		(at 44.45 91.44 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "89acd1ce-1aee-42c4-bdef-e9fa64437db0")
-		(property "Reference" "J8"
-			(at 41.91 48.6155 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x07_MountingPin"
-			(at 41.91 51.1555 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_GH_SM07B-GHS-TB_1x07-1MP_P1.25mm_Horizontal"
-			(at 38.1 49.53 0)
+		(uuid "7f1fcfff-1f76-4c88-a96f-b38f29df2ea3")
+		(property "Reference" "#PWR033"
+			(at 44.45 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2042,8 +1973,16 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 38.1 49.53 0)
+		(property "Value" "+3.3V"
+			(at 44.45 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2051,8 +1990,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic connectable mounting pin connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 38.1 49.53 0)
+		(property "Datasheet" ""
+			(at 44.45 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 44.45 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2061,33 +2009,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "538c9e40-3d86-4a35-903b-9310bff97890")
-		)
-		(pin "2"
-			(uuid "3b4639ba-18d0-4d5e-bb62-17f6583cee88")
-		)
-		(pin "3"
-			(uuid "e0bf9307-67e6-4789-8b84-d5a8caca72cd")
-		)
-		(pin "4"
-			(uuid "664449a4-d69a-41d7-95bc-8c3a1e706222")
-		)
-		(pin "5"
-			(uuid "67d4a968-57cc-4fad-aad2-82c9a743c59b")
-		)
-		(pin "6"
-			(uuid "cbb48bc7-3e73-4c2e-b05e-544980fcd575")
-		)
-		(pin "7"
-			(uuid "5e1ad8e1-9466-4197-887e-27114359f87a")
-		)
-		(pin "MP"
-			(uuid "ae6ed15a-a6b0-495c-a020-d123e677574f")
+			(uuid "f125e4f1-a08b-465c-b0fa-974854cf82cf")
 		)
 		(instances
 			(project "maglev2025_hardware_sensor"
 				(path "/be85a8c0-a0c6-4a57-a11a-11a95d92b740"
-					(reference "J8")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -2359,6 +2286,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 44.45 78.74 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b542750d-f942-4162-96a3-2185ddfb5b0d")
+		(property "Reference" "#PWR040"
+			(at 44.45 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 44.45 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 44.45 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5d567f44-2e7b-4c2c-9f95-fa86f2df1922")
+		)
+		(instances
+			(project "maglev2025_hardware_sensor"
+				(path "/be85a8c0-a0c6-4a57-a11a-11a95d92b740"
+					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 74.93 26.67 0)
 		(unit 1)
@@ -2622,6 +2615,94 @@
 			(project "maglev2025_hardware_sensor"
 				(path "/be85a8c0-a0c6-4a57-a11a-11a95d92b740"
 					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic_MountingPin:Conn_01x07_MountingPin")
+		(at 25.4 96.52 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "effbd1d5-7d7f-436b-b63f-e1a5bfa658bc")
+		(property "Reference" "J9"
+			(at 21.59 95.6055 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x07_MountingPin"
+			(at 22.098 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_GH_SM07B-GHS-TB_1x07-1MP_P1.25mm_Horizontal"
+			(at 25.4 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 25.4 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connectable mounting pin connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 25.4 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a9aa44c0-e9a4-4c49-a357-9e72fdf29c09")
+		)
+		(pin "2"
+			(uuid "e44b1362-5c88-4e68-bac9-4ffee60837a0")
+		)
+		(pin "3"
+			(uuid "708948d0-e5ee-447a-adb5-bc767f17ef3f")
+		)
+		(pin "4"
+			(uuid "2b2a232d-adae-4041-8952-18824a479a16")
+		)
+		(pin "5"
+			(uuid "0d4500dc-f99b-4f1e-a10b-e4b84176d1e1")
+		)
+		(pin "6"
+			(uuid "1b7e366c-73ca-4b88-9651-45db8cf2c829")
+		)
+		(pin "7"
+			(uuid "5bc7b54b-ccc5-43be-8688-04d76d68334f")
+		)
+		(pin "MP"
+			(uuid "19fc6e8d-e44f-4277-bab9-b106c36094cb")
+		)
+		(instances
+			(project "maglev2025_hardware_sensor"
+				(path "/be85a8c0-a0c6-4a57-a11a-11a95d92b740"
+					(reference "J9")
 					(unit 1)
 				)
 			)
