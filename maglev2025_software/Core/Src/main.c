@@ -60,7 +60,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+extern void systemStart(void);
 /* USER CODE END 0 */
 
 /**
@@ -101,7 +101,6 @@ int main(void)
   MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
 
-  extern void systemStart(void);
   systemStart();
   /* USER CODE END 2 */
 
