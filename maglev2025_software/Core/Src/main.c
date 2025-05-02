@@ -113,6 +113,8 @@ int main(void)
   MX_OPAMP4_Init();
   MX_TIM5_Init();
   MX_USART1_UART_Init();
+  MX_ADC3_Init();
+  MX_ADC5_Init();
   /* USER CODE BEGIN 2 */
 
   systemStart();
