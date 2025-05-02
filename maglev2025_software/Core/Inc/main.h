@@ -29,6 +29,18 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32g4xx_hal.h"
 
+#include "stm32g4xx_ll_ucpd.h"
+#include "stm32g4xx_ll_bus.h"
+#include "stm32g4xx_ll_cortex.h"
+#include "stm32g4xx_ll_rcc.h"
+#include "stm32g4xx_ll_system.h"
+#include "stm32g4xx_ll_utils.h"
+#include "stm32g4xx_ll_pwr.h"
+#include "stm32g4xx_ll_gpio.h"
+#include "stm32g4xx_ll_dma.h"
+
+#include "stm32g4xx_ll_exti.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -57,23 +69,24 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define A2I17_IASENSE_Pin GPIO_PIN_4
-#define A2I17_IASENSE_GPIO_Port GPIOA
-#define A2I3_IBSENSE_Pin GPIO_PIN_6
-#define A2I3_IBSENSE_GPIO_Port GPIOA
-#define A2I5_ICSENSE_Pin GPIO_PIN_4
-#define A2I5_ICSENSE_GPIO_Port GPIOC
-#define A2I12_IDSENSE_Pin GPIO_PIN_2
-#define A2I12_IDSENSE_GPIO_Port GPIOB
-#define MAG_nALRT_Pin GPIO_PIN_6
-#define MAG_nALRT_GPIO_Port GPIOB
-#define MAG_nALRT_EXTI_IRQn EXTI9_5_IRQn
-#define MAG_CS_Pin GPIO_PIN_7
-#define MAG_CS_GPIO_Port GPIOB
+#define A1I7_VBUS_Pin GPIO_PIN_1
+#define A1I7_VBUS_GPIO_Port GPIOC
+#define A2I8_IDSENSE_Pin GPIO_PIN_2
+#define A2I8_IDSENSE_GPIO_Port GPIOC
+#define A2I9_ICSENSE_Pin GPIO_PIN_3
+#define A2I9_ICSENSE_GPIO_Port GPIOC
+#define A2I1_IBSENSE_Pin GPIO_PIN_0
+#define A2I1_IBSENSE_GPIO_Port GPIOA
+#define A2I2_IASENSE_Pin GPIO_PIN_1
+#define A2I2_IASENSE_GPIO_Port GPIOA
+#define MAG_CS_Pin GPIO_PIN_3
+#define MAG_CS_GPIO_Port GPIOA
+#define nMAG_ALRT_Pin GPIO_PIN_4
+#define nMAG_ALRT_GPIO_Port GPIOA
+#define WS2812_T2C2_Pin GPIO_PIN_3
+#define WS2812_T2C2_GPIO_Port GPIOB
 #define BOOT0_Pin GPIO_PIN_8
 #define BOOT0_GPIO_Port GPIOB
-#define LIS3_INT_Pin GPIO_PIN_9
-#define LIS3_INT_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
