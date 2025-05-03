@@ -2,9 +2,9 @@
 // Created by eeasee on 5/2/25.
 //
 
-#include "WS2812Task.hpp"
+#include "WS2812.hpp"
 
-const uint32_t BUFFER_SIZE  = Tasks::WS2812Task::LED_COUNT * 24 + 100;  // with reset pulse
+const uint32_t BUFFER_SIZE  = Drivers::WS2812::LED_COUNT * 24 + 100;  // with reset pulse
 uint8_t buffer[BUFFER_SIZE] = {};
 
 /**
@@ -16,10 +16,10 @@ uint8_t buffer[BUFFER_SIZE] = {};
 const uint8_t COMPARE_CODE_0 = 1;
 const uint8_t COMPARE_CODE_1 = 2;
 
-void updateBuffer()
+void Drivers::WS2812::updateBuffer()
 {
     uint32_t buffer_index = 0;
-    for (auto &color : Tasks::WS2812Task::colors)
+    for (auto &color : Drivers::WS2812::colors)
     {
         // Green, Red, Blue order for 2812
         uint8_t red   = color[0];
@@ -45,11 +45,11 @@ void updateBuffer()
     }
 }
 
-void sendBuffer() {
+void Drivers::WS2812::sendBuffer() {
     HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)buffer, BUFFER_SIZE);
 }
 
-void Tasks::WS2812Task::initWS2812()
+void Drivers::WS2812::initWS2812()
 {
     for (unsigned char &i : buffer)
         i = 0;
@@ -61,8 +61,8 @@ void Tasks::WS2812Task::initWS2812()
     }
 }
 
-void Tasks::WS2812Task::updateWS2812()
+void Drivers::WS2812::updateWS2812()
 {
-    updateBuffer();
-    sendBuffer();
+    Drivers::WS2812::updateBuffer();
+    Drivers::WS2812::sendBuffer();
 }

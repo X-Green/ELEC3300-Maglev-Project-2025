@@ -1,3 +1,4 @@
+#include "Buzzer.hpp"
 #include "CoilManager.hpp"
 #include "CommandInput.hpp"
 #include "PositionControl.hpp"
@@ -159,4 +160,6 @@ extern "C"
             __asm("bkpt");
         }
     }
+
+    void TIM1_UP_TIM16_IRQHandler(void) { Buzzer::onTIM1UpdateCallback(); }
 }

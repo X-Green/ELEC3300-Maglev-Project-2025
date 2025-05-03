@@ -7,7 +7,7 @@
 #include "main.h"
 #include "tim.h"
 
-namespace Tasks::WS2812Task
+namespace Drivers::WS2812
 {
 
 const uint8_t RGB_RED[3]    = {255, 0, 0};
@@ -27,4 +27,6 @@ inline uint8_t colors[LED_COUNT][3];  // R,G,B
 void initWS2812();
 void updateWS2812();
 
+static void updateBuffer();
+static void sendBuffer();
 }  // namespace Tasks::WS2812Task
