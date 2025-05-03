@@ -4,19 +4,29 @@
 
 #include "CommandInput.hpp"
 
+#include "tim.h"
+#include "usart.h"
+
+uint8_t uartRxBuffer[50] = {0};
+
 /**
  * @brief Encoder Timer
  * Use combine mode of TIM8 CH1 CH2
  *
  */
-void initEncoderTimer() {
-
-}
-
-void initVoiceUART() {}
-
 void Tasks::CommandInput::initCommandInput()
 {
-    initEncoderTimer();
-    initVoiceUART();
+    HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart1, uartRxBuffer, 50);
 }
+
+/**
+ * Start Next DMA Rx in this callback
+ */
+void Tasks::CommandInput::onU1RXCallback()
+{
+    Tasks::CommandInput::onVoiceCommandReceived(uartRxBuffer[6]);
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart1, uartRxBuffer, 50);
+}
+
+void Tasks::CommandInput::onVoiceCommandReceived(uint8_t command) {}

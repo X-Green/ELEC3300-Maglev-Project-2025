@@ -1,4 +1,5 @@
 #include "CoilManager.hpp"
+#include "CommandInput.hpp"
 #include "PositionControl.hpp"
 #include "SampleTask.hpp"
 #include "TMAG5170.hpp"
@@ -8,6 +9,7 @@
 #include "opamp.h"
 #include "spi.h"
 #include "stm32g4xx_it.h"
+#include "usart.h"
 
 // extern "C" void DMA_SPI1_RX_CompleteCallback(DMA_HandleTypeDef *hdma);
 // extern DMA_HandleTypeDef hdma_spi1_rx;
@@ -50,8 +52,8 @@ void init()
     HAL_HRTIM_WaveformCountStart(&hhrtim1, HRTIM_TIMERID_TIMER_D);
     Tasks::CoilManager::setOutputEnable();
 
-    HAL_OPAMP_Start(&hopamp3); // VIN Sampling
-    HAL_OPAMP_Start(&hopamp4); // IIN Sampling with PGA G=32
+    HAL_OPAMP_Start(&hopamp3);  // VIN Sampling
+    HAL_OPAMP_Start(&hopamp4);  // IIN Sampling with PGA G=32
 
     HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
     HAL_Delay(100);
@@ -143,6 +145,18 @@ extern "C"
         {
             timerCounter1KHz = 0;
             MainTask::triggerOneHz();
+        }
+    }
+
+    void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+    {
+        if (huart == &huart1)
+        {
+            Tasks::CommandInput::onU1RXCallback();
+        }
+        else
+        {
+            __asm("bkpt");
         }
     }
 }

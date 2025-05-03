@@ -386,6 +386,7 @@ NVIC.SVCall_IRQn=true\:0\:0\:false\:false\:true\:false\:false\:false
 NVIC.SysTick_IRQn=true\:15\:0\:false\:false\:true\:false\:true\:false
 NVIC.TIM1_TRG_COM_TIM17_IRQn=true\:7\:0\:true\:false\:false\:true\:true\:true
 NVIC.UCPD1_IRQn=true\:0\:0\:false\:false\:true\:true\:false\:true
+NVIC.USART1_IRQn=true\:0\:0\:false\:false\:true\:true\:true\:true
 NVIC.UsageFault_IRQn=true\:0\:0\:false\:false\:true\:false\:false\:false
 OPAMP4.IPParameters=PgaGain,PowerMode
 OPAMP4.PgaGain=OPAMP_PGA_GAIN_32_OR_MINUS_31
