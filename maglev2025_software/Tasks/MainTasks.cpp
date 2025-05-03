@@ -150,16 +150,26 @@ extern "C"
 
     void TIM1_TRG_COM_TIM17_IRQHandler(void)
     {
-        __HAL_TIM_CLEAR_IT(&htim17, TIM_IT_UPDATE);
-        MainTask::trigger1KHz();
-        static uint32_t timerCounter1KHz = 0;
-        timerCounter1KHz++;
-        if (timerCounter1KHz > 1000)
+        uint32_t itsource = htim17.Instance->DIER;
+        uint32_t itflag   = htim17.Instance->SR;
+        if ((itflag & (TIM_FLAG_UPDATE)) == (TIM_FLAG_UPDATE))
         {
-            timerCounter1KHz = 0;
-            MainTask::triggerOneHz();
+            if ((itsource & (TIM_IT_UPDATE)) == (TIM_IT_UPDATE))
+            {
+                __HAL_TIM_CLEAR_FLAG(&htim17, TIM_FLAG_UPDATE);
+                MainTask::trigger1KHz();
+                static uint32_t timerCounter1KHz = 0;
+                timerCounter1KHz++;
+                if (timerCounter1KHz > 1000)
+                {
+                    timerCounter1KHz = 0;
+                    MainTask::triggerOneHz();
+                }
+            }
         }
     }
+
+    void TIM1_UP_TIM16_IRQHandler(void) { Drivers::Buzzer::onTIM1UpdateCallback(); }
 
     void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
     {
@@ -172,6 +182,4 @@ extern "C"
             __asm("bkpt");
         }
     }
-
-    void TIM1_UP_TIM16_IRQHandler(void) { Buzzer::onTIM1UpdateCallback(); }
 }
