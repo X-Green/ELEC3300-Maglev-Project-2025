@@ -4,6 +4,7 @@
 #include "PositionControl.hpp"
 #include "SampleTask.hpp"
 #include "TMAG5170.hpp"
+#include "WS2812.hpp"
 #include "adc.h"
 #include "dma.h"
 #include "hrtim.h"
@@ -61,6 +62,9 @@ void init()
 
     initialized = true;
 
+    Drivers::WS2812::init();
+    Drivers::Buzzer::init();
+
     HAL_Delay(1000);
 }
 
@@ -74,6 +78,14 @@ void loop()
     //    {
     //        Tasks::CoilManager::updatePWM(i, testOutput);
     //    }
+    Drivers::WS2812::colors[0] = Drivers::WS2812::RGB_RED;
+    Drivers::WS2812::colors[1] = Drivers::WS2812::RGB_ORANGE;
+    Drivers::WS2812::colors[2] = Drivers::WS2812::RGB_YELLOW;
+    Drivers::WS2812::colors[3] = Drivers::WS2812::RGB_GREEN;
+    Drivers::WS2812::colors[4] = Drivers::WS2812::RGB_CYAN;
+    Drivers::WS2812::colors[5] = Drivers::WS2812::RGB_BLUE;
+    Drivers::WS2812::colors[6] = Drivers::WS2812::RGB_PURPLE;
+    Drivers::WS2812::update();
 
     HAL_Delay(500);
 }

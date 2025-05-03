@@ -10,23 +10,30 @@
 namespace Drivers::WS2812
 {
 
-const uint8_t RGB_RED[3]    = {255, 0, 0};
-const uint8_t RGB_ORANGE[3] = {255, 127, 0};
-const uint8_t RGB_YELLOW[3] = {255, 255, 0};
-const uint8_t RGB_GREEN[3]  = {0, 255, 0};
-const uint8_t RGB_CYAN[3]   = {0, 255, 255};
-const uint8_t RGB_BLUE[3]   = {0, 0, 255};
-const uint8_t RGB_PURPLE[3] = {127, 0, 255};
-const uint8_t RGB_WHITE[3]  = {255, 255, 255};
-const uint8_t RGB_BLACK[3]  = {0, 0, 0};
-const uint8_t RGB_PINK[3]   = {255, 0, 255};
+struct RGB_t
+{
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+};
+
+const RGB_t RGB_RED    = {255, 0, 0};
+const RGB_t RGB_ORANGE = {255, 127, 0};
+const RGB_t RGB_YELLOW = {255, 255, 0};
+const RGB_t RGB_GREEN  = {0, 255, 0};
+const RGB_t RGB_CYAN   = {0, 255, 255};
+const RGB_t RGB_BLUE   = {0, 0, 255};
+const RGB_t RGB_PURPLE = {127, 0, 255};
+const RGB_t RGB_WHITE  = {255, 255, 255};
+const RGB_t RGB_BLACK  = {0, 0, 0};
+const RGB_t RGB_PINK   = {255, 0, 255};
 
 const int LED_COUNT = 8;
-inline uint8_t colors[LED_COUNT][3];  // R,G,B
+inline RGB_t colors[LED_COUNT];  // R,G,B
 
-void initWS2812();
-void updateWS2812();
+void init();
+void update();
 
 static void updateBuffer();
 static void sendBuffer();
-}  // namespace Tasks::WS2812Task
+}  // namespace Drivers::WS2812

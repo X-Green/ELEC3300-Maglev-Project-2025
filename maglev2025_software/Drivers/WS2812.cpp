@@ -13,18 +13,18 @@ uint8_t buffer[BUFFER_SIZE] = {};
  * 1-Code is [1,1,0] -> Pulse=2
  */
 
-const uint8_t COMPARE_CODE_0 = 1;
-const uint8_t COMPARE_CODE_1 = 2;
+const uint8_t COMPARE_CODE_0 = 0x01;
+const uint8_t COMPARE_CODE_1 = 0x02;
 
 void Drivers::WS2812::updateBuffer()
 {
     uint32_t buffer_index = 0;
-    for (auto &color : Drivers::WS2812::colors)
+    for (const auto &color : Drivers::WS2812::colors)
     {
         // Green, Red, Blue order for 2812
-        uint8_t red   = color[0];
-        uint8_t green = color[1];
-        uint8_t blue  = color[2];
+        uint32_t red   = color.r;
+        uint32_t green = color.g;
+        uint32_t blue  = color.b;
 
         uint32_t grb_color = ((uint32_t)green << 16) | ((uint32_t)red << 8) | blue;  // 24bit
 
@@ -45,23 +45,17 @@ void Drivers::WS2812::updateBuffer()
     }
 }
 
-void Drivers::WS2812::sendBuffer() {
-    HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)buffer, BUFFER_SIZE);
-}
+void Drivers::WS2812::sendBuffer() { HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)buffer, BUFFER_SIZE); }
 
-void Drivers::WS2812::initWS2812()
+void Drivers::WS2812::init()
 {
     for (unsigned char &i : buffer)
         i = 0;
     for (auto &color : colors)
-    {
-        color[0] = 0;
-        color[1] = 0;
-        color[2] = 0;
-    }
+        color = {0, 0, 0};
 }
 
-void Drivers::WS2812::updateWS2812()
+void Drivers::WS2812::update()
 {
     Drivers::WS2812::updateBuffer();
     Drivers::WS2812::sendBuffer();

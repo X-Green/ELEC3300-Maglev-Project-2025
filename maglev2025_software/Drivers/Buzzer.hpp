@@ -12,7 +12,7 @@
  * 170MHz -(PreScaler=3400-1)-> 50kHz
  */
 
-namespace Buzzer
+namespace Drivers::Buzzer
 {
 /**
  * @brief Initialize the timer
