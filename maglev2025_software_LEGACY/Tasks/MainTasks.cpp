@@ -4,7 +4,7 @@
 #include "adc.h"
 #include "dma.h"
 #include "hrtim.h"
-#include "sampleTask.hpp"
+#include "SampleTask.hpp"
 #include "spi.h"
 #include "stm32g4xx_it.h"
 
