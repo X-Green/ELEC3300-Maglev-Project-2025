@@ -351,58 +351,26 @@ uint16_t normalReadRegister(uint8_t address)
     return output[0];
 }
 
-//****************************************************************************
-//! Enable Magnetic Axes for Measurement (also can turn all channels off)
-//!
-//! Takes in a 4-bit value for the MAG_CH_EN field (0x019-6)
-//! mag_ch_en_bits must not be greater than 0x0F
-//!
-//! When mag_ch_en_bits < 0x08 its three LSBs act as a three bit enable/disable command
-//! for ZYX (examples:  0x05 (0101b) => ZX enabled  |  0x02 (0010b) => Y enabled)
-//!
-//! When mag_ch_en_bits >= 0x08 it configures alternative sampling orders along with
-//! enabling specific channels (see chart below)
-//!
-//!                          | enabled channels ||                  | enabled channels
-//!          mag_ch_en_bits  | + sampling order ||  mag_ch_en_bits  | + sampling order
-//!         _________________|__________________||__________________|__________________
-//!               0x00               none       ||       0x08               XYX
-//!               0x01                X         ||       0x09               YXY
-//!               0x02                Y         ||       0x0A               YZY
-//!               0x03               XY         ||       0x0B               ZYZ
-//!               0x04                Z         ||       0x0C               ZXZ
-//!               0x05               ZX         ||       0x0D               XZX
-//!               0x06               YZ         ||       0x0E              XYZYX
-//!               0x07               XYZ        ||       0x0F              XYZZYX
-//!
-//! Definitions for descriptive inputs to this function are provided in the header file.
-//!
-//! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
-//****************************************************************************
-void enableMagChannels(uint8_t mag_ch_en_bits)
+void setSensorConfig()
 {
     // To prevent undefined behavior, this function does not perform its operation
     // when the DATA_TYPE field (0x028-6) is not set to Normal Read Mode (000b)
     if (DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode)
         return;
 
-    // Check that inputs are valid
-    if (!(mag_ch_en_bits <= 0x0F))
-        return;
-
     uint16_t input;
-    // Set MAG_CH_EN (0x019-6) to mag_ch_en_bits
     input = normalReadRegister(SENSOR_CONFIG_ADDRESS);
-    input = (input & ~(SENSOR_CONFIG_MAG_CH_EN_MASK)) | (mag_ch_en_bits << 6);
+    input = (input & ~(SENSOR_CONFIG_MAG_CH_EN_MASK)) | SENSOR_CONFIG_MAG_CH_EN_XYZ;
+    input = (input & ~(SENSOR_CONFIG_X_RANGE_MASK)) | SENSOR_CONFIG_X_RANGE_25mT;
+    input = (input & ~(SENSOR_CONFIG_Y_RANGE_MASK)) | SENSOR_CONFIG_Y_RANGE_25mT;
+    input = (input & ~(SENSOR_CONFIG_Z_RANGE_MASK)) | SENSOR_CONFIG_Z_RANGE_100mT;
+
     writeToRegister(SENSOR_CONFIG_ADDRESS, input);
 }
 
-//****************************************************************************
-//! Enter Active Measure Mode (continuous conversion)
-//!
-//! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
-//****************************************************************************
-void enterActiveMeasureMode()
+
+
+void setDeviceConfig()
 {
     // To prevent undefined behavior, this function does not perform its operation
     // when the DATA_TYPE field (address: 0x028-6) is not set to Normal Read Mode (000b)
@@ -413,11 +381,9 @@ void enterActiveMeasureMode()
     // Set OPERATING_MODE (0x006-4) to Active Measure Mode (2h)
     input = normalReadRegister(DEVICE_CONFIG_ADDRESS);
 
-    input = (input & ~(DEVICE_CONFIG_OPERATING_MODE_MASK)) |
-            DEVICE_CONFIG_OPERATING_MODE_ActiveMeasureMode;
+    input = (input & ~(DEVICE_CONFIG_OPERATING_MODE_MASK)) | DEVICE_CONFIG_OPERATING_MODE_ActiveMeasureMode;
 
-    input = (input & ~(DEVICE_CONFIG_CONV_AVG_NUM_MASK)) |
-            DEVICE_CONFIG_CONV_AVG_NUM_4x333Kbps10Kbps1axis;
+    input = (input & ~(DEVICE_CONFIG_CONV_AVG_NUM_MASK)) | DEVICE_CONFIG_CONV_AVG_NUM_4x333Kbps10Kbps1axis;
 
     writeToRegister(DEVICE_CONFIG_ADDRESS, input);
 

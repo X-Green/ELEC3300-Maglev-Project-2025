@@ -35,11 +35,11 @@ void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[]);
 
 void normalRead(uint16_t output[], uint8_t address, uint8_t cmd_bits);
 uint16_t normalReadRegister(uint8_t address);
-void enableMagChannels(uint8_t mag_ch_en_bits);
+void setSensorConfig();
 
 void spiTriggersConversion();
 void alertTriggersConversion();
-void enterActiveMeasureMode();
+void setDeviceConfig();
 void setConvAvg();
 void alertIndicatesConversionEnable();
 

@@ -25,11 +25,12 @@ volatile uint16_t adcBuffer[4] = {0, 0, 0, 0};
 void init()
 {
     Drivers::Sensors::TMAG5170::TMAG5170_init();
-    Drivers::Sensors::TMAG5170::enableMagChannels(0x07);
-    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x01, 1.0);
-    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x02, 1.0);
-    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x03, 1.0);
-    Drivers::Sensors::TMAG5170::enterActiveMeasureMode();
+    Drivers::Sensors::TMAG5170::setDeviceConfig();
+    Drivers::Sensors::TMAG5170::setSensorConfig();
+    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x01, 1.0);
+    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x02, 1.0);
+    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x03, 1.0);
+
     Drivers::Sensors::TMAG5170::alertIndicatesConversionEnable();
     Drivers::Sensors::TMAG5170::initDMATxBuffers();
 
