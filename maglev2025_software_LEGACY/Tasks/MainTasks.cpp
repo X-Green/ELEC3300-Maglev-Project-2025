@@ -1,10 +1,10 @@
 #include "CoilManager.hpp"
 #include "PositionControl.hpp"
+#include "SampleTask.hpp"
 #include "TMAG5170.hpp"
 #include "adc.h"
 #include "dma.h"
 #include "hrtim.h"
-#include "SampleTask.hpp"
 #include "spi.h"
 #include "stm32g4xx_it.h"
 
@@ -20,11 +20,11 @@ volatile uint16_t adcBuffer[4] = {0, 0, 0, 0};
 void init()
 {
     Drivers::Sensors::TMAG5170::TMAG5170_init();
-    Drivers::Sensors::TMAG5170::enableMagChannels(0x07);
-    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x01, 1.0);
-    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x02, 1.0);
-    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x03, 1.0);
-    Drivers::Sensors::TMAG5170::enterActiveMeasureMode();
+    Drivers::Sensors::TMAG5170::setSensorConfig();
+    Drivers::Sensors::TMAG5170::setDeviceConfig();
+    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x01, 1.0);
+    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x02, 1.0);
+    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x03, 1.0);
     Drivers::Sensors::TMAG5170::alertIndicatesConversionEnable();
     Drivers::Sensors::TMAG5170::initDMATxBuffers();
 
@@ -57,16 +57,16 @@ void init()
     HAL_Delay(1000);
 }
 
-volatile float testOutput               = 0.0f;
+volatile float testOutput = 0.0f;
 void loop()
 {
     // Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
     // Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
 
-//    for (int i = 0; i < 4; i++)
-//    {
-//        Tasks::CoilManager::updatePWM(i, testOutput);
-//    }
+    //    for (int i = 0; i < 4; i++)
+    //    {
+    //        Tasks::CoilManager::updatePWM(i, testOutput);
+    //    }
 
     HAL_Delay(500);
 }

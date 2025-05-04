@@ -41,7 +41,7 @@ class IncrementalPID
         this->deltaOutput     = 0.0f;
     }
 
-   private:
+   public:
     float kPOnTarget;
     float kPOnMeasurement;
     float kI;
