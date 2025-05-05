@@ -42,7 +42,7 @@ void MX_OPAMP3_Init(void)
   hopamp3.Init.PowerMode = OPAMP_POWERMODE_NORMALSPEED;
   hopamp3.Init.Mode = OPAMP_FOLLOWER_MODE;
   hopamp3.Init.NonInvertingInput = OPAMP_NONINVERTINGINPUT_IO0;
-  hopamp3.Init.InternalOutput = ENABLE;
+  hopamp3.Init.InternalOutput = DISABLE;
   hopamp3.Init.TimerControlledMuxmode = OPAMP_TIMERCONTROLLEDMUXMODE_DISABLE;
   hopamp3.Init.UserTrimming = OPAMP_TRIMMING_FACTORY;
   if (HAL_OPAMP_Init(&hopamp3) != HAL_OK)
@@ -97,8 +97,9 @@ void HAL_OPAMP_MspInit(OPAMP_HandleTypeDef* opampHandle)
     __HAL_RCC_GPIOB_CLK_ENABLE();
     /**OPAMP3 GPIO Configuration
     PB0     ------> OPAMP3_VINP
+    PB1     ------> OPAMP3_VOUT
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -139,8 +140,9 @@ void HAL_OPAMP_MspDeInit(OPAMP_HandleTypeDef* opampHandle)
 
     /**OPAMP3 GPIO Configuration
     PB0     ------> OPAMP3_VINP
+    PB1     ------> OPAMP3_VOUT
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_0);
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_0|GPIO_PIN_1);
 
   /* USER CODE BEGIN OPAMP3_MspDeInit 1 */
 

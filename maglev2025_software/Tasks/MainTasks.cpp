@@ -37,13 +37,6 @@ void init()
     Tasks::SampleTask::sampleTaskInit();
 
     HAL_Delay(100);
-    //    auto s = HAL_DMA_RegisterCallback(
-    //        &hdma_spi1_rx, HAL_DMA_XFER_CPLT_CB_ID, DMA_SPI1_RX_CompleteCallback);
-    //    if (s != HAL_OK)
-    //    {
-    //        __asm("bkpt");
-    //    }
-    HAL_Delay(100);
 
     HAL_TIM_Base_Start_IT(&htim17);
 
@@ -55,10 +48,6 @@ void init()
     HAL_HRTIM_WaveformCountStart(&hhrtim1, HRTIM_TIMERID_TIMER_D);
     Tasks::CoilManager::setOutputEnable();
 
-    HAL_OPAMP_Start(&hopamp3);  // VIN Sampling
-    HAL_OPAMP_Start(&hopamp4);  // IIN Sampling with PGA G=32
-
-    HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
     HAL_Delay(100);
 
     initialized = true;
@@ -91,13 +80,12 @@ void loop()
     HAL_Delay(500);
 }
 
-void trigger1KHz() {}
+void trigger1KHz() { Tasks::SampleTask::callbackNormal(); }
 
 void triggerOneHz()
 {
     static volatile int oneHzCounter = 0;
     oneHzCounter += 1;
-
     Tasks::PositionControl::counterLogs.dataReadyCounter = 0;
 }
 

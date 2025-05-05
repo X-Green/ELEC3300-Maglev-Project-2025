@@ -20,6 +20,9 @@ inline float adc2CalibrationGain[4] = {0.003662f, 0.003662f, 0.003662f, 0.003662
 inline float adc2CalibrationBias[4] = {-7.5f, -7.5f, -7.5f, -7.5f};
 inline float coilCurrentFilterAlpha = 0.5f;
 
+inline uint16_t adc1Value = 0; //VBUS adc
+inline uint16_t adc5Value = 0; //OPAMP4 total current sense
+
 void sampleTaskInit();
 
 void callbackHRTIM();
