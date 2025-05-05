@@ -16,7 +16,7 @@ uint8_t buffer[BUFFER_SIZE] = {};
 const uint8_t COMPARE_CODE_0 = 0x01;
 const uint8_t COMPARE_CODE_1 = 0x02;
 
-void Drivers::WS2812::updateBuffer()
+void updateBuffer()
 {
     uint32_t buffer_index = 0;
     for (const auto &color : Drivers::WS2812::colors)
@@ -45,7 +45,7 @@ void Drivers::WS2812::updateBuffer()
     }
 }
 
-void Drivers::WS2812::sendBuffer() { HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)buffer, BUFFER_SIZE); }
+void sendBuffer() { HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)buffer, BUFFER_SIZE); }
 
 void Drivers::WS2812::init()
 {
@@ -57,6 +57,6 @@ void Drivers::WS2812::init()
 
 void Drivers::WS2812::update()
 {
-    Drivers::WS2812::updateBuffer();
-    Drivers::WS2812::sendBuffer();
+    updateBuffer();
+    sendBuffer();
 }

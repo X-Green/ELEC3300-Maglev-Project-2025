@@ -34,6 +34,5 @@ inline RGB_t colors[LED_COUNT];  // R,G,B
 void init();
 void update();
 
-static void updateBuffer();
-static void sendBuffer();
+
 }  // namespace Drivers::WS2812
