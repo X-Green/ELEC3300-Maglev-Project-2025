@@ -19,6 +19,8 @@ void sampleTaskInit()
 
     HAL_Delay(100);
     HAL_ADC_Start_DMA(&hadc2, reinterpret_cast<uint32_t *>(adc2Buffer), 4);
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_Start(&hadc5);
     HAL_OPAMP_Start(&hopamp3);  // VIN Sampling
     HAL_OPAMP_Start(&hopamp4);  // IIN Sampling with PGA G=32
 }
@@ -44,6 +46,8 @@ void callbackNormal()
 {
     adc1Value = HAL_ADC_GetValue(&hadc1);
     adc5Value = HAL_ADC_GetValue(&hadc5);
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_Start(&hadc5);
 }
 
 }  // namespace Tasks::SampleTask

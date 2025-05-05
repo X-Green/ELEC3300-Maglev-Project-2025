@@ -1,62 +1,69 @@
-//
-// Created by eeasee on 5/2/25.
-//
-
 #include "WS2812.hpp"
 
-const uint32_t BUFFER_SIZE  = Drivers::WS2812::LED_COUNT * 24 + 100;  // with reset pulse
-uint8_t buffer[BUFFER_SIZE] = {};
+#include "tim.h"
 
-/**
- * WS2812 Use Timer2 Channel2; Prescaler=71-1; ARR=3-1
- * 0-Code is [1,0,0] -> Pulse=1
- * 1-Code is [1,1,0] -> Pulse=2
- */
-
-const uint8_t COMPARE_CODE_0 = 0x01;
-const uint8_t COMPARE_CODE_1 = 0x02;
-
-void updateBuffer()
+namespace Drivers::WS2812
 {
-    uint32_t buffer_index = 0;
-    for (const auto &color : Drivers::WS2812::colors)
+
+bool isInited = false;
+
+void RGB::toBitSequence(uint32_t *bitSequence) const
+{
+    for (int i = 0; i < 8; i++)
     {
-        // Green, Red, Blue order for 2812
-        uint32_t red   = color.r;
-        uint32_t green = color.g;
-        uint32_t blue  = color.b;
-
-        uint32_t grb_color = ((uint32_t)green << 16) | ((uint32_t)red << 8) | blue;  // 24bit
-
-        // Iterate through the 24 bits of the color (MSB first)
-        for (int j = 23; j >= 0; --j)
-        {
-            buffer[buffer_index] = ((grb_color >> j) & 0x01) ? COMPARE_CODE_1 : COMPARE_CODE_0;
-            buffer_index++;
-        }
-    }
-
-    assert_param(buffer_index < BUFFER_SIZE);
-
-    while (buffer_index < BUFFER_SIZE)
-    {
-        buffer[buffer_index] = 0;
-        buffer_index++;
+        // Total counter for timer is 5 with period around 1us
+        // hence 4/5 will be recognized as 1, 1/5 will be recognized as 0 (4/5 and 1/5 for duty cycle)
+        // check manuals of ws2812 for more details
+        bitSequence[i]      = (green & (1 << (7 - i))) ? WS2812_BIT1_WIDTH : WS2812_BIT0_WIDTH;
+        bitSequence[i + 8]  = (red & (1 << (7 - i))) ? WS2812_BIT1_WIDTH : WS2812_BIT0_WIDTH;
+        bitSequence[i + 16] = (blue & (1 << (7 - i))) ? WS2812_BIT1_WIDTH : WS2812_BIT0_WIDTH;
     }
 }
 
-void sendBuffer() { HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)buffer, BUFFER_SIZE); }
+void init() { HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, CCRDMABuff, LED_NUM * 24 + RESET_COUNT); }
 
-void Drivers::WS2812::init()
+void setColor(int index, unsigned char r, unsigned char g, unsigned char b)
 {
-    for (unsigned char &i : buffer)
-        i = 0;
-    for (auto &color : colors)
-        color = {0, 0, 0};
+    if (!isInited)
+    {
+        init();
+        isInited = true;
+    }
+    RGB rgb(r, g, b);
+    rgb.toBitSequence(CCRDMABuff + index * 24);
+}
+void setColor(int index, RGB color)
+{
+    if (!isInited)
+    {
+        init();
+        isInited = true;
+    }
+    color.toBitSequence(CCRDMABuff + index * 24);
 }
 
-void Drivers::WS2812::update()
+void blank(int index)
 {
-    updateBuffer();
-    sendBuffer();
+    for (int i = 0; i < 24; i++)
+    {
+        RGB rgb(0, 0, 0);
+        rgb.toBitSequence(CCRDMABuff + index * 24);
+    }
 }
+
+void blankAll()
+{
+    if (!isInited)
+    {
+        init();
+        isInited = true;
+    }
+    for (int i = 0; i < LED_NUM; i++)
+    {
+        blank(i);
+    }
+}
+
+}  // namespace WS2812
+
+uint32_t CCRDMABuff[24 * LED_NUM + RESET_COUNT] = {};

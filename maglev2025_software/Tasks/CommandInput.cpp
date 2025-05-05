@@ -16,7 +16,7 @@ uint8_t uartRxBuffer[50] = {0};
  */
 void Tasks::CommandInput::initCommandInput()
 {
-    HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
+    HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL);
     HAL_UARTEx_ReceiveToIdle_DMA(&huart1, uartRxBuffer, 50);
 }
 

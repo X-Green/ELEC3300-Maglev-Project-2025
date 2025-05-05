@@ -1,6 +1,7 @@
 #include "Buzzer.hpp"
 #include "CoilManager.hpp"
 #include "CommandInput.hpp"
+#include "ErrorChecker.hpp"
 #include "PositionControl.hpp"
 #include "SampleTask.hpp"
 #include "TMAG5170.hpp"
@@ -36,6 +37,8 @@ void init()
 
     Tasks::SampleTask::sampleTaskInit();
 
+    Tasks::CommandInput::initCommandInput();
+
     HAL_Delay(100);
 
     HAL_TIM_Base_Start_IT(&htim17);
@@ -50,10 +53,33 @@ void init()
 
     HAL_Delay(100);
 
+    Drivers::WS2812::init();
+    Drivers::WS2812::setColor(0, Drivers::WS2812::RGB_RED);
+    Drivers::WS2812::setColor(1, Drivers::WS2812::RGB_ORANGE);
+    Drivers::WS2812::setColor(2, Drivers::WS2812::RGB_YELLOW);
+    Drivers::WS2812::setColor(3, Drivers::WS2812::RGB_GREEN);
+    Drivers::WS2812::setColor(4, Drivers::WS2812::RGB_CYAN);
+    Drivers::WS2812::setColor(5, Drivers::WS2812::RGB_BLUE);
+    Drivers::WS2812::setColor(6, Drivers::WS2812::RGB_PURPLE);
+    Drivers::WS2812::setColor(7, Drivers::WS2812::RGB_RED);
+    Drivers::WS2812::setColor(8, Drivers::WS2812::RGB_ORANGE);
+    Drivers::WS2812::setColor(9, Drivers::WS2812::RGB_YELLOW);
+    Drivers::WS2812::setColor(10, Drivers::WS2812::RGB_GREEN);
+    Drivers::WS2812::setColor(11, Drivers::WS2812::RGB_CYAN);
+    Drivers::WS2812::setColor(12, Drivers::WS2812::RGB_BLUE);
+    Drivers::WS2812::setColor(13, Drivers::WS2812::RGB_PURPLE);
+
+    Drivers::Buzzer::init();
+
     initialized = true;
 
-    Drivers::WS2812::init();
-    Drivers::Buzzer::init();
+    Drivers::Buzzer::play(1000, 400);
+    HAL_Delay(1000);
+    Drivers::Buzzer::play(2000, 100);
+    HAL_Delay(200);
+    Drivers::Buzzer::play(2000, 100);
+    HAL_Delay(200);
+    Drivers::Buzzer::play(2000, 100);
 
     HAL_Delay(1000);
 }
@@ -63,26 +89,22 @@ volatile float testOutput = 0.0f;
 float magnetic_measurements[3] = {0};
 void loop()
 {
-//    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
+    //    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
     // Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
 
     //    for (int i = 0; i < 4; i++)
     //    {
     //        Tasks::CoilManager::updatePWM(i, testOutput);
     //    }
-    Drivers::WS2812::colors[0] = Drivers::WS2812::RGB_RED;
-    Drivers::WS2812::colors[1] = Drivers::WS2812::RGB_ORANGE;
-    Drivers::WS2812::colors[2] = Drivers::WS2812::RGB_YELLOW;
-    Drivers::WS2812::colors[3] = Drivers::WS2812::RGB_GREEN;
-    Drivers::WS2812::colors[4] = Drivers::WS2812::RGB_CYAN;
-    Drivers::WS2812::colors[5] = Drivers::WS2812::RGB_BLUE;
-    Drivers::WS2812::colors[6] = Drivers::WS2812::RGB_PURPLE;
-    Drivers::WS2812::update();
 
     HAL_Delay(500);
 }
 
-void trigger1KHz() { Tasks::SampleTask::callbackNormal(); }
+void trigger1KHz()
+{
+    Tasks::SampleTask::callbackNormal();
+    Tasks::ErrorChecker::updateErrorState();
+}
 
 void triggerOneHz()
 {
