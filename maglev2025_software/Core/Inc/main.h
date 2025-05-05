@@ -83,6 +83,7 @@ void Error_Handler(void);
 #define MAG_CS_GPIO_Port GPIOA
 #define nMAG_ALRT_Pin GPIO_PIN_4
 #define nMAG_ALRT_GPIO_Port GPIOA
+#define nMAG_ALRT_EXTI_IRQn EXTI4_IRQn
 #define WS2812_T2C2_Pin GPIO_PIN_3
 #define WS2812_T2C2_GPIO_Port GPIOB
 #define BOOT0_Pin GPIO_PIN_8

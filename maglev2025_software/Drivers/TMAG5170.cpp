@@ -393,16 +393,6 @@ void setDeviceConfig()
 #endif
 }
 
-void setConvAvg()
-{
-    if (DATA_TYPE_RESULTS != DATA_TYPE_RESULTS_NormalMode)
-        return;
-    uint16_t input;
-    input = normalReadRegister(DEVICE_CONFIG_ADDRESS);
-    input = (input & ~(DEVICE_CONFIG_CONV_AVG_NUM_MASK)) | DEVICE_CONFIG_CONV_AVG_NUM_4x333Kbps10Kbps1axis;
-    writeToRegister(DEVICE_CONFIG_ADDRESS, input);
-    delay_us(140);
-}
 
 //****************************************************************************
 //! Get Magnetic Measurements in mT (Normal Read Mode)
@@ -433,132 +423,6 @@ void getMagMeasurementsNrml(float meas_arr[])
         data        = normalReadRegister(X_CH_RESULT_ADDRESS + i);  // read in
         meas_arr[i] = data / 32768.0f;
     }
-}
-//****************************************************************************
-//****************************************************************************
-//
-// Get Range Functions
-//
-//****************************************************************************
-//****************************************************************************
-
-//****************************************************************************
-//! Get and return the integer value of the X_RANGE bits for an axis
-//!
-//! Returns an unsigned 16-bit integer value of the X axis range in mT.
-//****************************************************************************
-uint16_t getXrange()
-{
-    // Get SENSOR_CONFIG and isolate X_RANGE bits.
-    uint16_t config =
-        normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_X_RANGE_MASK;
-    uint16_t range;
-    if (getVersion() == 1)
-    {
-        // range values for TMAG5170A2
-        range = 150;
-        if (config == 0x0001)
-            range = 75;  // If examined bits equal 01b, range is set to 75 mT (for A2)
-        else if (config == 0x0002)
-            range = 300;  // If examined bits equal 10b, range is set to 300 mT (for A2)
-    }
-    else
-    {
-        // range values for TMAG5170A1
-        range = 50;
-        if (config == 0x0001)
-            range = 25;  // If examined bits equal 01b, range is set to 25 mT (for A1)
-        else if (config == 0x0002)
-            range = 100;  // If examined bits equal 10b, range is set to 100 mT (for A1)
-    }
-    return range;
-}
-
-//****************************************************************************
-//! Get and return the integer value of the Y_RANGE bits for an axis
-//!
-//! Returns an unsigned 16-bit integer value of the Y axis range in mT.
-//****************************************************************************
-uint16_t getYrange()
-{
-    // Get SENSOR_CONFIG and isolate Y_RANGE bits, shifting them to LSB.
-    uint16_t config =
-        normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_Y_RANGE_MASK >> 2;
-    uint16_t range;
-    if (getVersion() == 1)
-    {
-        // range values for TMAG5170A2
-        range = 150;
-        if (config == 0x0001)
-            range = 75;  // If examined bits equal 01b, range is set to 75 mT (for A2)
-        else if (config == 0x0002)
-            range = 300;  // If examined bits equal 10b, range is set to 300 mT (for A2)
-    }
-    else
-    {
-        // range values for TMAG5170A1
-        range = 50;
-        if (config == 0x0001)
-            range = 25;  // If examined bits equal 01b, range is set to 25 mT (for A1)
-        else if (config == 0x0002)
-            range = 100;  // If examined bits equal 10b, range is set to 100 mT (for A1)
-    }
-    return range;
-}
-
-//****************************************************************************
-//! Get and return the integer value of the Z_RANGE bits for an axis
-//!
-//! Returns an unsigned 16-bit integer value of the Z axis range in mT.
-//****************************************************************************
-uint16_t getZrange()
-{
-    // Get SENSOR_CONFIG and isolate Z_RANGE bits, shifting them to LSB.
-    uint16_t config =
-        normalReadRegister(SENSOR_CONFIG_ADDRESS) & SENSOR_CONFIG_Z_RANGE_MASK >> 4;
-    uint16_t range;
-    if (getVersion() == 1)
-    {
-        // range values for TMAG5170A2
-        range = 150;
-        if (config == 0x0001)
-            range = 75;  // If examined bits equal 01b, range is set to 75 mT (for A2)
-        else if (config == 0x0002)
-            range = 300;  // If examined bits equal 10b, range is set to 300 mT (for A2)
-    }
-    else
-    {
-        // range values for TMAG5170A1
-        range = 50;
-        if (config == 0x0001)
-            range = 25;  // If examined bits equal 01b, range is set to 25 mT (for A1)
-        else if (config == 0x0002)
-            range = 100;  // If examined bits equal 10b, range is set to 100 mT (for A1)
-    }
-    return range;
-}
-
-//****************************************************************************
-//! Set Magnetic Gain Adjustment using 11-bit input
-//! Configures the MAG_GAIN_CONFIG (0x11) according to 11-bit input value
-//! (check datasheet pg. 43 for conversion)
-//!
-//! axis - selection of a particular axis for amplitude correction (must be no greater
-//! than 0x03)
-//!        0x00 - none | 0x01 - X | 0x02 - Y | 0x03 - Z
-//! gain_bits - 11-bit gain value to adjust selected axis value (must be no greater than
-//! 0x07FF)
-//!             gain calculated as (entered_value/1024)
-//****************************************************************************
-void setMagGainConfigIn11Bit(uint8_t axis, uint16_t gain_bits)
-{
-    if (axis > 0x03 || gain_bits > 0x07FF)
-        return;
-    uint16_t input;
-    // MAG_OFFSET_CONFIG (0x11) has all 16 bits assigned according to the three input
-    // variables
-    input = axis << 14 | gain_bits;
-    writeToRegister(MAG_OFFSET_CONFIG_ADDRESS, input);
 }
 
 //****************************************************************************
@@ -593,25 +457,7 @@ void alertIndicatesConversionEnable()
     writeToRegister(ALERT_CONFIG_ADDRESS, input);
 }
 
-//****************************************************************************
-//! Set Magnetic Gain Adjustment using decimal input
-//! Configures the MAG_GAIN_CONFIG (0x11) according to decimal input values from
-//! 0 to 2 (exclusive)
-//!
-//! axis - selection of a particular axis for amplitude correction (must be no greater
-//! than 0x03)
-//!        0x00 - none | 0x01 - X | 0x02 - Y | 0x03 - Z
-//! gain_value - float input of the desired gain value from 0 to 2 (exclusive) to
-//!              be assigned with the selected axis
-//****************************************************************************
-// takes in a value from 0 to 2 (exclusive) and sets the gain config according to it
-void setMagGainConfigInDecimal(uint8_t axis, float gain_value)
-{
-    if (gain_value < 0 || gain_value >= 2)
-        return;
-    uint16_t gain_bits = (uint16_t)floorf(gain_value * 1024);
-    setMagGainConfigIn11Bit(axis, gain_bits);
-}
+
 uint8_t getVersion()
 {
     return (normalReadRegister(TEST_CONFIG_ADDRESS) & TEST_CONFIG_VER_MASK) >> 4;

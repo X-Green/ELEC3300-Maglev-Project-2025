@@ -59,9 +59,11 @@ void init()
 }
 
 volatile float testOutput = 0.0f;
+
+float magnetic_measurements[3] = {0};
 void loop()
 {
-    // Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
+//    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
     // Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
 
     //    for (int i = 0; i < 4; i++)
@@ -116,9 +118,9 @@ extern "C"
     /**
      * @brief EXTI from MAG_CS, around 3kHz
      */
-    void EXTI9_5_IRQHandler(void)
+    void EXTI4_IRQHandler(void)
     {
-        __HAL_GPIO_EXTI_CLEAR_FLAG(GPIO_PIN_6);
+        __HAL_GPIO_EXTI_CLEAR_FLAG(GPIO_PIN_4);
         if (!MainTask::initialized)
             return;
         Tasks::PositionControl::onDataReady();
