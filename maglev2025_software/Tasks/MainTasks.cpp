@@ -81,7 +81,38 @@ void init()
     HAL_Delay(200);
     Drivers::Buzzer::play(2000, 100);
 
-    HAL_Delay(1000);
+    HAL_Delay(1500);
+
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(349, 200);  // F4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(392, 200);  // G4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(392, 200);  // G4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(349, 200);  // F4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(294, 200);  // D4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(262, 200);  // C4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(262, 200);  // C4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(294, 200);  // D4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 450);  // E4 (longer)
+    HAL_Delay(500);
+    Drivers::Buzzer::play(294, 120);  // D4
+    HAL_Delay(125);
+    Drivers::Buzzer::play(294, 120);  // D4 (longer)
+    HAL_Delay(2000);
 }
 
 volatile float testOutput = 0.0f;
@@ -90,14 +121,6 @@ float magnetic_measurements[3] = {0};
 void loop()
 {
     //    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
-    // Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
-
-    //    for (int i = 0; i < 4; i++)
-    //    {
-    //        Tasks::CoilManager::updatePWM(i, testOutput);
-    //    }
-
-    HAL_Delay(500);
 }
 
 void trigger1KHz()
@@ -170,6 +193,8 @@ extern "C"
             if ((itsource & (TIM_IT_UPDATE)) == (TIM_IT_UPDATE))
             {
                 __HAL_TIM_CLEAR_FLAG(&htim17, TIM_FLAG_UPDATE);
+                if (!MainTask::initialized)
+                    return;
                 MainTask::trigger1KHz();
                 static uint32_t timerCounter1KHz = 0;
                 timerCounter1KHz++;
