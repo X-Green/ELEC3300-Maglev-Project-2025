@@ -4,6 +4,7 @@
 
 #include "LEDTasks.hpp"
 
+#include "ErrorChecker.hpp"
 #include "MathUtil.hpp"
 #include "WS2812.hpp"
 
@@ -34,6 +35,21 @@ void Tasks::LEDTasks::kHzTrigger()
 
     static int rainbowCycleColorIdx = 0;
     static uint32_t lastBreathCycle = 0;
+
+    if ((ErrorChecker::errorCode & ErrorChecker::ERROR_CODE_MASK_NO_POWER) != 0)
+    {
+        Drivers::WS2812::blankAll();
+        return;
+    }
+    else if (ErrorChecker::errorCode != 0)
+    {
+        // 1Hz change between 100 and 0 gamma
+        float brightness = (float)(kHzCount % 2000) / 1000.0f - 1.0f;
+        brightness       = M_ABS(brightness);
+        for (int i = 0; i < LED_NUM; ++i)
+            Drivers::WS2812::setColor(i, (uint8_t)(brightness * 255), 0, 0);
+        return;
+    }
 
     switch (ledPattern)
     {
@@ -90,25 +106,26 @@ void Tasks::LEDTasks::kHzTrigger()
     {
         // Smoothly cycle the rainbow pattern along the LEDs
         // The offset advances smoothly over time
-        float speed = 0.02f; // Adjust for desired speed (LEDs per update)
+        float speed                = 0.02f;  // Adjust for desired speed (LEDs per update)
         static float rainbowOffset = 0.0f;
         rainbowOffset += speed;
-        if (rainbowOffset >= 7.0f) rainbowOffset -= 7.0f;
+        if (rainbowOffset >= 7.0f)
+            rainbowOffset -= 7.0f;
 
         for (int i = 0; i < LED_NUM; ++i)
         {
             // Calculate fractional color index for smooth transition
-            float idx = fmodf(i + rainbowOffset, 7.0f);
-            int idx0 = (int)idx;
-            int idx1 = (idx0 + 1) % 7;
+            float idx  = fmodf(i + rainbowOffset, 7.0f);
+            int idx0   = (int)idx;
+            int idx1   = (idx0 + 1) % 7;
             float frac = idx - idx0;
 
             // Linear interpolation between two colors
             Drivers::WS2812::RGB c0 = rainbowSequence[idx0];
             Drivers::WS2812::RGB c1 = rainbowSequence[idx1];
-            uint8_t r = (uint8_t)((1.0f - frac) * c0.red   + frac * c1.red);
-            uint8_t g = (uint8_t)((1.0f - frac) * c0.green + frac * c1.green);
-            uint8_t b = (uint8_t)((1.0f - frac) * c0.blue  + frac * c1.blue);
+            uint8_t r               = (uint8_t)((1.0f - frac) * c0.red + frac * c1.red);
+            uint8_t g               = (uint8_t)((1.0f - frac) * c0.green + frac * c1.green);
+            uint8_t b               = (uint8_t)((1.0f - frac) * c0.blue + frac * c1.blue);
 
             Drivers::WS2812::setColor(i, r, g, b);
         }
@@ -137,4 +154,3 @@ void Tasks::LEDTasks::kHzTrigger()
         Drivers::WS2812::blankAll();
     }
 }
-

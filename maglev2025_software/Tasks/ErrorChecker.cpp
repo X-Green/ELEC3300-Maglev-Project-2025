@@ -40,6 +40,9 @@ void Tasks::ErrorChecker::updateErrorState()
                       (Tasks::PositionControl::magMeasurement[2] > 0.01f),
                       (Tasks::PositionControl::magMeasurement[2] < -0.02f));
 
+    setSchmittTrigger(
+        errorCode, ERROR_CODE_MASK_NO_POWER, (SampleTask::vbusVoltage > 8.0f), (SampleTask::vbusVoltage < 7.0f));
+
     if (errorCode != 0)
     {
         if (CoilManager::enableOutput)

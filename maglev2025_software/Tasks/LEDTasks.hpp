@@ -16,7 +16,7 @@ enum LED_PATTERN
 
 };
 
-inline LED_PATTERN ledPattern = LED_PATTERN_WARNING;
+inline LED_PATTERN ledPattern = LED_PATTERN_RAINBOW_CYCLE;
 
 void kHzTrigger();
 }  // namespace Tasks::LEDTasks
