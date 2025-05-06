@@ -110,8 +110,38 @@ void u8g2Init(u8g2_t *u8g2)
 	u8g2_SetPowerSave(u8g2, 0);                                                                   // 打开显示器
 	u8g2_ClearBuffer(u8g2);
 }
+uint8_t *DataToWave(float *data, uint8_t len, uint8_t *wave, float max, float min)
+{
+    // scale data to [0, 64]
+	//min is the minimum value of the data, max is the maximum value of the data
+    float range = max - min;
+    for (uint8_t i = 0; i < len; i++)
+    {
+        float scaled = (data[i] - min) * 64.0f / range;
+        if (scaled < 0) scaled = 0;
+        if (scaled > 64) scaled = 64;
+        wave[i] = (uint8_t)scaled;
+    }
+    return wave;
+}
 
+void DrawWave(uint8_t x, uint8_t y, uint8_t *wave, uint8_t len,u8g2_t *u8g2)
+{
+	for (uint8_t i = 0; i < len; i++)
+	{
+		u8g2_DrawPixel(u8g2, x + i, 32+y - wave[i]);
+	}
+}
 
+  void updateMagnetWaveform(float newValue, float *MagnetWaveform)
+  {
+	  
+  for (int i = 0; i < 127; i++)
+	  {
+		  MagnetWaveform[i] = MagnetWaveform[i + 1];
+	  }
+  MagnetWaveform[127] = newValue;
+  }
 
 
 uint8_t CMD_Data[]={
@@ -272,9 +302,5 @@ void OLED_DrawBMP(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t *  BMP
 
 		}
 	}
-}
-
-void OLED_Draw3300(void){
-	
 }
 } // namespace Drivers::Oled

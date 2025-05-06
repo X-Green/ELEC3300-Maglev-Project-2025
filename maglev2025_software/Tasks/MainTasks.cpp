@@ -1,5 +1,5 @@
 #include "Buzzer.hpp"
-#include "Oled.hpp"
+#include "DisplayTasks.hpp"
 #include "CoilManager.hpp"
 #include "CommandInput.hpp"
 #include "ErrorChecker.hpp"
@@ -23,7 +23,6 @@ namespace MainTask
 
 bool initialized               = false;
 volatile uint16_t adcBuffer[4] = {0, 0, 0, 0};
-u8g2_t u8g2; // a structure which will contain all the data for one display
 
 void init()
 {
@@ -59,6 +58,7 @@ void init()
 
     Drivers::Buzzer::init();
 
+    Drivers::DisplayTasks::DisplayInit();
     initialized = true;
 
     Drivers::Buzzer::play(1000, 400);
@@ -75,7 +75,6 @@ void init()
     // Drivers::Oled::OLED_Clear();
     // HAL_Delay(100);
     // Drivers::Oled::OLED_DrawBMP(0,0,128, 8 ,epd_bitmap_GZS,0);//正相显示图片BMP1
-    u8g2Init(&u8g2);
 
 
     Drivers::Buzzer::play(330, 200);  // E4
@@ -107,12 +106,13 @@ void init()
     Drivers::Buzzer::play(294, 100);  // D4
     HAL_Delay(125);
     Drivers::Buzzer::play(294, 200);  // D4 (longer)
+    
     HAL_Delay(2000);
 }
 
 volatile float testOutput = 0.0f;
 uint8_t fps=0;
-float magnetic_measurements[3] = {0};
+volatile uint8_t Page_state=0   ;
 void loop()
 {
     // u8g2_SendBuffer(&u8g2);
@@ -120,10 +120,12 @@ void loop()
     // u8g2_DrawBox(&u8g2,20,20,20,20);
     // u8g2_SendBuffer(&u8g2);
     // u8g2_DrawFrame(&u8g2,10,40,20,20);
-    u8g2_SendBuffer(&u8g2);
-    u8g2_SetFont(&u8g2,u8g2_font_DigitalDiscoThin_tf);
-    u8g2_DrawStr(&u8g2,30,32,"ELEC3300Project");
-    u8g2_SendBuffer(&u8g2);
+    // u8g2_SendBuffer(&u8g2);
+    // u8g2_SetFont(&u8g2,u8g2_font_DigitalDiscoThin_tf);
+    // u8g2_DrawStr(&u8g2,30,32,"ELEC3300Project");
+    // u8g2_DrawCircle(&u8g2, 30, 32, 10, U8G2_DRAW_UPPER_RIGHT);
+    // u8g2_SendBuffer(&u8g2);
+    Drivers::DisplayTasks::DisplayUpdate(Page_state);
 
     fps++;
     //    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));

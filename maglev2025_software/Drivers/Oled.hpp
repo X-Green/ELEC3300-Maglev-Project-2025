@@ -6,14 +6,16 @@
 
 #define u8         unsigned char  // ?unsigned char ????
 #define MAX_LEN    128  //
-#define OLED_ADDRESS  0x78 // oled模块从机地址
-#define OLED_CMD   0x00  // 写命令
-#define OLED_DATA  0x40  // 写数据
+#define OLED_ADDRESS  0x78 
+#define OLED_CMD   0x00  
+#define OLED_DATA  0x40 
  
  uint8_t u8x8_byte_hw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
  uint8_t u8x8_gpio_and_delay(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr);
  void u8g2Init(u8g2_t *u8g2);
-
+ uint8_t *DataToWave(float *data, uint8_t len, uint8_t *wave, float max, float min);
+ void DrawWave(uint8_t x, uint8_t y, uint8_t *wave, uint8_t len,u8g2_t *u8g2);
+ void updateMagnetWaveform(float newValue, float *MagnetWaveform);
 
 
 namespace Drivers::Oled
@@ -35,6 +37,8 @@ void OLED_ShowNum(uint8_t x,uint8_t y,unsigned int num,uint8_t len,uint8_t size2
 void OLED_DrawBMP(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t *  BMP,uint8_t Color_Turn);
 
 void OLED_Draw3300(void);
+
+
 }
 
 

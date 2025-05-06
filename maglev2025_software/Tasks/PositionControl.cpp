@@ -20,8 +20,8 @@ float offsetCurrentY = 0.0f;  // B and D for Y axis;
 
 float globalOffsetCurrent = 0.0f;
 
-float targetX     = -0.016f;
-float targetY     = 0.0155f;
+float targetX     = -0.006f;
+float targetY     = 0.0055f;
 float realP       = 50.5f;
 float realI       = 0.0000f;
 float realD       = 2000.0f;
