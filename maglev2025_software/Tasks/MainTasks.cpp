@@ -68,7 +68,6 @@ void init()
     HAL_Delay(200);
     Drivers::Buzzer::play(2000, 100);
 
-<<<<<<< HEAD
     Drivers::Oled::OLED_Init();
     Drivers::Oled::OLED_On();
     // Drivers::Oled::OLED_ShowNum(48,4,6,1,16, 0);
@@ -76,8 +75,7 @@ void init()
     HAL_Delay(100);
     Drivers::Oled::OLED_DrawBMP(0,0,128, 8 ,epd_bitmap_GZS,0);//正相显示图片BMP1
     HAL_Delay(1000);
-    
-=======
+
     HAL_Delay(1500);
 
     Drivers::Buzzer::play(330, 200);  // E4
@@ -110,7 +108,6 @@ void init()
     HAL_Delay(125);
     Drivers::Buzzer::play(294, 120);  // D4 (longer)
     HAL_Delay(2000);
->>>>>>> 2d59d304323dfe8b8c57a59367847b853143d030
 }
 
 volatile float testOutput = 0.0f;
