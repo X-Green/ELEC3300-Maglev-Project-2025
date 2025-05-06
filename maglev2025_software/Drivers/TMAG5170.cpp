@@ -77,14 +77,6 @@ static uint16_t SYSTEM_CONFIG_stored = 0;
 #define DATA_TYPE_RESULTS ((SYSTEM_CONFIG_stored & ~(SYSTEM_CONFIG_DATA_TYPE_MASK)) >> 6)
 
 //****************************************************************************
-//! Convert Angle Result Register to degree value
-//!
-//! Takes in the bits of the angle result register and converts it to a
-//! degree value.
-//****************************************************************************
-float angleRegisterToDeg(uint16_t register_bits) { return ((float)register_bits / 16); }
-
-//****************************************************************************
 //! Calculate CRC for SPI data frame
 //!
 //! Takes in an array containing a SPI data frame (MSB to LSB) with the CRC bits

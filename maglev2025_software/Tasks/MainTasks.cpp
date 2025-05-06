@@ -3,6 +3,7 @@
 #include "CoilManager.hpp"
 #include "CommandInput.hpp"
 #include "ErrorChecker.hpp"
+#include "LEDTasks.hpp"
 #include "PositionControl.hpp"
 #include "SampleTask.hpp"
 #include "TMAG5170.hpp"
@@ -54,20 +55,6 @@ void init()
     HAL_Delay(100);
 
     Drivers::WS2812::init();
-    Drivers::WS2812::setColor(0, Drivers::WS2812::RGB_RED);
-    Drivers::WS2812::setColor(1, Drivers::WS2812::RGB_ORANGE);
-    Drivers::WS2812::setColor(2, Drivers::WS2812::RGB_YELLOW);
-    Drivers::WS2812::setColor(3, Drivers::WS2812::RGB_GREEN);
-    Drivers::WS2812::setColor(4, Drivers::WS2812::RGB_CYAN);
-    Drivers::WS2812::setColor(5, Drivers::WS2812::RGB_BLUE);
-    Drivers::WS2812::setColor(6, Drivers::WS2812::RGB_PURPLE);
-    Drivers::WS2812::setColor(7, Drivers::WS2812::RGB_RED);
-    Drivers::WS2812::setColor(8, Drivers::WS2812::RGB_ORANGE);
-    Drivers::WS2812::setColor(9, Drivers::WS2812::RGB_YELLOW);
-    Drivers::WS2812::setColor(10, Drivers::WS2812::RGB_GREEN);
-    Drivers::WS2812::setColor(11, Drivers::WS2812::RGB_CYAN);
-    Drivers::WS2812::setColor(12, Drivers::WS2812::RGB_BLUE);
-    Drivers::WS2812::setColor(13, Drivers::WS2812::RGB_PURPLE);
 
     Drivers::Buzzer::init();
 
@@ -81,6 +68,7 @@ void init()
     HAL_Delay(200);
     Drivers::Buzzer::play(2000, 100);
 
+<<<<<<< HEAD
     Drivers::Oled::OLED_Init();
     Drivers::Oled::OLED_On();
     // Drivers::Oled::OLED_ShowNum(48,4,6,1,16, 0);
@@ -89,6 +77,40 @@ void init()
     Drivers::Oled::OLED_DrawBMP(0,0,128, 8 ,epd_bitmap_GZS,0);//正相显示图片BMP1
     HAL_Delay(1000);
     
+=======
+    HAL_Delay(1500);
+
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(349, 200);  // F4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(392, 200);  // G4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(392, 200);  // G4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(349, 200);  // F4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(294, 200);  // D4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(262, 200);  // C4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(262, 200);  // C4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(294, 200);  // D4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 200);  // E4
+    HAL_Delay(250);
+    Drivers::Buzzer::play(330, 450);  // E4 (longer)
+    HAL_Delay(500);
+    Drivers::Buzzer::play(294, 120);  // D4
+    HAL_Delay(125);
+    Drivers::Buzzer::play(294, 120);  // D4 (longer)
+    HAL_Delay(2000);
+>>>>>>> 2d59d304323dfe8b8c57a59367847b853143d030
 }
 
 volatile float testOutput = 0.0f;
@@ -97,20 +119,13 @@ float magnetic_measurements[3] = {0};
 void loop()
 {
     //    Drivers::Sensors::TMAG5170::getMagMeasurementsNrml(const_cast<float *>(magnetic_measurements));
-    // Drivers::Sensors::TMAG5170::startDMASequentialNormalReadXYZ();
-
-    //    for (int i = 0; i < 4; i++)
-    //    {
-    //        Tasks::CoilManager::updatePWM(i, testOutput);
-    //    }
-
-    HAL_Delay(500);
 }
 
 void trigger1KHz()
 {
     Tasks::SampleTask::callbackNormal();
     Tasks::ErrorChecker::updateErrorState();
+    Tasks::LEDTasks::kHzTrigger();
 }
 
 void triggerOneHz()
@@ -177,6 +192,8 @@ extern "C"
             if ((itsource & (TIM_IT_UPDATE)) == (TIM_IT_UPDATE))
             {
                 __HAL_TIM_CLEAR_FLAG(&htim17, TIM_FLAG_UPDATE);
+                if (!MainTask::initialized)
+                    return;
                 MainTask::trigger1KHz();
                 static uint32_t timerCounter1KHz = 0;
                 timerCounter1KHz++;
