@@ -2,6 +2,7 @@
 #include "CoilManager.hpp"
 #include "CommandInput.hpp"
 #include "ErrorChecker.hpp"
+#include "LEDTasks.hpp"
 #include "PositionControl.hpp"
 #include "SampleTask.hpp"
 #include "TMAG5170.hpp"
@@ -54,20 +55,6 @@ void init()
     HAL_Delay(100);
 
     Drivers::WS2812::init();
-    Drivers::WS2812::setColor(0, Drivers::WS2812::RGB_RED);
-    Drivers::WS2812::setColor(1, Drivers::WS2812::RGB_ORANGE);
-    Drivers::WS2812::setColor(2, Drivers::WS2812::RGB_YELLOW);
-    Drivers::WS2812::setColor(3, Drivers::WS2812::RGB_GREEN);
-    Drivers::WS2812::setColor(4, Drivers::WS2812::RGB_CYAN);
-    Drivers::WS2812::setColor(5, Drivers::WS2812::RGB_BLUE);
-    Drivers::WS2812::setColor(6, Drivers::WS2812::RGB_PURPLE);
-    Drivers::WS2812::setColor(7, Drivers::WS2812::RGB_RED);
-    Drivers::WS2812::setColor(8, Drivers::WS2812::RGB_ORANGE);
-    Drivers::WS2812::setColor(9, Drivers::WS2812::RGB_YELLOW);
-    Drivers::WS2812::setColor(10, Drivers::WS2812::RGB_GREEN);
-    Drivers::WS2812::setColor(11, Drivers::WS2812::RGB_CYAN);
-    Drivers::WS2812::setColor(12, Drivers::WS2812::RGB_BLUE);
-    Drivers::WS2812::setColor(13, Drivers::WS2812::RGB_PURPLE);
 
     Drivers::Buzzer::init();
 
@@ -127,6 +114,7 @@ void trigger1KHz()
 {
     Tasks::SampleTask::callbackNormal();
     Tasks::ErrorChecker::updateErrorState();
+    Tasks::LEDTasks::kHzTrigger();
 }
 
 void triggerOneHz()

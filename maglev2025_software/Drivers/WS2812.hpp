@@ -1,5 +1,3 @@
-#include <cstdint>
-
 #include "main.h"
 #pragma once
 
@@ -11,7 +9,7 @@
 namespace Drivers::WS2812
 {
 
-extern bool isInited;
+inline bool isInited = false;
 
 /**
  * @brief The structure that contains the rgb value of a single ws2812 unit
@@ -39,8 +37,13 @@ inline RGB RGB_CYAN(0, 255, 255);
 inline RGB RGB_BLUE(0, 0, 255);
 inline RGB RGB_PURPLE(127, 0, 255);
 
+inline RGB RGB_WHITE(255, 255, 255);
+inline RGB RGB_BLACK(0, 0, 0);
+
 void setColor(int index, unsigned char r, unsigned char g, unsigned char b);
 void setColor(int index, RGB color);
+void setColor(int index, RGB color, float brightness);
+
 
 void blank(int index);
 
@@ -48,7 +51,7 @@ void blankAll();
 
 void init();
 
-}  // namespace WS2812
-extern uint32_t CCRDMABuff[LED_NUM * 24 + RESET_COUNT];
+}  // namespace Drivers::WS2812
+inline uint32_t CCRDMABuff[LED_NUM * 24 + RESET_COUNT] = {};
 
 // #endif

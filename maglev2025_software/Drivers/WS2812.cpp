@@ -5,8 +5,6 @@
 namespace Drivers::WS2812
 {
 
-bool isInited = false;
-
 void RGB::toBitSequence(uint32_t *bitSequence) const
 {
     for (int i = 0; i < 8; i++)
@@ -42,6 +40,17 @@ void setColor(int index, RGB color)
     color.toBitSequence(CCRDMABuff + index * 24);
 }
 
+void setColor(int index, RGB color, float brightness)
+{
+    if (!isInited)
+    {
+        init();
+        isInited = true;
+    }
+    RGB colorNew = RGB(color.red * brightness, color.green * brightness, color.blue * brightness);
+    colorNew.toBitSequence(CCRDMABuff + index * 24);
+}
+
 void blank(int index)
 {
     for (int i = 0; i < 24; i++)
@@ -64,6 +73,4 @@ void blankAll()
     }
 }
 
-}  // namespace WS2812
-
-uint32_t CCRDMABuff[24 * LED_NUM + RESET_COUNT] = {};
+}  // namespace Drivers::WS2812
