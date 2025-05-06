@@ -1,9 +1,10 @@
 #include "Buzzer.hpp"
-#include "DisplayTasks.hpp"
 #include "CoilManager.hpp"
 #include "CommandInput.hpp"
+#include "DisplayTasks.hpp"
 #include "ErrorChecker.hpp"
 #include "LEDTasks.hpp"
+#include "MusicTasks.hpp"
 #include "PositionControl.hpp"
 #include "SampleTask.hpp"
 #include "TMAG5170.hpp"
@@ -58,8 +59,7 @@ void init()
 
     Drivers::Buzzer::init();
 
-    Drivers::DisplayTasks::DisplayInit();
-    initialized = true;
+    Tasks::Music::startMelody(Tasks::Music::melody1, sizeof(Tasks::Music::melody1) / sizeof(Tasks::Music::melody1[0]));
 
     Drivers::Buzzer::play(1000, 400);
     HAL_Delay(1000);
@@ -75,7 +75,6 @@ void init()
     // Drivers::Oled::OLED_Clear();
     // HAL_Delay(100);
     // Drivers::Oled::OLED_DrawBMP(0,0,128, 8 ,epd_bitmap_GZS,0);//正相显示图片BMP1
-
 
     Drivers::Buzzer::play(330, 200);  // E4
     HAL_Delay(250);
@@ -106,13 +105,13 @@ void init()
     Drivers::Buzzer::play(294, 100);  // D4
     HAL_Delay(125);
     Drivers::Buzzer::play(294, 200);  // D4 (longer)
-    
+
     HAL_Delay(2000);
 }
 
-volatile float testOutput = 0.0f;
-uint8_t fps=0;
-volatile uint8_t Page_state=0   ;
+volatile float testOutput   = 0.0f;
+uint8_t fps                 = 0;
+volatile uint8_t Page_state = 0;
 void loop()
 {
     // u8g2_SendBuffer(&u8g2);
@@ -136,6 +135,7 @@ void trigger1KHz()
     Tasks::SampleTask::callbackNormal();
     Tasks::ErrorChecker::updateErrorState();
     Tasks::LEDTasks::kHzTrigger();
+    Tasks::Music::update1KHz();
 }
 
 void triggerOneHz()
@@ -143,7 +143,7 @@ void triggerOneHz()
     static volatile int oneHzCounter = 0;
     oneHzCounter += 1;
     Tasks::PositionControl::counterLogs.dataReadyCounter = 0;
-    fps=0;
+    fps                                                  = 0;
 }
 
 }  // namespace MainTask
