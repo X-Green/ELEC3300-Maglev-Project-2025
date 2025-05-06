@@ -152,7 +152,8 @@ C_DEFS =  \
 -DUSE_HAL_DRIVER \
 -DSTM32G474xx \
 -DARM_MATH_CM4 \
--DUSE_FULL_LL_DRIVER
+-DUSE_FULL_LL_DRIVER \
+-Wno-overlength-strings
 
 
 # AS includes
