@@ -102,11 +102,11 @@ void init()
     HAL_Delay(250);
     Drivers::Buzzer::play(330, 200);  // E4
     HAL_Delay(250);
-    Drivers::Buzzer::play(330, 450);  // E4 (longer)
-    HAL_Delay(500);
-    Drivers::Buzzer::play(294, 120);  // D4
+    Drivers::Buzzer::play(330, 200);  // E4 (longer)
+    HAL_Delay(375);
+    Drivers::Buzzer::play(294, 100);  // D4
     HAL_Delay(125);
-    Drivers::Buzzer::play(294, 120);  // D4 (longer)
+    Drivers::Buzzer::play(294, 200);  // D4 (longer)
     HAL_Delay(2000);
 }
 

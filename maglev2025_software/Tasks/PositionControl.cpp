@@ -34,24 +34,26 @@ float derivativeY = 0.0f;
 float errorX      = 0.0f;
 float errorY      = 0.0f;
 
+static float rotationAngle  = 0.0f;                       // Current angle in radians
+float radius          = 0.001f;                     // Circle radius
+float angularVelocity = 1.0f;                       // Radians per second
+float angleIncrement  = angularVelocity / 2500.0f;  // At 2500 Hz
+
+
 void Tasks::PositionControl::updatePosition()
 {
-    offsetCurrentX = positionPIDAxisX.update(targetX, magMeasurement[0]);
-    offsetCurrentY = positionPIDAxisY.update(targetY, magMeasurement[1]);
+    // running at 2500 hz
 
-    //    errorX      = targetX - magMeasurement[0];
-    //    derivativeX = (lastX - magMeasurement[0]) * 0.5f + derivativeX * 0.5f;
-    //    integralX += errorX;
-    //    integralX      = M_CLAMP(integralX, -100.0f, 100.0f);
-    //    offsetCurrentX = realP * errorX + realI * integralX + realD * derivativeX;
-    //    lastX          = magMeasurement[0];
-    //
-    //    errorY      = targetY - magMeasurement[1];
-    //    derivativeY = (lastY - magMeasurement[1]) * 0.5f + derivativeY * 0.5f;
-    //    integralY += errorY;
-    //    integralY      = M_CLAMP(integralY, -100.0f, 100.0f);
-    //    offsetCurrentY = realP * errorY + realI * integralY + realD * derivativeY;
-    //    lastY          = magMeasurement[1];
+    // Increment the angle for next iteration
+    rotationAngle += angleIncrement;
+    // Wrap around when reaching 2π to prevent float overflow
+    if (rotationAngle >= 2.0f * (float)(M_PI))
+    {
+        rotationAngle -= 2.0f * (float)M_PI;
+    }
+
+    offsetCurrentX = positionPIDAxisX.update(targetX + radius * cosf(rotationAngle), magMeasurement[0]);
+    offsetCurrentY = positionPIDAxisY.update(targetY + radius * sinf(rotationAngle), magMeasurement[1]);
 
     // Which of A and C is x+?
     Tasks::CoilManager::coilTargetCurrent[0] = globalOffsetCurrent + offsetCurrentX;
