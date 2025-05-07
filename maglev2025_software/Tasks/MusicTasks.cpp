@@ -29,22 +29,19 @@ void stopMelody()
 
 void update1KHz()
 {
-    // 使用静态变量记录当前音符剩余播放时间（ms）
     static uint16_t currentNoteCounter = 0;
 
-    // 如果没有正在播放的旋律，直接返回
     if (currentPlaying == nullptr)
     {
         return;
     }
 
-    // 如果当前音符尚未启动，则启动下一个音符
     if (currentNoteCounter == 0)
     {
         if (currentPlayingIndex < currentPlayingLength)
         {
             MelodyNote note = currentPlaying[currentPlayingIndex];
-            Drivers::Buzzer::play(note.frequency, note.duration);
+            Drivers::Buzzer::play(note.frequency, note.duration - 40);
             currentNoteCounter = note.duration;
         }
         else

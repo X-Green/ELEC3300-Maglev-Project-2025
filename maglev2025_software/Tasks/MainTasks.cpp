@@ -59,7 +59,9 @@ void init()
 
     Drivers::Buzzer::init();
 
-    Tasks::Music::startMelody(Tasks::Music::melody1, sizeof(Tasks::Music::melody1) / sizeof(Tasks::Music::melody1[0]));
+    Drivers::DisplayTasks::DisplayInit();
+    initialized = true;
+
 
     Drivers::Buzzer::play(1000, 400);
     HAL_Delay(1000);
@@ -68,43 +70,45 @@ void init()
     Drivers::Buzzer::play(2000, 100);
     HAL_Delay(200);
     Drivers::Buzzer::play(2000, 100);
+    HAL_Delay(1000);
 
     // Drivers::Oled::OLED_Init();
     // Drivers::Oled::OLED_On();
     // // Drivers::Oled::OLED_ShowNum(48,4,6,1,16, 0);
     // Drivers::Oled::OLED_Clear();
     // HAL_Delay(100);
-    // Drivers::Oled::OLED_DrawBMP(0,0,128, 8 ,epd_bitmap_GZS,0);//正相显示图片BMP1
+    // Drivers::Oled::OLED_DrawBMP(0,0,128, 8 ,epd_bitmap_GZS,0);
 
-    Drivers::Buzzer::play(330, 200);  // E4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(330, 200);  // E4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(349, 200);  // F4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(392, 200);  // G4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(392, 200);  // G4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(349, 200);  // F4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(330, 200);  // E4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(294, 200);  // D4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(262, 200);  // C4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(262, 200);  // C4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(294, 200);  // D4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(330, 200);  // E4
-    HAL_Delay(250);
-    Drivers::Buzzer::play(330, 200);  // E4 (longer)
-    HAL_Delay(375);
-    Drivers::Buzzer::play(294, 100);  // D4
-    HAL_Delay(125);
-    Drivers::Buzzer::play(294, 200);  // D4 (longer)
+    // Drivers::Buzzer::play(330, 200);  // E4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(330, 200);  // E4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(349, 200);  // F4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(392, 200);  // G4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(392, 200);  // G4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(349, 200);  // F4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(330, 200);  // E4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(294, 200);  // D4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(262, 200);  // C4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(262, 200);  // C4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(294, 200);  // D4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(330, 200);  // E4
+    // HAL_Delay(250);
+    // Drivers::Buzzer::play(330, 200);  // E4 (longer)
+    // HAL_Delay(375);
+    // Drivers::Buzzer::play(294, 100);  // D4
+    // HAL_Delay(125);
+    // Drivers::Buzzer::play(294, 200);  // D4 (longer)
+    Tasks::Music::startMelody(Tasks::Music::melody1, sizeof(Tasks::Music::melody1) / sizeof(Tasks::Music::melody1[0]));
 
     HAL_Delay(2000);
 }

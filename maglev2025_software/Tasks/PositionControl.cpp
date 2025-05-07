@@ -12,16 +12,16 @@
 // Utils::IncrementalPID positionPIDAxisX = Utils::IncrementalPID(0.000f, 0.004f, 0.000f, 0.001f);
 // Utils::IncrementalPID positionPIDAxisY = Utils::IncrementalPID(0.000f, 0.004f, 0.000f, 0.001f);
 
-Utils::PID positionPIDAxisX = Utils::PID(0.000f, 50.5f, 0.000f, 2005.0f, 0.9f, 1000.0f);
-Utils::PID positionPIDAxisY = Utils::PID(0.000f, 50.5f, 0.000f, 2005.0f, 0.9f, 1000.0f);
+Utils::PID positionPIDAxisX = Utils::PID(0.000f, 65.5f, 0.000f, 2305.0f, 0.9f, 1000.0f);
+Utils::PID positionPIDAxisY = Utils::PID(0.000f, 65.5f, 0.000f, 2305.0f, 0.9f, 1000.0f);
 
 float offsetCurrentX = 0.0f;  // A and C for X axis;
 float offsetCurrentY = 0.0f;  // B and D for Y axis;
 
 float globalOffsetCurrent = 0.0f;
 
-float targetX     = -0.006f;
-float targetY     = 0.0055f;
+float targetX     = -0.011;
+float targetY     = 0.016f;
 float realP       = 50.5f;
 float realI       = 0.0000f;
 float realD       = 2000.0f;

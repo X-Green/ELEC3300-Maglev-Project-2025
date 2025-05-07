@@ -3,6 +3,7 @@
 #include "u8g2/u8g2.h"
 #include "PositionControl.hpp"
 #include "LEDTasks.hpp"
+#include "MusicTasks.hpp"
 #include "Buzzer.hpp"
 #include "PowerInput.hpp"
 #include "SampleTask.hpp"
@@ -66,7 +67,13 @@ namespace Drivers::DisplayTasks
             u8g2_SendBuffer(&u8g2);            
             break;
         case DisplayPageWaveform:
-            DrawWave(0, 32, DisplayWave, 128, &u8g2);
+            // x axis
+            u8g2_DrawLine(&u8g2, 0, 63, 127, 63);    
+            // y axis
+            u8g2_DrawLine(&u8g2, 0, 32, 0, 63);  
+            u8g2_DrawStr(&u8g2, 2, 20, "Magnetic Value");
+            u8g2_DrawStr(&u8g2, 100, 62, "Timeline");
+            DrawWave(0, 40, DisplayWave, 128, &u8g2);
             u8g2_SendBuffer(&u8g2);            
             break;
         case DisplayPageLED:{
@@ -115,6 +122,16 @@ namespace Drivers::DisplayTasks
         case DisplayPageBuzzer:
         u8g2_DrawFrame(&u8g2, 0, 0, 128, 64);
         u8g2_DrawStr(&u8g2, 20, 20, "Playing songs:");
+        if(last_button == GPIO_PIN_SET && HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10) == GPIO_PIN_RESET)
+        {
+
+            Buzzer_SubPage++;
+            if(Buzzer_SubPage > 5) Buzzer_SubPage = 2;
+            Tasks::Music::startMelody(Tasks::Music::melody1, sizeof(Tasks::Music::melody1) / sizeof(Tasks::Music::melody1[0]));
+
+        }
+        last_button = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10);
+
             u8g2_SendBuffer(&u8g2);
             break;
         case DisplayPageSensor:

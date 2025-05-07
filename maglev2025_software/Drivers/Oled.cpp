@@ -117,9 +117,9 @@ uint8_t *DataToWave(float *data, uint8_t len, uint8_t *wave, float max, float mi
     float range = max - min;
     for (uint8_t i = 0; i < len; i++)
     {
-        float scaled = (data[i] - min) * 64.0f / range;
+        float scaled = (data[i] - min) * 50.0f / range;
         if (scaled < 0) scaled = 0;
-        if (scaled > 64) scaled = 64;
+        if (scaled > 50) scaled = 50;
         wave[i] = (uint8_t)scaled;
     }
     return wave;

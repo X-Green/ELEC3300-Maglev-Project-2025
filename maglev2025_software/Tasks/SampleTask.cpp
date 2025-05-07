@@ -46,11 +46,14 @@ void callbackNormal()
 {
     adc1Value = HAL_ADC_GetValue(&hadc1);
     adc5Value = HAL_ADC_GetValue(&hadc5);
+    tempValue = HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_1);
+    
 
     vbusVoltage = ((float)adc1Value * (7.8e-3f) + 0.044f) * 0.1f + vbusVoltage * 0.9f;
 
     HAL_ADC_Start(&hadc1);
     HAL_ADC_Start(&hadc5);
+    HAL_ADCEx_InjectedStart(&hadc1);
 }
 
 }  // namespace Tasks::SampleTask
