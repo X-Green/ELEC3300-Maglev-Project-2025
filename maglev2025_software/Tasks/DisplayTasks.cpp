@@ -16,6 +16,10 @@ namespace Drivers::DisplayTasks
     volatile uint16_t LED_SubPage = 2;
     uint16_t Buzzer_SubPage = 0;
     static uint8_t last_button = GPIO_PIN_SET;
+    enum Buzzer_pattern{
+        melody1 = 0,
+        melody2 = 1,
+    };
     //helper function
     void ADCValueToStr(uint16_t adcValue, char* buf, int bufSize)
 {
@@ -124,13 +128,49 @@ namespace Drivers::DisplayTasks
         u8g2_DrawStr(&u8g2, 20, 20, "Playing songs:");
         if(last_button == GPIO_PIN_SET && HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10) == GPIO_PIN_RESET)
         {
-
             Buzzer_SubPage++;
-            if(Buzzer_SubPage > 5) Buzzer_SubPage = 2;
-            Tasks::Music::startMelody(Tasks::Music::melody1, sizeof(Tasks::Music::melody1) / sizeof(Tasks::Music::melody1[0]));
+        if(Buzzer_SubPage > 2) Buzzer_SubPage = 0;
+
+        static uint16_t lastSubPage = 0;
+        if (lastSubPage != Buzzer_SubPage)
+        {
+            lastSubPage = Buzzer_SubPage;
+            switch (Buzzer_SubPage)
+            {
+            case 0:
+                u8g2_DrawStr(&u8g2, 20, 40, "Song 1: Melody 1");
+                Tasks::Music::stopMelody();
+                Tasks::Music::startMelody(Tasks::Music::melody1, sizeof(Tasks::Music::melody1) / sizeof(Tasks::Music::melody1[0]));
+                /* code */
+                break;
+            case 1:
+                u8g2_DrawStr(&u8g2, 20, 40, "Song 2: Melody 2");
+                Tasks::Music::stopMelody();
+                Tasks::Music::startMelody(Tasks::Music::melody2, sizeof(Tasks::Music::melody2) / sizeof(Tasks::Music::melody1[0]));
+                /* code */
+                break;
+            default:
+                break;
+            }
+        }
+
 
         }
         last_button = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10);
+        // if(Buzzer_SubPage == 0)
+        // {
+        //     Tasks::Music::startMelody(Tasks::Music::melody1, sizeof(Tasks::Music::melody1) / sizeof(Tasks::Music::melody1[0]));
+        //     u8g2_DrawStr(&u8g2, 20, 40, "Song 1: Melody 1");
+        // }
+        // else if(Buzzer_SubPage == 1)
+        // {
+        //     Tasks::Music::startMelody(Tasks::Music::melody2, sizeof(Tasks::Music::melody2) / sizeof(Tasks::Music::melody1[0]));
+        //     u8g2_DrawStr(&u8g2, 20, 40, "Song 2: Melody 2");
+        // }
+        // else{
+
+        // }
+    
 
             u8g2_SendBuffer(&u8g2);
             break;

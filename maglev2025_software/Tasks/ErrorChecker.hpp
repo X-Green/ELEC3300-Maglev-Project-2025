@@ -25,7 +25,7 @@ const uint32_t ERROR_CODE_MASK_OVER_TEMP     = 1 << ERROR_CODE_OVER_TEMP;
 const uint32_t ERROR_CODE_MASK_LEV_POSITION  = 1 << ERROR_CODE_LEV_POSITION;
 const uint32_t ERROR_CODE_MASK_LEV_EXISTENCE = 1 << ERROR_CODE_LEV_EXISTENCE;
 
-inline uint32_t errorCode = 0;
+inline uint32_t errorCode = ERROR_CODE_MASK_LEV_POSITION;
 
 void updateErrorState();
 

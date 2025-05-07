@@ -12,12 +12,14 @@ namespace Tasks::Music
 MelodyNote *currentPlaying  = nullptr;
 size_t currentPlayingIndex  = 0;
 size_t currentPlayingLength = 0;
+uint16_t currentNoteCounter = 0;
 
 void startMelody(MelodyNote *notes, size_t size)
 {
     currentPlaying       = notes;
     currentPlayingIndex  = 0;
     currentPlayingLength = size;
+    currentNoteCounter  = 0;
 }
 
 void stopMelody()
@@ -25,11 +27,12 @@ void stopMelody()
     currentPlaying       = nullptr;
     currentPlayingIndex  = 0;
     currentPlayingLength = 0;
+    currentNoteCounter  = 0;
 }
 
 void update1KHz()
 {
-    static uint16_t currentNoteCounter = 0;
+
 
     if (currentPlaying == nullptr)
     {
@@ -41,7 +44,7 @@ void update1KHz()
         if (currentPlayingIndex < currentPlayingLength)
         {
             MelodyNote note = currentPlaying[currentPlayingIndex];
-            Drivers::Buzzer::play(note.frequency, note.duration - 40);
+            Drivers::Buzzer::play(note.frequency, note.duration - 25);
             currentNoteCounter = note.duration;
         }
         else
