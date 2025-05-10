@@ -16,8 +16,10 @@ class IncrementalPID
 
     void update(float target, float measurement)
     {
-        this->deltaOutput = this->kPOnTarget * (target - this->lastTarget) - this->kPOnMeasurement * (measurement - this->lastMeasurement) +
-                            this->kI * (target - measurement) + this->kD * (measurement - 2.0f * this->lastMeasurement + this->lastLastMeasurement);
+        this->deltaOutput = this->kPOnTarget * (target - this->lastTarget) -
+                            this->kPOnMeasurement * (measurement - this->lastMeasurement) +
+                            this->kI * (target - measurement) +
+                            this->kD * (measurement - 2.0f * this->lastMeasurement + this->lastLastMeasurement);
         this->lastTarget          = target;
         this->lastLastMeasurement = this->lastMeasurement;
         this->lastMeasurement     = measurement;

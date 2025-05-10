@@ -4,7 +4,6 @@
 
 #pragma once
 
-
 namespace Tasks::PowerInput
 {
 enum class PowerInputState
@@ -36,6 +35,4 @@ void updatePowerInputStatus();
  */
 void switchToAvailablePowerInput();
 
-} // namespace Tasks::PowerInput
-
-
+}  // namespace Tasks::PowerInput

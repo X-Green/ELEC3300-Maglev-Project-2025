@@ -7,4 +7,3 @@
 #define configASSERT(x) \
     if (!(x))           \
         __asm volatile("bkpt ");
-

@@ -66,4 +66,4 @@ inline void onTIM1UpdateCallback()
     __HAL_TIM_SET_COUNTER(&htim1, 0U);
     stop();
 }
-}  // namespace Buzzer
+}  // namespace Drivers::Buzzer

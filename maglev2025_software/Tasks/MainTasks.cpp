@@ -62,7 +62,6 @@ void init()
     Drivers::DisplayTasks::DisplayInit();
     initialized = true;
 
-
     Drivers::Buzzer::play(1000, 400);
     HAL_Delay(1000);
     Drivers::Buzzer::play(2000, 100);

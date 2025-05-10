@@ -14,7 +14,6 @@ namespace Drivers::Sensors::TMAG5170
 {
 
 #define DISABLE_CRC
-// Disable CRC for now
 
 uint32_t isqrt32(uint32_t h);
 

@@ -22,7 +22,7 @@ inline float coilCurrentFilterAlpha = 0.5f;
 
 inline uint16_t adc1Value = 0;  // VBUS adc
 inline uint16_t adc5Value = 0;  // OPAMP4 total current sense
-inline uint16_t tempValue = 0; 
+inline uint16_t tempValue = 0;
 
 inline float vbusVoltage  = 0;
 inline float currentSense = 0;

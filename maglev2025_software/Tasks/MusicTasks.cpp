@@ -19,7 +19,7 @@ void startMelody(MelodyNote *notes, size_t size)
     currentPlaying       = notes;
     currentPlayingIndex  = 0;
     currentPlayingLength = size;
-    currentNoteCounter  = 0;
+    currentNoteCounter   = 0;
 }
 
 void stopMelody()
@@ -27,13 +27,11 @@ void stopMelody()
     currentPlaying       = nullptr;
     currentPlayingIndex  = 0;
     currentPlayingLength = 0;
-    currentNoteCounter  = 0;
+    currentNoteCounter   = 0;
 }
 
 void update1KHz()
 {
-
-
     if (currentPlaying == nullptr)
     {
         return;

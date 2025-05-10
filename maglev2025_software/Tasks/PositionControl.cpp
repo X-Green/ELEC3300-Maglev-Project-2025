@@ -36,11 +36,10 @@ float derivativeY = 0.0f;
 float errorX      = 0.0f;
 float errorY      = 0.0f;
 
-static float rotationAngle  = 0.0f;                       // Current angle in radians
-float radius          = 0.001f;                     // Circle radius
-float angularVelocity = 1.0f;                       // Radians per second
-float angleIncrement  = angularVelocity / 2500.0f;  // At 2500 Hz
-
+static float rotationAngle = 0.0f;                       // Current angle in radians
+float radius               = 0.001f;                     // Circle radius
+float angularVelocity      = 1.0f;                       // Radians per second
+float angleIncrement       = angularVelocity / 2500.0f;  // At 2500 Hz
 
 void Tasks::PositionControl::updatePosition()
 {

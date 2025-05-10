@@ -54,10 +54,7 @@ uint32_t isqrt32(uint32_t h)
 //! Takes in the register of one of the magnetic axis results and the range for
 //! that specific axis and calculates the mT value the register represents.
 //****************************************************************************
-float resultRegisterTomT(int16_t register_bits, uint16_t range)
-{
-    return (((float)register_bits) / 32768) * range;
-}
+float resultRegisterTomT(int16_t register_bits, uint16_t range) { return (((float)register_bits) / 32768) * range; }
 
 //****************************************************************************
 //! This variable tracks the state of the SYSTEM_CONFIG register (0x02)
@@ -100,16 +97,16 @@ uint8_t calculateCRC(uint8_t data[])
         i++;
     }
 
-    crc |= d[30] ^ d[26] ^ d[25] ^ d[24] ^ d[23] ^ d[21] ^ d[19] ^ d[18] ^ d[15] ^ d[11] ^
-           d[10] ^ d[9] ^ d[8] ^ d[6] ^ d[4] ^ d[3] ^ d[0] ^ 1;
-    crc |= (d[31] ^ d[30] ^ d[27] ^ d[23] ^ d[22] ^ d[21] ^ d[20] ^ d[18] ^ d[16] ^
-            d[15] ^ d[12] ^ d[8] ^ d[7] ^ d[6] ^ d[5] ^ d[3] ^ d[1] ^ d[0] ^ 1 ^ 1)
+    crc |= d[30] ^ d[26] ^ d[25] ^ d[24] ^ d[23] ^ d[21] ^ d[19] ^ d[18] ^ d[15] ^ d[11] ^ d[10] ^ d[9] ^ d[8] ^ d[6] ^
+           d[4] ^ d[3] ^ d[0] ^ 1;
+    crc |= (d[31] ^ d[30] ^ d[27] ^ d[23] ^ d[22] ^ d[21] ^ d[20] ^ d[18] ^ d[16] ^ d[15] ^ d[12] ^ d[8] ^ d[7] ^ d[6] ^
+            d[5] ^ d[3] ^ d[1] ^ d[0] ^ 1 ^ 1)
            << 1;
-    crc |= (d[31] ^ d[28] ^ d[24] ^ d[23] ^ d[22] ^ d[21] ^ d[19] ^ d[17] ^ d[16] ^
-            d[13] ^ d[9] ^ d[8] ^ d[7] ^ d[6] ^ d[4] ^ d[2] ^ d[1] ^ 1 ^ 1)
+    crc |= (d[31] ^ d[28] ^ d[24] ^ d[23] ^ d[22] ^ d[21] ^ d[19] ^ d[17] ^ d[16] ^ d[13] ^ d[9] ^ d[8] ^ d[7] ^ d[6] ^
+            d[4] ^ d[2] ^ d[1] ^ 1 ^ 1)
            << 2;
-    crc |= (d[29] ^ d[25] ^ d[24] ^ d[23] ^ d[22] ^ d[20] ^ d[18] ^ d[17] ^ d[14] ^
-            d[10] ^ d[9] ^ d[8] ^ d[7] ^ d[5] ^ d[3] ^ d[2] ^ 1)
+    crc |= (d[29] ^ d[25] ^ d[24] ^ d[23] ^ d[22] ^ d[20] ^ d[18] ^ d[17] ^ d[14] ^ d[10] ^ d[9] ^ d[8] ^ d[7] ^ d[5] ^
+            d[3] ^ d[2] ^ 1)
            << 3;
 
     return crc;
@@ -125,8 +122,7 @@ uint8_t calculateCRC(uint8_t data[])
 uint8_t verifyCRC(uint8_t data[])
 {
     uint8_t crc_received = data[3] & 0x0F;
-    data[3] &=
-        ~(0x0F);  // the CRC bits of the data must be 0000b to calculate its CRC correctly
+    data[3] &= ~(0x0F);  // the CRC bits of the data must be 0000b to calculate its CRC correctly
     uint8_t crc_calc = calculateCRC(data);
     data[3] |= crc_received;  // the previously removed CRC bits are reinserted
 
@@ -277,8 +273,7 @@ void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[])
     tx_buf[1] = (dataTx[2] << 8) | dataTx[3];  // 低字节在后
 
     static volatile HAL_StatusTypeDef state = HAL_OK;
-    state                                   = HAL_SPI_TransmitReceive(
-        &hspi1, (uint8_t *)tx_buf, (uint8_t *)rx_buf, 2, HAL_MAX_DELAY);
+    state = HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)tx_buf, (uint8_t *)rx_buf, 2, HAL_MAX_DELAY);
 
     // 将接收到的16位数据正确转换回8位数组
     dataRx[0] = rx_buf[0] >> 8;    // 取高字节
@@ -360,8 +355,6 @@ void setSensorConfig()
     writeToRegister(SENSOR_CONFIG_ADDRESS, input);
 }
 
-
-
 void setDeviceConfig()
 {
     // To prevent undefined behavior, this function does not perform its operation
@@ -385,7 +378,6 @@ void setDeviceConfig()
 #endif
 }
 
-
 //****************************************************************************
 //! Get Magnetic Measurements in mT (Normal Read Mode)
 //!
@@ -402,8 +394,7 @@ void getMagMeasurementsNrml(float meas_arr[])
     uint8_t i;
 
     // Array to store ranges for coordinates in the order XYZ
-    uint16_t ranges[3] = {
-        50, 50, 50};  // The default value for coordinate ranges is 50 mT (A1)
+    uint16_t ranges[3] = {50, 50, 50};  // The default value for coordinate ranges is 50 mT (A1)
     // ranges[0]          = getXrange();
     // ranges[1]          = getYrange();
     // ranges[2]          = getZrange();
@@ -449,11 +440,7 @@ void alertIndicatesConversionEnable()
     writeToRegister(ALERT_CONFIG_ADDRESS, input);
 }
 
-
-uint8_t getVersion()
-{
-    return (normalReadRegister(TEST_CONFIG_ADDRESS) & TEST_CONFIG_VER_MASK) >> 4;
-}
+uint8_t getVersion() { return (normalReadRegister(TEST_CONFIG_ADDRESS) & TEST_CONFIG_VER_MASK) >> 4; }
 
 void delay_us(uint32_t us)
 {
@@ -515,7 +502,8 @@ void continueDMASequentialNormalReadXYZ()
             (uint32_t)MAG_CS_Pin;  // HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
         for (int i = 0; i < 3; ++i)
         {
-            Tasks::PositionControl::magMeasurement[i] = (float)((int16_t)(((rxBuffers[i][0] & 0xFF) << 8) | rxBuffers[i][1] >> 8)) / 32768.0f;
+            Tasks::PositionControl::magMeasurement[i] =
+                (float)((int16_t)(((rxBuffers[i][0] & 0xFF) << 8) | rxBuffers[i][1] >> 8)) / 32768.0f;
         }
         // todo: Callback
         Tasks::PositionControl::updatePosition();
@@ -534,5 +522,4 @@ void continueDMASequentialNormalReadXYZ()
     }
 }
 
-} // namespace Drivers::Sensors::TMAG5170
-
+}  // namespace Drivers::Sensors::TMAG5170

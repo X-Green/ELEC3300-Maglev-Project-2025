@@ -1,5 +1,5 @@
-#include "main.h"
 #pragma once
+#include "main.h"
 
 #define LED_NUM 14
 #define RESET_COUNT 50
@@ -43,7 +43,6 @@ inline RGB RGB_BLACK(0, 0, 0);
 void setColor(int index, unsigned char r, unsigned char g, unsigned char b);
 void setColor(int index, RGB color);
 void setColor(int index, RGB color, float brightness);
-
 
 void blank(int index);
 
