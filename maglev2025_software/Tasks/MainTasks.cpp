@@ -30,10 +30,6 @@ void init()
     Drivers::Sensors::TMAG5170::TMAG5170_init();
     Drivers::Sensors::TMAG5170::setDeviceConfig();
     Drivers::Sensors::TMAG5170::setSensorConfig();
-    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x01, 1.0);
-    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x02, 1.0);
-    //    Drivers::Sensors::TMAG5170::setMagGainConfigInDecimal(0x03, 1.0);
-
     Drivers::Sensors::TMAG5170::alertIndicatesConversionEnable();
     Drivers::Sensors::TMAG5170::initDMATxBuffers();
 
@@ -171,6 +167,7 @@ extern "C"
         __HAL_HRTIM_MASTER_CLEAR_IT(&hhrtim1, HRTIM_MASTER_IT_MREP);
         Tasks::SampleTask::callbackHRTIM();
         Tasks::CoilManager::updateCoilsFast();
+        Tasks::ErrorChecker::updateErrorStateFast();
     }
 
     /**

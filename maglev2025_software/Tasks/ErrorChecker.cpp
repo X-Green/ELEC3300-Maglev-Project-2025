@@ -61,4 +61,13 @@ void Tasks::ErrorChecker::updateErrorState()
     }
 }
 
-void Tasks::ErrorChecker::updateErrorStateFast() {}
+void Tasks::ErrorChecker::updateErrorStateFast()
+{
+    float coilMaxCurrent = 0.0f;
+    for (int i = 0; i < 4; ++i)
+    {
+        coilMaxCurrent = M_MAX(coilMaxCurrent, M_ABS(CoilManager::coilActualCurrent[i]));
+    }
+
+    setSchmittTrigger(errorCode, ERROR_CODE_MASK_OVER_CURRENT, coilMaxCurrent < 1.0f, coilMaxCurrent > 5.0f);
+}

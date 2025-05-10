@@ -9,14 +9,6 @@
 namespace Drivers::Sensors::TMAG5170
 {
 //****************************************************************************
-//****************************************************************************
-//
-// Helper Functions
-//
-//****************************************************************************
-//****************************************************************************
-
-//****************************************************************************
 //! 32-bit Square Root Function
 //!
 //! Takes the square of the input integer h and returns a 32-bit value that can
@@ -47,14 +39,6 @@ uint32_t isqrt32(uint32_t h)
     }
     return x;
 }
-
-//****************************************************************************
-//! Convert Axis Measurement Result Register to mT value
-//!
-//! Takes in the register of one of the magnetic axis results and the range for
-//! that specific axis and calculates the mT value the register represents.
-//****************************************************************************
-float resultRegisterTomT(int16_t register_bits, uint16_t range) { return (((float)register_bits) / 32768) * range; }
 
 //****************************************************************************
 //! This variable tracks the state of the SYSTEM_CONFIG register (0x02)
@@ -129,15 +113,6 @@ uint8_t verifyCRC(uint8_t data[])
     return crc_received == crc_calc;
 }
 
-//****************************************************************************
-//! Enter Deep Sleep Mode
-//!
-//! Make sure to use the exitDeepSleepMode function to properly exit Deep Sleep Mode.
-//! Deep Sleep Mode can be alternately exited with a short pulse on the CS pin.
-//!
-//! WILL WORK IN SPECIAL READ MODE, DEEP SLEEP MODE RESETS DEVICE TO FACTORY SETTINGS
-//! (EXITS SPECIAL READ MODE)
-//****************************************************************************
 void enterDeepSleepMode()
 {
     // Send Write command, Deep Sleep resets device to factory settings so
@@ -147,16 +122,6 @@ void enterDeepSleepMode()
     delay_us(100);
 }
 
-//****************************************************************************
-//! Exit Deep Sleep Mode
-//! (Use this function instead of a different operation mode change function to
-//! exit Deep Sleep mode properly)
-//!
-//! Exits Deep Sleep Mode by pulsing LOW on the CS pin and waiting for the chip
-//! to start up. (t_start_deep_sleep)
-//!
-//! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
-//****************************************************************************
 void exitDeepSleepMode()
 {
     // A LOW pulse is needed on CS to exit Deep Sleep Mode (enters Configuration Mode)
@@ -167,13 +132,6 @@ void exitDeepSleepMode()
     // device reset
 }
 
-//****************************************************************************
-//! Reset Device to Factory Settings
-//!
-//! This function uses the DeepSleep functions to reset the device's registers back to the
-//! default settings outlined in the datasheet. This function also resets the
-//! SYSTEM_CONFIG_stored variable to the default value in the enterDeepSleepMode function.
-//****************************************************************************
 void resetDevice()
 {
     enterDeepSleepMode();  // Deep Sleep Mode resets the device to its default settings
@@ -255,7 +213,6 @@ void sendAndReceiveFrame(uint8_t dataTx[], uint8_t dataRx[])
     HAL_GPIO_WritePin(MAG_CS_GPIO_Port, MAG_CS_Pin, GPIO_PIN_SET);
 
 #else
-    // todo add crc
 #endif
 }*/
 
@@ -333,7 +290,7 @@ void normalRead(uint16_t output[], uint8_t address, uint8_t cmd_bits)
 //****************************************************************************
 uint16_t normalReadRegister(uint8_t address)
 {
-    uint16_t output[2] = {0};
+    uint16_t output[2] = {};
     normalRead(output, address, 0x00);
     return output[0];
 }
@@ -408,19 +365,6 @@ void getMagMeasurementsNrml(float meas_arr[])
     }
 }
 
-//****************************************************************************
-//! Enable ALERT to Indicate Conversion
-//!
-//! Configures the device so when its magnetic measurements are complete, the device will
-//! output LOW on the ALERT pin.
-//!
-//! NOTE: This configures ALERT as an output pin, the respective GPIO pin it is
-//!       connected to will have to be set as an input as well. Please ensure none
-//!       of the input functions of ALERT are being used as well (such as the ALERT
-//!       trigger)
-//!
-//! DOES NOT WORK IN SPECIAL READ MODE [DATA_TYPE field at 0x028-6 does not equal 000b]
-//****************************************************************************
 void alertIndicatesConversionEnable()
 {
     // To prevent undefined behavior, this function does not perform its operation

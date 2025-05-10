@@ -41,7 +41,7 @@ void Tasks::LEDTasks::kHzTrigger()
         Drivers::WS2812::blankAll();
         return;
     }
-    else if (ErrorChecker::errorCode != 0)
+    if (ErrorChecker::errorCode != 0)
     {
         // 1Hz change between 100 and 0 gamma
         float brightness = (float)(kHzCount % 2000) / 1000.0f - 1.0f;
